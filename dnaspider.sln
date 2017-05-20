@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "dnaspider", "dnaspider.vbproj", "{09E2EA08-27BF-47D9-AED5-F0C8946D21E5}"
+EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "dna_setup", "dna_setup\dna_setup.wixproj", "{45F8C146-5536-4BD4-A710-1FD34350956F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{09E2EA08-27BF-47D9-AED5-F0C8946D21E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09E2EA08-27BF-47D9-AED5-F0C8946D21E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09E2EA08-27BF-47D9-AED5-F0C8946D21E5}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{09E2EA08-27BF-47D9-AED5-F0C8946D21E5}.Debug|x64.Build.0 = Debug|Any CPU
+		{09E2EA08-27BF-47D9-AED5-F0C8946D21E5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{09E2EA08-27BF-47D9-AED5-F0C8946D21E5}.Debug|x86.Build.0 = Debug|Any CPU
+		{09E2EA08-27BF-47D9-AED5-F0C8946D21E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09E2EA08-27BF-47D9-AED5-F0C8946D21E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09E2EA08-27BF-47D9-AED5-F0C8946D21E5}.Release|x64.ActiveCfg = Release|Any CPU
+		{09E2EA08-27BF-47D9-AED5-F0C8946D21E5}.Release|x64.Build.0 = Release|Any CPU
+		{09E2EA08-27BF-47D9-AED5-F0C8946D21E5}.Release|x86.ActiveCfg = Release|Any CPU
+		{09E2EA08-27BF-47D9-AED5-F0C8946D21E5}.Release|x86.Build.0 = Release|Any CPU
+		{45F8C146-5536-4BD4-A710-1FD34350956F}.Debug|Any CPU.ActiveCfg = Release|x64
+		{45F8C146-5536-4BD4-A710-1FD34350956F}.Debug|x64.ActiveCfg = Debug|x64
+		{45F8C146-5536-4BD4-A710-1FD34350956F}.Debug|x64.Build.0 = Debug|x64
+		{45F8C146-5536-4BD4-A710-1FD34350956F}.Debug|x86.ActiveCfg = Debug|x86
+		{45F8C146-5536-4BD4-A710-1FD34350956F}.Debug|x86.Build.0 = Debug|x86
+		{45F8C146-5536-4BD4-A710-1FD34350956F}.Release|Any CPU.ActiveCfg = Release|x64
+		{45F8C146-5536-4BD4-A710-1FD34350956F}.Release|x64.ActiveCfg = Release|x64
+		{45F8C146-5536-4BD4-A710-1FD34350956F}.Release|x64.Build.0 = Release|x64
+		{45F8C146-5536-4BD4-A710-1FD34350956F}.Release|x86.ActiveCfg = Release|x86
+		{45F8C146-5536-4BD4-A710-1FD34350956F}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

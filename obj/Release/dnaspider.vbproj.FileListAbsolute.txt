@@ -1,0 +1,16 @@
+C:\Users\dziez\Desktop\dnaspider\bin\Release\dna.exe.config
+C:\Users\dziez\Desktop\dnaspider\bin\Release\dna.exe.manifest
+C:\Users\dziez\Desktop\dnaspider\bin\Release\dna.application
+C:\Users\dziez\Desktop\dnaspider\bin\Release\dna.exe
+C:\Users\dziez\Desktop\dnaspider\bin\Release\dna.pdb
+C:\Users\dziez\Desktop\dnaspider\bin\Release\dna.xml
+C:\Users\dziez\Desktop\dnaspider\obj\Release\dnaspider.vbprojResolveAssemblyReference.cache
+C:\Users\dziez\Desktop\dnaspider\obj\Release\dna.dna.resources
+C:\Users\dziez\Desktop\dnaspider\obj\Release\dna.Resources.resources
+C:\Users\dziez\Desktop\dnaspider\obj\Release\dnaspider.vbproj.GenerateResource.Cache
+C:\Users\dziez\Desktop\dnaspider\obj\Release\dna.TrustInfo.xml
+C:\Users\dziez\Desktop\dnaspider\obj\Release\dna.exe.manifest
+C:\Users\dziez\Desktop\dnaspider\obj\Release\dna.application
+C:\Users\dziez\Desktop\dnaspider\obj\Release\dna.exe
+C:\Users\dziez\Desktop\dnaspider\obj\Release\dna.xml
+C:\Users\dziez\Desktop\dnaspider\obj\Release\dna.pdb

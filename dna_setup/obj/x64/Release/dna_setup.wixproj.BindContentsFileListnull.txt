@@ -1,0 +1,2 @@
+C:\Users\dziez\desktop\dnaspider\bin\Release\dna.exe
+C:\Users\dziez\desktop\dnaspider\bin\Release\dna.exe.config

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  
+	<Product Id="*" Name="dna" Language="1033" Version="2.2.4.3" Manufacturer="dnaspider@live.com" UpgradeCode="{63C6CB6A-C153-4721-A16C-AC56FE4FEA39}">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine"  />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of dna is already installed."  />
+		<MediaTemplate EmbedCab="yes" />
+
+       
+  <Feature Id="ProductFeature" Title="dna_setup" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+      <ComponentRef Id="dna.exe" />
+      <ComponentRef Id="ApplicationShortcut" />
+		</Feature>
+
+    <UI Id="UserInterface">
+      <Property Id="WIXUI_INSTALLDIR" Value="TARGETDIR" />
+      <Property Id="WixUI_Mode" Value="Custom" />
+
+      <TextStyle Id="WixUI_Font_Normal" FaceName="Tahoma" Size="8" />
+      <TextStyle Id="WixUI_Font_Bigger" FaceName="Tahoma" Size="9" Bold="yes" />
+      <TextStyle Id="WixUI_Font_Title"  FaceName="Tahoma" Size="9" Bold="yes" />
+
+      <Property Id="DefaultUIFont" Value="WixUI_Font_Normal" />
+
+      <DialogRef Id="ProgressDlg" />
+      <DialogRef Id="ErrorDlg" />
+      <DialogRef Id="FilesInUse" />
+      <DialogRef Id="FatalError" />
+      <DialogRef Id="UserExit" />
+
+      <Publish Dialog="ExitDialog" Control="Finish" Event="EndDialog" Value="Return" Order="999">1</Publish>
+      <Publish Dialog="WelcomeDlg" Control="Next" Event="EndDialog" Value="Return" Order="2"></Publish>
+
+    </UI>
+    <UIRef Id="WixUI_Common" />
+    
+	</Product>
+
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder"> <!--x64 ? ProgramFilesx86Folder : ProgramFilesFolder-->
+        <Directory Id="INSTALLFOLDER" Name="dna" />
+      </Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="dna"/>
+      </Directory>
+    </Directory>
+  </Fragment>
+
+  <Fragment>
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ApplicationShortcut" Guid="{58448833-BDC6-470C-BF56-537B37ABAC01}">
+        <Shortcut Id="ApplicationStartMenuShortcut"
+        Name="dna"
+        Description="Keyboard hack"
+        Target="[#dna.exe]"
+        WorkingDirectory="APPLICATIONROOTDIRECTORY"/>
+        <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU" Key="Software\Microsoft\dna" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+
+  <Fragment>
+    <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+      <Component Guid="{25B40D74-4959-4E29-800F-8B4614034DEA}">
+        <File Source="C:\Users\dziez\desktop\dnaspider\bin\Release\dna.exe" KeyPath="yes" /> <!--debug | release | x64-->
+      </Component>
+      <Component Guid="{5E809F0A-FC85-49D5-B9F2-037A740ECE4B}">
+        <File Source="C:\Users\dziez\desktop\dnaspider\bin\Release\dna.exe.config" KeyPath="yes" /> <!--debug | release | x64-->
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+  
+</Wix>

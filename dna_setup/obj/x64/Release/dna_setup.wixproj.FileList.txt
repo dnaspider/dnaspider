@@ -1,0 +1,6 @@
+C:\Users\dziez\Desktop\dnaspider\dna_setup\bin\x64\Release\dna_setup.msi
+C:\Users\dziez\Desktop\dnaspider\dna_setup\bin\x64\Release\dna_setup.wixpdb
+obj\x64\Release\Product.wixobj
+obj\x64\Release\dna_setup.wixproj.BindContentsFileListnull.txt
+obj\x64\Release\dna_setup.wixproj.BindOutputsFileListnull.txt
+obj\x64\Release\dna_setup.wixproj.BindBuiltOutputsFileListnull.txt
