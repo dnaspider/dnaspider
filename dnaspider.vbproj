@@ -27,8 +27,8 @@
     <ProductName>dna</ProductName>
     <PublisherName>dnaspider%40live.com</PublisherName>
     <SuiteName>dnaspider</SuiteName>
-    <ApplicationRevision>3</ApplicationRevision>
-    <ApplicationVersion>2.2.4.3</ApplicationVersion>
+    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationVersion>2.2.4.4</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>

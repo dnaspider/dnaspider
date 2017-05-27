@@ -44,14 +44,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="dna.exe" size="459264">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="dna.exe" size="459776">
       <assemblyIdentity name="dna" version="2.2.4.0" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>UI5tkzI1rBMXUDXhaECYY68Q0yEnbDZJwOG/TExaBYM=</dsig:DigestValue>
+        <dsig:DigestValue>JL/9v/XpnO4A9crzFyf2Yp7lV88kMb+CBHPnpUch+kU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

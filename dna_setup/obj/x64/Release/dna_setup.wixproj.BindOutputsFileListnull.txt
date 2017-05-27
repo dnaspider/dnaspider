@@ -1,2 +1,2 @@
-C:\Users\dziez\Desktop\dnaspider\dna_setup\bin\x64\Release\dna_setup.msi
-C:\Users\dziez\Desktop\dnaspider\dna_setup\bin\x64\Release\dna_setup.wixpdb
+C:\Users\dziez\Desktop\dnaspider\dnaspider\dna_setup\bin\x64\Release\dna_setup.msi
+C:\Users\dziez\Desktop\dnaspider\dnaspider\dna_setup\bin\x64\Release\dna_setup.wixpdb

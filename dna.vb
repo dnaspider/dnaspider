@@ -1,5 +1,5 @@
 ﻿Public Class dna
-    'Author:Peter-Dziezyk_Skype:pdziezyk+12035334914_MVS2017cwu_4.20.2017_v2.2.4.3__cs202
+    'Author:Peter-Dziezyk_Skype:pdziezyk+12035334914_MVS2017cwu_5.27.2017_v2.2.4.4__cs202
     Private Declare Function GetAsyncKeyState Lib "user32.dll" (ByVal vKey As Int32) As UShort
     Private Declare Function SetCursorPos Lib "user32.dll" (ByVal X As Int32, ByVal Y As Int32) As UShort
     Private Declare Sub mouse_event Lib "user32" Alias "mouse_event" (ByVal dwFlags As Integer, ByVal dx As Integer, ByVal dy As Integer, ByVal cButtons As Integer, ByVal dwExtraInfo As Integer)
@@ -1175,7 +1175,7 @@ tf:
 
     Sub sizeFix()
         Me.Width = My.Settings.SettingWidth
-        me.Height = my.Settings.SettingHeight
+        Me.Height = my.Settings.SettingHeight
         If Me.Width <= 136 Then TabControl1.Visible = False
         If Me.Height <= 144 Then TabControl1.Visible = False ' 39
         If My.Settings.SettingHideTabsOnStartUp = True Then TabControl1.Visible = False
@@ -1404,6 +1404,7 @@ tf:
     End Sub
 
     Private Sub Form1_MouseDown(sender As Object, e As MouseEventArgs) Handles Me.MouseDown
+        dragfrm()
         If MouseButtons = Windows.Forms.MouseButtons.Right Then 'right click form to show options popupmenu
             dz = 0
             showOptionsMenu()
@@ -1816,7 +1817,7 @@ p:
                     If TextBox1.Text = "'" Then TextBox1.Text = ""
                     dz = 0
                     If Me.Text = "" Then Me.Text = "dna"
-                    AppActivate("dna")
+                    If Me.Text > "" Then AppActivate(Me.Text.ToString)
                     txtString.Focus()
                     If Me.ControlBox = False Then
                         Me.Text = ""
@@ -8322,13 +8323,20 @@ noformat:
     End Sub
 
     Private Sub dna_MouseMove(sender As Object, e As MouseEventArgs) Handles Me.MouseMove
-        showCursor()
-
+        If MouseButtons = Windows.Forms.MouseButtons.Left Then
+            dragForm()
+        End If
         If lblMove.Visible = True Then Exit Sub
         If MouseButtons = Windows.Forms.MouseButtons.Left Then 'ts
+            'dragForm()
             If TabControl1.Visible = False And lblMove.Visible = False Then showMoveBar()
         End If
         If TabControl1.Visible = False And lblMove.Visible = False Then showMoveBar()
+    End Sub
+
+    Private Sub dna_MouseUp(sender As Object, e As MouseEventArgs) Handles Me.MouseUp
+        drag = False
+        showCursor()
     End Sub
 
     Private Sub dna_Resize(sender As Object, e As EventArgs) Handles Me.Resize
@@ -9226,14 +9234,28 @@ mainstyle:
             cursorshow = False
             Cursor.Hide()
         End If
-        Dim xx As Integer = MousePosition.X 'grab form  
-        Dim yy As Integer = MousePosition.Y
-        Me.Left = -Me.Width + xx - 11
-        Me.Top = -Me.Height + yy + (txtLength.Height + 20)
+        'Dim xx As Integer = MousePosition.X 'grab form  
+        'Dim yy As Integer = MousePosition.Y
+        'Me.Left = -Me.Width + xx - 11
+        'Me.Top = -Me.Height + yy + (txtLength.Height + 20)
+        If drag = True Then
+            Me.Top = Cursor.Position.Y - mousey
+            Me.Left = Cursor.Position.X - mousex
+        End If
         safeMove()
     End Sub
 
+    Dim drag As Boolean
+    Dim mousex As Integer
+    Dim mousey As Integer
+    Sub dragfrm()
+        drag = True
+        mousex = Cursor.Position.X - Me.Left
+        mousey = Cursor.Position.Y - Me.Top
+    End Sub
+
     Private Sub lblMove_MouseDown(sender As Object, e As MouseEventArgs) Handles lblMove.MouseDown
+        dragfrm()
         If MouseButtons = Windows.Forms.MouseButtons.Right Then showOptionsMenu()
         If MouseButtons = Windows.Forms.MouseButtons.Left Then moveable()
     End Sub
@@ -9243,6 +9265,11 @@ mainstyle:
             If GetAsyncKeyState(Keys.LControlKey) Then Exit Sub
             dragForm()
         End If
+    End Sub
+
+    Private Sub lblMove_MouseUp(sender As Object, e As MouseEventArgs) Handles lblMove.MouseUp
+        drag = False
+        showCursor()
     End Sub
 
     Private Sub lblMoveTop_DoubleClick(sender As Object, e As EventArgs) Handles lblMoveTop.DoubleClick
@@ -9262,6 +9289,7 @@ mainstyle:
     End Sub
 
     Private Sub lblMoveTop_MouseDown(sender As Object, e As MouseEventArgs) Handles lblMoveTop.MouseDown
+        dragfrm()
         If MouseButtons = Windows.Forms.MouseButtons.Right Then
             showOptionsMenu()
         End If
@@ -9276,8 +9304,14 @@ mainstyle:
         If MouseButtons = Windows.Forms.MouseButtons.Left Then
             If GetAsyncKeyState(Keys.LControlKey) Then Exit Sub
             'If Me.FormBorderStyle = Windows.Forms.FormBorderStyle.None Or Me.ControlBox = False Then dragFormTop()
-            dragFormTop()
+            'dragFormTop()
+            dragForm()
         End If
+    End Sub
+
+    Private Sub lblMoveTop_MouseUp(sender As Object, e As MouseEventArgs) Handles lblMoveTop.MouseUp
+        drag = False
+        showCursor()
     End Sub
 
     Private Sub DeleteToolStripMenuItem_MouseDown(sender As Object, e As MouseEventArgs) Handles DeleteToolStripMenuItem.MouseDown
@@ -9803,6 +9837,15 @@ mainstyle:
         'If ListBox1.Font.Size = 15.75 And ListBox1.Font.Name = "Impact" Then SplitContainer1.SplitterWidth = 23
         dbfocus()
 
+        tipsDnaToolStripMenuItem.Checked = False
+        My.Settings.SettingDnaX = False
+        chkWedgee.Checked = False
+        VolumeUpToolStripMenuItem.Checked = False
+        My.Settings.SettingIgnoreVoluemUp = False
+        VolumeDownToolStripMenuItem.Checked = False
+        My.Settings.SettingIgnoreVolumeDown = False
+        My.Settings.SettingChkDragToExtendedScreen = True
+
         Me.CenterToScreen()
         My.Settings.SettingShowIcon = True
         Me.ShowIcon = True
@@ -9933,4 +9976,6 @@ mainimg:
         chkItem(PauseBreakToolStripMenuItem)
         My.Settings.SettingIgnorePauseBreak = PauseBreakToolStripMenuItem.CheckState
     End Sub
+
+
 End Class
