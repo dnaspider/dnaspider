@@ -40,7 +40,7 @@
 
   <Fragment>
     <Directory Id="TARGETDIR" Name="SourceDir">
-      <Directory Id="ProgramFilesX86Folder"> <!--x64 ? ProgramFilesx86Folder : ProgramFilesFolder-->
+      <Directory Id="Programx86FilesFolder"> <!--x64 ? ProgramFilesx86Folder : ProgramFilesFolder-->
         <Directory Id="INSTALLFOLDER" Name="dna" />
       </Directory>
       <Directory Id="ProgramMenuFolder">
@@ -66,10 +66,10 @@
   <Fragment>
     <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
       <Component Guid="{25B40D74-4959-4E29-800F-8B4614034DEA}">
-        <File Source="C:\Users\dziez\desktop\dnaspider\bin\Release\dna.exe" KeyPath="yes" /> <!--debug | release | x64-->
+        <File Source="C:\Users\dziez\desktop\dnaspider\dnaspider\bin\Release\dna.exe" KeyPath="yes" /> <!--debug | release | x64-->
       </Component>
       <Component Guid="{5E809F0A-FC85-49D5-B9F2-037A740ECE4B}">
-        <File Source="C:\Users\dziez\desktop\dnaspider\bin\Release\dna.exe.config" KeyPath="yes" /> <!--debug | release | x64-->
+        <File Source="C:\Users\dziez\desktop\dnaspider\dnaspider\bin\Release\dna.exe.config" KeyPath="yes" /> <!--debug | release | x64-->
       </Component>
     </ComponentGroup>
   </Fragment>

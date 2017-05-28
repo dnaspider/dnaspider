@@ -1,6 +1,0 @@
-C:\Users\dziez\Desktop\dnaspider\dna_setup\bin\Release\dna_setup.msi
-C:\Users\dziez\Desktop\dnaspider\dna_setup\bin\Release\dna_setup.wixpdb
-obj\Release\Product.wixobj
-obj\Release\dna_setup.wixproj.BindContentsFileListnull.txt
-obj\Release\dna_setup.wixproj.BindOutputsFileListnull.txt
-obj\Release\dna_setup.wixproj.BindBuiltOutputsFileListnull.txt
