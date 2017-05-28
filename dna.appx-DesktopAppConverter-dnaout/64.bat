@@ -11,5 +11,3 @@ SignTool sign /fd SHA256 /a /f C:\CERT\dnaspider.pfx C:\Users\dziez\Desktop\dnao
 
 
 explorer C:\Users\dziez\Desktop\dnaout\64PackageFiles
-
-pause
