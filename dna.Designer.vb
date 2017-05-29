@@ -43,6 +43,7 @@ Partial Class dna
         Me.chk_timer1_on_val = New System.Windows.Forms.CheckBox()
         Me.ContextMenuStripChkOn = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ShiftEscapeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PauseBreakToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.ChkMouse = New System.Windows.Forms.CheckBox()
         Me.ContextMenuStripMouse = New System.Windows.Forms.ContextMenuStrip(Me.components)
@@ -291,7 +292,6 @@ Partial Class dna
         Me.OpenFileDialog2 = New System.Windows.Forms.OpenFileDialog()
         Me.FontDialog1 = New System.Windows.Forms.FontDialog()
         Me.OpenFileDialogIco = New System.Windows.Forms.OpenFileDialog()
-        Me.PauseBreakToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabControl1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.ContextMenuStripChkTips.SuspendLayout()
@@ -509,13 +509,19 @@ Partial Class dna
         Me.ContextMenuStripChkOn.ImageScalingSize = New System.Drawing.Size(24, 24)
         Me.ContextMenuStripChkOn.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ShiftEscapeToolStripMenuItem, Me.PauseBreakToolStripMenuItem})
         Me.ContextMenuStripChkOn.Name = "ContextMenuStripOnOptions"
-        Me.ContextMenuStripChkOn.Size = New System.Drawing.Size(153, 70)
+        Me.ContextMenuStripChkOn.Size = New System.Drawing.Size(138, 48)
         '
         'ShiftEscapeToolStripMenuItem
         '
         Me.ShiftEscapeToolStripMenuItem.Name = "ShiftEscapeToolStripMenuItem"
-        Me.ShiftEscapeToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ShiftEscapeToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
         Me.ShiftEscapeToolStripMenuItem.Text = "shift + esc"
+        '
+        'PauseBreakToolStripMenuItem
+        '
+        Me.PauseBreakToolStripMenuItem.Name = "PauseBreakToolStripMenuItem"
+        Me.PauseBreakToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
+        Me.PauseBreakToolStripMenuItem.Text = "pause break"
         '
         'TabPage4
         '
@@ -2160,12 +2166,6 @@ Partial Class dna
         'OpenFileDialogIco
         '
         Me.OpenFileDialogIco.Filter = "ico|*.ico"
-        '
-        'PauseBreakToolStripMenuItem
-        '
-        Me.PauseBreakToolStripMenuItem.Name = "PauseBreakToolStripMenuItem"
-        Me.PauseBreakToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.PauseBreakToolStripMenuItem.Text = "pause break"
         '
         'dna
         '

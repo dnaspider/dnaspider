@@ -1,5 +1,5 @@
 ﻿Public Class dna
-    'Author:Peter-Dziezyk_Skype:pdziezyk+12035334914_MVS2017cwu_5.28.2017_v2.2.4.4__cs202
+    'Author:Peter-Dziezyk_Skype:pdziezyk+12035334914_MVS2017cwu_5.29.2017_v2.2.4.4__cs202
     Private Declare Function GetAsyncKeyState Lib "user32.dll" (ByVal vKey As Int32) As UShort
     Private Declare Function SetCursorPos Lib "user32.dll" (ByVal X As Int32, ByVal Y As Int32) As UShort
     Private Declare Sub mouse_event Lib "user32" Alias "mouse_event" (ByVal dwFlags As Integer, ByVal dx As Integer, ByVal dy As Integer, ByVal cButtons As Integer, ByVal dwExtraInfo As Integer)
@@ -1407,6 +1407,10 @@ tf:
     Private Sub Form1_MouseDown(sender As Object, e As MouseEventArgs) Handles Me.MouseDown
         dragfrm()
         If MouseButtons = Windows.Forms.MouseButtons.Right Then 'right click form to show options popupmenu
+            If GetAsyncKeyState(Keys.LControlKey) Then
+                chkItem(chk_timer1_on_val) 'toggle
+                Exit Sub
+            End If
             dz = 0
             showOptionsMenu()
         End If

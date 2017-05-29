@@ -805,7 +805,8 @@ Processes, PID (right click column , PID)</value>
 </value>
   </data>
   <data name="$this.ToolTip" xml:space="preserve">
-    <value>left shift + escape: show &amp; toggle engine on/off
+    <value>left ctrl + right click: toggle engine on/off
+left shift + escape: show, center, toggle engine off
 right click: show options menu
 double click: toggle appearance or,
 left ctrl + double click: appearance #7
