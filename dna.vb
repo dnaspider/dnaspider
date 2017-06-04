@@ -1,5 +1,5 @@
 ﻿Public Class dna
-    'Author:Peter-Dziezyk_Skype:pdziezyk+12035334914_MVS2017cwu_5.29.2017_v2.2.4.4__cs202
+    'Author:Peter-Dziezyk_Skype:pdziezyk+12035334914_MVS2017cwu_6.4.2017_v2.2.4.4__cs202
     Private Declare Function GetAsyncKeyState Lib "user32.dll" (ByVal vKey As Int32) As UShort
     Private Declare Function SetCursorPos Lib "user32.dll" (ByVal X As Int32, ByVal Y As Int32) As UShort
     Private Declare Sub mouse_event Lib "user32" Alias "mouse_event" (ByVal dwFlags As Integer, ByVal dx As Integer, ByVal dy As Integer, ByVal cButtons As Integer, ByVal dwExtraInfo As Integer)
@@ -2873,14 +2873,25 @@ errz:
                                         a = ""
                                     Case "xy:" 'mouse x y
                                         If IsNumeric(bricks.Replace("-", "")) Then
+                                            Dim n As Boolean = False
                                             For d = 1 To bricks.Length 'search for -
                                                 Dim d1 As String = Microsoft.VisualBasic.Left(bricks, d) '
                                                 Dim dd1 As String = Microsoft.VisualBasic.Right(d1, 1) 's
                                                 If dd1 = "-" Then
+                                                    If d = 1 And bricks.StartsWith("-") Then
+                                                        bricks = Microsoft.VisualBasic.Right(bricks, bricks.Length - 1)
+                                                        n = True
+                                                        Continue For
+                                                    End If
                                                     Dim x1 As Integer = Microsoft.VisualBasic.Left(bricks, d - 1) 'grab x
                                                     Dim y1 As Integer = Microsoft.VisualBasic.Right(bricks, bricks.Length - d) 'grab y
                                                     If IsNumeric(x1) And IsNumeric(y1) Then
-                                                        SetCursorPos(x1, y1) 'set mouse position 'Else If chk_tips.CheckState = CheckState.Checked Then MsgBox("error in mouse position", vbExclamation, "error")
+                                                        If n = True Then
+                                                            x1 = x1 - x1 * 2 'negative screen
+                                                            SetCursorPos((x1), y1)
+                                                        Else
+                                                            SetCursorPos(x1, y1) 'set mouse position 'Else If chk_tips.CheckState = CheckState.Checked Then MsgBox("error in mouse position", vbExclamation, "error")
+                                                        End If
                                                         Exit For
                                                     End If
                                                 End If
