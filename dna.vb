@@ -1,5 +1,5 @@
 ﻿Public Class dna
-    'Author:Peter-Dziezyk_Skype:pdziezyk+12035334914_MVS2017cwu_6.4.2017_v2.2.4.4__cs202
+    'Author:Peter-Dziezyk_Skype:pdziezyk+12035334914_MVS2017cwu_6.19.2017_v2.2.4.5__cs202
     Private Declare Function GetAsyncKeyState Lib "user32.dll" (ByVal vKey As Int32) As UShort
     Private Declare Function SetCursorPos Lib "user32.dll" (ByVal X As Int32, ByVal Y As Int32) As UShort
     Private Declare Sub mouse_event Lib "user32" Alias "mouse_event" (ByVal dwFlags As Integer, ByVal dx As Integer, ByVal dy As Integer, ByVal cButtons As Integer, ByVal dwExtraInfo As Integer)
@@ -1407,6 +1407,11 @@ tf:
     Private Sub Form1_MouseDown(sender As Object, e As MouseEventArgs) Handles Me.MouseDown
         dragfrm()
         If MouseButtons = Windows.Forms.MouseButtons.Right Then 'right click form to show options popupmenu
+            If GetAsyncKeyState(Keys.LShiftKey) Then
+                toggleTabControl1Show()
+                Exit Sub
+            End If
+
             If GetAsyncKeyState(Keys.LControlKey) Then
                 chkItem(chk_timer1_on_val) 'toggle
                 Exit Sub
@@ -2250,11 +2255,11 @@ p:
         If TabControl1.Visible = False Then
             TabControl1.Show()
             Try
-                AppActivate("dna")
+                AppActivate(Me.Text)
             Catch ex As Exception
                 sleep(1)
             End Try
-            If TabPage3.Focus = True Then ListBox1.Focus()
+            If TabPage3.Focus = True Then txtString.Focus()
             sleep(1)
         Else
             TabControl1.Hide()
@@ -9780,11 +9785,11 @@ mainstyle:
 
         My.Settings.SettingBorder = False
         My.Settings.SettingBorder2 = True
-        My.Settings.SettingSplitterWidth = 23
+        My.Settings.SettingSplitterWidth = 33
         txtString.BorderStyle = BorderStyle.None
         ListBox1.BorderStyle = BorderStyle.None
         SplitContainer1.BorderStyle = BorderStyle.FixedSingle
-        SplitContainer1.SplitterWidth = 23
+        SplitContainer1.SplitterWidth = 33
 
         My.Settings.SettingScrollBar = False
         showScrollBar(False)
@@ -9823,7 +9828,7 @@ mainstyle:
                 My.Settings.SettingFont = New System.Drawing.Font("Impact", 15.75)
                 txtString.ZoomFactor = 1
                 tabOnly()
-                SplitContainer1.SplitterWidth = 23
+                SplitContainer1.SplitterWidth = 33
                 Me.Opacity = 0.7
             Catch ex As Exception
                 txtString.Font = Nothing

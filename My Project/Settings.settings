@@ -25,7 +25,13 @@
     </Setting>
     <Setting Name="Settingdb" Description="codes db" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" /&gt;</Value>
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;«time-»«time»&lt;/string&gt;
+  &lt;string&gt;«date-»«date»&lt;/string&gt;
+  &lt;string&gt;«show»«show»&lt;/string&gt;
+  &lt;string&gt;«hide»«hide»&lt;/string&gt;
+  &lt;string&gt;«top»«top»&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
     </Setting>
     <Setting Name="txtStringZoomFactor" Type="System.Double" Scope="User">
       <Value Profile="(Default)">1</Value>
