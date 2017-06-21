@@ -1,5 +1,5 @@
 ﻿Public Class dna
-    'Author:Peter-Dziezyk_Skype:pdziezyk+12035334914_MVS2017cwu_6.19.2017_v2.2.4.5__cs202
+    'Author:Peter-Dziezyk_Skype:pdziezyk+12035334914_MVS2017cwu_6.21.2017_v2.2.4.5__cs202
     Private Declare Function GetAsyncKeyState Lib "user32.dll" (ByVal vKey As Int32) As UShort
     Private Declare Function SetCursorPos Lib "user32.dll" (ByVal X As Int32, ByVal Y As Int32) As UShort
     Private Declare Sub mouse_event Lib "user32" Alias "mouse_event" (ByVal dwFlags As Integer, ByVal dx As Integer, ByVal dy As Integer, ByVal cButtons As Integer, ByVal dwExtraInfo As Integer)
@@ -2259,7 +2259,10 @@ p:
             Catch ex As Exception
                 sleep(1)
             End Try
-            If TabPage3.Focus = True Then txtString.Focus()
+            If TabPage3.Focus = True Then
+                txtString.Visible = True
+                txtString.Focus()
+            End If
             sleep(1)
         Else
             TabControl1.Hide()
