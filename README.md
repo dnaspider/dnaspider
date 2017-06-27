@@ -17,13 +17,13 @@ Press `Right Ctrl, release, then press H, W` in a text box outside of the progra
 Same result: `«hw»«bs*2»Hello World.`
 
 **Simulate mouse:**<br>
-`«hw-»Hello World.«xy:0-0»«left-click»`
+`«hw-»Hello World.«xy:0-0»«right-click»`
 
 **Notes:**<br>
 `«x»` + **Tab** then move mouse cursor over x y location or press **Esc** over location and press **Ctrl + P** in text box to print.<br>
-`«lc»` + **Tab** will print «left-click».
+`«rc»` + **Tab** will print «right-click».
 
-**Example extended**<br>
+**Example extended:**<br>
 `«hw-»Hello World.«shift»«left*12»«-shift»`
 
 
