@@ -1,5 +1,5 @@
 ﻿Public Class dna
-    'Author:Peter-Dziezyk_Skype:pdziezyk+12035334914_MVS2017cwu_6.21.2017_v2.2.4.6__cs202
+    'Author:Peter-Dziezyk_Skype:pdziezyk+12035334914_MVS2017cwu_6.27.2017_v2.2.4.6__cs202
     Private Declare Function GetAsyncKeyState Lib "user32.dll" (ByVal vKey As Int32) As UShort
     Private Declare Function SetCursorPos Lib "user32.dll" (ByVal X As Int32, ByVal Y As Int32) As UShort
     Private Declare Sub mouse_event Lib "user32" Alias "mouse_event" (ByVal dwFlags As Integer, ByVal dx As Integer, ByVal dy As Integer, ByVal cButtons As Integer, ByVal dwExtraInfo As Integer)
@@ -1404,7 +1404,7 @@ tf:
         End If
     End Sub
 
-    Private Sub Form1_MouseDown(sender As Object, e As MouseEventArgs) Handles Me.MouseDown
+    Private Sub Form1_MouseDown(sender As Object, e As MouseEventArgs) Handles Me.MouseDown, lblMove.MouseDown, lblMoveTop.MouseDown
         dragfrm()
         If MouseButtons = Windows.Forms.MouseButtons.Right Then 'right click form to show options popupmenu
             If GetAsyncKeyState(Keys.LShiftKey) Then
@@ -6536,7 +6536,7 @@ noformat:
                     tabCompleteTxt("d", "db")
                     Exit Sub
                 Case "h"
-                    tabCompleteTxt("hi", "hide")
+                    tabCompleteTxt("h", "hide")
                     Exit Sub
                 Case "l"
                     tabCompleteTxt("l", "length")
@@ -9258,10 +9258,6 @@ mainstyle:
             cursorshow = False
             Cursor.Hide()
         End If
-        'Dim xx As Integer = MousePosition.X 'grab form  
-        'Dim yy As Integer = MousePosition.Y
-        'Me.Left = -Me.Width + xx - 11
-        'Me.Top = -Me.Height + yy + (txtLength.Height + 20)
         If drag = True Then
             Me.Top = Cursor.Position.Y - mousey
             Me.Left = Cursor.Position.X - mousex
@@ -9276,12 +9272,6 @@ mainstyle:
         drag = True
         mousex = Cursor.Position.X - Me.Left
         mousey = Cursor.Position.Y - Me.Top
-    End Sub
-
-    Private Sub lblMove_MouseDown(sender As Object, e As MouseEventArgs) Handles lblMove.MouseDown
-        dragfrm()
-        If MouseButtons = Windows.Forms.MouseButtons.Right Then showOptionsMenu()
-        If MouseButtons = Windows.Forms.MouseButtons.Left Then moveable()
     End Sub
 
     Private Sub lblMove_MouseMove(sender As Object, e As MouseEventArgs) Handles lblMove.MouseMove
@@ -9312,23 +9302,9 @@ mainstyle:
         HideToolStripMenuItem.Checked = False
     End Sub
 
-    Private Sub lblMoveTop_MouseDown(sender As Object, e As MouseEventArgs) Handles lblMoveTop.MouseDown
-        dragfrm()
-        If MouseButtons = Windows.Forms.MouseButtons.Right Then
-            showOptionsMenu()
-        End If
-        If MouseButtons = Windows.Forms.MouseButtons.Left Then
-            If GetAsyncKeyState(Keys.LControlKey) Then
-                moveable()
-            End If
-        End If
-    End Sub
-
     Private Sub lblMoveTop_MouseMove(sender As Object, e As MouseEventArgs) Handles lblMoveTop.MouseMove
         If MouseButtons = Windows.Forms.MouseButtons.Left Then
             If GetAsyncKeyState(Keys.LControlKey) Then Exit Sub
-            'If Me.FormBorderStyle = Windows.Forms.FormBorderStyle.None Or Me.ControlBox = False Then dragFormTop()
-            'dragFormTop()
             dragForm()
         End If
     End Sub
