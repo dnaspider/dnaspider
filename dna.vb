@@ -1847,8 +1847,8 @@ p:
                     If LeftClickToolStripMenuItem1.CheckState = False And GetAsyncKeyState(Keys.LButton) Then Me.TextBox1.Text += "♠"
                     If RightClickToolStripMenuItem1.CheckState = False And GetAsyncKeyState(Keys.RButton) Then Me.TextBox1.Text += "♦"
                     If MiddleClickToolStripMenuItem1.CheckState = False And GetAsyncKeyState(Keys.MButton) Then Me.TextBox1.Text += "♥"
-                    If LscrollToolStripMenuItem.CheckState = False And GetAsyncKeyState(Keys.XButton1) Then TextBox1.AppendText("ɹ")
-                    If RscrollToolStripMenuItem.CheckState = False And GetAsyncKeyState(Keys.XButton2) Then TextBox1.AppendText("ɾ")
+                    If LscrollToolStripMenuItem.CheckState = False And GetAsyncKeyState(Keys.XButton1) Then Me.TextBox1.Text += "ɹ"
+                    If RscrollToolStripMenuItem.CheckState = False And GetAsyncKeyState(Keys.XButton2) Then Me.TextBox1.Text += "ɾ"
                 End If
 
 
