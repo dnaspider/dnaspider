@@ -14,7 +14,7 @@
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
-    <PublishUrl>C:\Users\dziez\Desktop\dna_v2.2.4.7_32bit_clickonce_install\</PublishUrl>
+    <PublishUrl>C:\Users\dziez\Desktop\dna_v2.2.4.8_64bit_clickonce_install\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
