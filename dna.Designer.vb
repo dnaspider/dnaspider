@@ -50,6 +50,8 @@ Partial Class dna
         Me.LeftClickToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.RightClickToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MiddleClickToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LscrollToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RscrollToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.chkWedgee = New System.Windows.Forms.CheckBox()
         Me.ContextMenuStripChkMedia = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.PlayPauseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -292,8 +294,6 @@ Partial Class dna
         Me.OpenFileDialog2 = New System.Windows.Forms.OpenFileDialog()
         Me.FontDialog1 = New System.Windows.Forms.FontDialog()
         Me.OpenFileDialogIco = New System.Windows.Forms.OpenFileDialog()
-        Me.LscrollToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.RscrollToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabControl1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.ContextMenuStripChkTips.SuspendLayout()
@@ -580,6 +580,18 @@ Partial Class dna
         Me.MiddleClickToolStripMenuItem1.Name = "MiddleClickToolStripMenuItem1"
         Me.MiddleClickToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.MiddleClickToolStripMenuItem1.Text = "middle click"
+        '
+        'LscrollToolStripMenuItem
+        '
+        Me.LscrollToolStripMenuItem.Name = "LscrollToolStripMenuItem"
+        Me.LscrollToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.LscrollToolStripMenuItem.Text = "left scroll"
+        '
+        'RscrollToolStripMenuItem
+        '
+        Me.RscrollToolStripMenuItem.Name = "RscrollToolStripMenuItem"
+        Me.RscrollToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.RscrollToolStripMenuItem.Text = "right scroll"
         '
         'chkWedgee
         '
@@ -2168,18 +2180,6 @@ Partial Class dna
         'OpenFileDialogIco
         '
         Me.OpenFileDialogIco.Filter = "ico|*.ico"
-        '
-        'LscrollToolStripMenuItem
-        '
-        Me.LscrollToolStripMenuItem.Name = "LscrollToolStripMenuItem"
-        Me.LscrollToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.LscrollToolStripMenuItem.Text = "scroll left"
-        '
-        'RscrollToolStripMenuItem
-        '
-        Me.RscrollToolStripMenuItem.Name = "RscrollToolStripMenuItem"
-        Me.RscrollToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.RscrollToolStripMenuItem.Text = "scroll right"
         '
         'dna
         '
