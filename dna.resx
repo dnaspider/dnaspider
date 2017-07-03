@@ -120,30 +120,11 @@
   <metadata name="Timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>205, 17</value>
   </metadata>
-  <metadata name="ToolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>294, 17</value>
-  </metadata>
-  <data name="lblLength.ToolTip" xml:space="preserve">
-    <value>dna &gt; code length (shortcut pattern)
-
-tip:	-the amount of characters after 'dna &gt;'
-	-shortcut for running proceeding algorithm
-
-example:    dna &gt; test 	length	= 4
-		tes. 		= 4
-		test1 		= 5
-
-right click: options 
-double click: edit</value>
-  </data>
-  <metadata name="ContextMenuStripChkTips.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>393, 17</value>
-  </metadata>
-  <metadata name="ContextMenuStripChkOn.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <metadata name="ContextMenuStripMouse.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 95</value>
+  </metadata>
+  <metadata name="ToolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>294, 17</value>
   </metadata>
   <metadata name="ContextMenuStripChkMedia.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>205, 95</value>
@@ -168,6 +149,25 @@ double click: edit</value>
   </metadata>
   <metadata name="ContextMenuStripChkAtoZ.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>213, 56</value>
+  </metadata>
+  <data name="lblLength.ToolTip" xml:space="preserve">
+    <value>dna &gt; code length (shortcut pattern)
+
+tip:	-the amount of characters after 'dna &gt;'
+	-shortcut for running proceeding algorithm
+
+example:    dna &gt; test 	length	= 4
+		tes. 		= 4
+		test1 		= 5
+
+right click: options 
+double click: edit</value>
+  </data>
+  <metadata name="ContextMenuStripChkTips.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>393, 17</value>
+  </metadata>
+  <metadata name="ContextMenuStripChkOn.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
   </metadata>
   <data name="ListBox1.ToolTip" xml:space="preserve">
     <value>right click: show database menu

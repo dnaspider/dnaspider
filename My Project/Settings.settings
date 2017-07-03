@@ -938,13 +938,13 @@ false: show retry yesno message
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="SettingMouseLeft" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="SettingMouseRight" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="SettingMouseM" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="SettingUseNumPad" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
@@ -1131,6 +1131,12 @@ false: show retry yesno message
     </Setting>
     <Setting Name="SettingWindowState" Type="System.Byte" Scope="User">
       <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="SettingLscroll" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="SettingRscroll" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>

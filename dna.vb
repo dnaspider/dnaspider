@@ -1,11 +1,9 @@
 ﻿Public Class dna
-    'Author:Peter-Dziezyk_Skype:pdziezyk+12035334914_MVS2017cwu_6.27.2017_v2.2.4.7__cs202
+    'Author:Peter-Dziezyk_Skype:pdziezyk+12035334914_MVS2017cwu_7.2.2017_v2.2.4.8__cs202
     Private Declare Function GetAsyncKeyState Lib "user32.dll" (ByVal vKey As Int32) As UShort
     Private Declare Function SetCursorPos Lib "user32.dll" (ByVal X As Int32, ByVal Y As Int32) As UShort
     Private Declare Sub mouse_event Lib "user32" Alias "mouse_event" (ByVal dwFlags As Integer, ByVal dx As Integer, ByVal dy As Integer, ByVal cButtons As Integer, ByVal dwExtraInfo As Integer)
     Private Declare Sub keybd_event Lib "user32" Alias "keybd_event" (ByVal bVk As Integer, bScan As Integer, ByVal dwFlags As Integer, ByVal dwExtraInfo As Integer)
-
-    'notes: publish x64 in Debug
     Sub leftclick()
         mouse_event(&H2, 0, 0, 0, 0)
         mouse_event(&H4, 0, 0, 0, 0)
@@ -1018,6 +1016,8 @@ tf:
         If My.Settings.SettingMouseLeft = True Then LeftClickToolStripMenuItem1.Checked = True
         If My.Settings.SettingMouseRight = True Then RightClickToolStripMenuItem1.Checked = True
         If My.Settings.SettingMouseM = True Then MiddleClickToolStripMenuItem1.Checked = True
+        If My.Settings.SettingLscroll = True Then LscrollToolStripMenuItem.Checked = True
+        If My.Settings.SettingRscroll = True Then RscrollToolStripMenuItem.Checked = True
 
         'startup tabonly style
         If My.Settings.SettingTabOnly = True Then tabOnly()
@@ -1540,6 +1540,8 @@ p:
             GetAsyncKeyState(Keys.LButton)
             GetAsyncKeyState(Keys.RButton)
             GetAsyncKeyState(Keys.MButton)
+            GetAsyncKeyState(Keys.XButton1)
+            GetAsyncKeyState(Keys.XButton2)
         End If
 
         If chkAz.CheckState = CheckState.Unchecked Then
@@ -1845,6 +1847,8 @@ p:
                     If LeftClickToolStripMenuItem1.CheckState = False And GetAsyncKeyState(Keys.LButton) Then Me.TextBox1.Text += "♠"
                     If RightClickToolStripMenuItem1.CheckState = False And GetAsyncKeyState(Keys.RButton) Then Me.TextBox1.Text += "♦"
                     If MiddleClickToolStripMenuItem1.CheckState = False And GetAsyncKeyState(Keys.MButton) Then Me.TextBox1.Text += "♥"
+                    If LscrollToolStripMenuItem.CheckState = False And GetAsyncKeyState(Keys.XButton1) Then TextBox1.AppendText("ɹ")
+                    If RscrollToolStripMenuItem.CheckState = False And GetAsyncKeyState(Keys.XButton2) Then TextBox1.AppendText("ɾ")
                 End If
 
 
@@ -2651,12 +2655,6 @@ runagain:
                                 End If
 
                                 Select Case skCode
-                                    'Case "sc"
-                                    '    Cursor.Hide()
-                                    '    Me.Show()
-                                    '    Cursor.Show()
-                                    '    Me.Refresh()
-                                    '    aa = ""
                                     Case "top"
                                         chkItem(chk_top)
                                         aa = ""
@@ -9977,5 +9975,13 @@ mainimg:
         My.Settings.SettingIgnorePauseBreak = PauseBreakToolStripMenuItem.CheckState
     End Sub
 
+    Private Sub LscrollToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LscrollToolStripMenuItem.Click
+        chkItem(LscrollToolStripMenuItem)
+        My.Settings.SettingLscroll = LscrollToolStripMenuItem.CheckState
+    End Sub
 
+    Private Sub RscrollToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RscrollToolStripMenuItem.Click
+        chkItem(RscrollToolStripMenuItem)
+        My.Settings.SettingRscroll = RscrollToolStripMenuItem.CheckState
+    End Sub
 End Class

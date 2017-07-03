@@ -292,6 +292,8 @@ Partial Class dna
         Me.OpenFileDialog2 = New System.Windows.Forms.OpenFileDialog()
         Me.FontDialog1 = New System.Windows.Forms.FontDialog()
         Me.OpenFileDialogIco = New System.Windows.Forms.OpenFileDialog()
+        Me.LscrollToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RscrollToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabControl1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.ContextMenuStripChkTips.SuspendLayout()
@@ -557,26 +559,26 @@ Partial Class dna
         'ContextMenuStripMouse
         '
         Me.ContextMenuStripMouse.ImageScalingSize = New System.Drawing.Size(24, 24)
-        Me.ContextMenuStripMouse.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LeftClickToolStripMenuItem1, Me.RightClickToolStripMenuItem1, Me.MiddleClickToolStripMenuItem1})
+        Me.ContextMenuStripMouse.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LeftClickToolStripMenuItem1, Me.RightClickToolStripMenuItem1, Me.MiddleClickToolStripMenuItem1, Me.LscrollToolStripMenuItem, Me.RscrollToolStripMenuItem})
         Me.ContextMenuStripMouse.Name = "ContextMenuStripMouse"
-        Me.ContextMenuStripMouse.Size = New System.Drawing.Size(139, 70)
+        Me.ContextMenuStripMouse.Size = New System.Drawing.Size(153, 136)
         '
         'LeftClickToolStripMenuItem1
         '
         Me.LeftClickToolStripMenuItem1.Name = "LeftClickToolStripMenuItem1"
-        Me.LeftClickToolStripMenuItem1.Size = New System.Drawing.Size(138, 22)
+        Me.LeftClickToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.LeftClickToolStripMenuItem1.Text = "left click"
         '
         'RightClickToolStripMenuItem1
         '
         Me.RightClickToolStripMenuItem1.Name = "RightClickToolStripMenuItem1"
-        Me.RightClickToolStripMenuItem1.Size = New System.Drawing.Size(138, 22)
+        Me.RightClickToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.RightClickToolStripMenuItem1.Text = "right click"
         '
         'MiddleClickToolStripMenuItem1
         '
         Me.MiddleClickToolStripMenuItem1.Name = "MiddleClickToolStripMenuItem1"
-        Me.MiddleClickToolStripMenuItem1.Size = New System.Drawing.Size(138, 22)
+        Me.MiddleClickToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.MiddleClickToolStripMenuItem1.Text = "middle click"
         '
         'chkWedgee
@@ -2167,6 +2169,18 @@ Partial Class dna
         '
         Me.OpenFileDialogIco.Filter = "ico|*.ico"
         '
+        'LscrollToolStripMenuItem
+        '
+        Me.LscrollToolStripMenuItem.Name = "LscrollToolStripMenuItem"
+        Me.LscrollToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.LscrollToolStripMenuItem.Text = "scroll left"
+        '
+        'RscrollToolStripMenuItem
+        '
+        Me.RscrollToolStripMenuItem.Name = "RscrollToolStripMenuItem"
+        Me.RscrollToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.RscrollToolStripMenuItem.Text = "scroll right"
+        '
         'dna
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2488,4 +2502,6 @@ Partial Class dna
     Friend WithEvents PSToolStripMenuItem3 As ToolStripMenuItem
     Friend WithEvents OpenFileDialogIco As OpenFileDialog
     Friend WithEvents PauseBreakToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents LscrollToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents RscrollToolStripMenuItem As ToolStripMenuItem
 End Class

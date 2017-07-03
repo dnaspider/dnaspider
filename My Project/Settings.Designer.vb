@@ -2184,7 +2184,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
         Public Property SettingMouseLeft() As Boolean
             Get
                 Return CType(Me("SettingMouseLeft"),Boolean)
@@ -2196,7 +2196,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
         Public Property SettingMouseRight() As Boolean
             Get
                 Return CType(Me("SettingMouseRight"),Boolean)
@@ -2208,7 +2208,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
         Public Property SettingMouseM() As Boolean
             Get
                 Return CType(Me("SettingMouseM"),Boolean)
@@ -2959,6 +2959,30 @@ Namespace My
             End Get
             Set
                 Me("SettingWindowState") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property SettingLscroll() As Boolean
+            Get
+                Return CType(Me("SettingLscroll"),Boolean)
+            End Get
+            Set
+                Me("SettingLscroll") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property SettingRscroll() As Boolean
+            Get
+                Return CType(Me("SettingRscroll"),Boolean)
+            End Get
+            Set
+                Me("SettingRscroll") = value
             End Set
         End Property
     End Class
