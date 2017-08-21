@@ -1,5 +1,5 @@
 ﻿Public Class dna
-    'Author:Peter-Dziezyk_Skype:pdziezyk+12035334914_MVS2017cwu_7.2.2017_v2.2.4.8__cs202
+    'Author:Peter-Dziezyk_Skype:pdziezyk+12035334914_MVS2017cwu_8.21.2017_v2.2.5.0__cs202
     Private Declare Function GetAsyncKeyState Lib "user32.dll" (ByVal vKey As Int32) As UShort
     Private Declare Function SetCursorPos Lib "user32.dll" (ByVal X As Int32, ByVal Y As Int32) As UShort
     Private Declare Sub mouse_event Lib "user32" Alias "mouse_event" (ByVal dwFlags As Integer, ByVal dx As Integer, ByVal dy As Integer, ByVal cButtons As Integer, ByVal dwExtraInfo As Integer)
@@ -2710,7 +2710,7 @@ errz:
                                         My.Computer.Audio.Stop()
                                         aa = ""
                                     Case "date:"  'date
-                                        Dim d As String = Date.Now.Day.ToString & "/" & Date.Now.Month.ToString & "/" & Date.Now.Year.ToString
+                                        Dim d As String = (Date.Now.Day.ToString & "/" & Date.Now.Month.ToString & "/" & Date.Now.Year.ToString)
                                         If bricks > "" Then d = Replace(d, "/", bricks)
                                         Clipboard.SetText(d)
                                         a = ""
@@ -6173,7 +6173,8 @@ noformat:
                     If chk_tips.Checked = True Or My.Settings.SettingShowSettingsTips = True Then MsgBox("(algorithm + enter)" & vbNewLine & "show algorithm menu: " & LCase(My.Settings.SettingAlgMnu), vbInformation, "dna.exe.config: SettingAlgMnu")
                     LongTagsToolStripMenuItem.Visible = My.Settings.SettingAlgMnu
                 Case "h" 'hide tabs
-                    TabControl1.Hide()
+                    'TabControl1.Hide()
+                    checkIfOn()
                     Me.Focus()
                 Case "ht" 'hide tabs
                     TabControl1.Hide()

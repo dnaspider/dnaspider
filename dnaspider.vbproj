@@ -14,7 +14,7 @@
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
-    <PublishUrl>C:\Users\dziez\Desktop\dna_v2.2.4.8_64bit_clickonce_install\</PublishUrl>
+    <PublishUrl>C:\Users\dziez\Desktop\dna_v2.2.5.0_64bit_clickonce_install\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -27,8 +27,8 @@
     <ProductName>dna</ProductName>
     <PublisherName>dnaspider%40live.com</PublisherName>
     <SuiteName>dnaspider</SuiteName>
-    <ApplicationRevision>8</ApplicationRevision>
-    <ApplicationVersion>2.2.4.8</ApplicationVersion>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>2.2.5.0</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -46,7 +46,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <DefineDebug>false</DefineDebug>
     <DefineTrace>true</DefineTrace>
