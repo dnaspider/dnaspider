@@ -3,3 +3,9 @@
 ################################################################################
 
 /.vs/dnaspider/v15
+/bin
+/dna_setup/bin
+/dna_setup/obj/Release
+/dna_setup/obj/x64/Release
+/obj/Debug
+/obj/Release

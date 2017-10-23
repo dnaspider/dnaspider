@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
   
-	<Product Id="*" Name="dna" Language="1033" Version="2.2.5.0" Manufacturer="dnaspider@live.com" UpgradeCode="{63C6CB6A-C153-4721-A16C-AC56FE4FEA39}">
+	<Product Id="*" Name="dna" Language="1033" Version="2.2.5.1" Manufacturer="dnaspider@live.com" UpgradeCode="{63C6CB6A-C153-4721-A16C-AC56FE4FEA39}">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine"  />
 
 		<MajorUpgrade DowngradeErrorMessage="A newer version of dna is already installed."  />

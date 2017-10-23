@@ -1,5 +1,5 @@
 ﻿Public Class dna
-    'Author:Peter-Dziezyk_Skype:pdziezyk+12035334914_MVS2017cwu_8.21.2017_v2.2.5.0__cs202
+    'Author:Peter-Dziezyk_Skype:pdziezyk+12035334914_MVS2017cwu_10.23.2017_v2.2.5.1__cs202
     Private Declare Function GetAsyncKeyState Lib "user32.dll" (ByVal vKey As Int32) As UShort
     Private Declare Function SetCursorPos Lib "user32.dll" (ByVal X As Int32, ByVal Y As Int32) As UShort
     Private Declare Sub mouse_event Lib "user32" Alias "mouse_event" (ByVal dwFlags As Integer, ByVal dx As Integer, ByVal dy As Integer, ByVal cButtons As Integer, ByVal dwExtraInfo As Integer)
@@ -2907,13 +2907,22 @@ errz:
                                     Case "io" 'clear io txt
                                         TextBox1.Clear()
                                         a = ""
-                                    Case "io:" 'clear io txt >>
-                                        If bricks = "" Then
-                                            TextBox1.Text = "»" 'lock
-                                        Else
-                                            TextBox1.Text = bricks
-                                        End If
+                                    Case "io:" 'dna > io:
                                         a = ""
+                                        Select Case bricks
+                                            Case ""
+                                                TextBox1.Text = "»" 'lock
+                                                Exit Sub
+                                            Case ">>"
+                                                TextBox1.Text = "»"
+                                                Exit Sub
+                                            Case "<<"
+                                                TextBox1.Text = "«"
+                                                Exit Sub
+                                            Case Else
+                                                TextBox1.Text = bricks
+                                                Exit Sub
+                                        End Select
                                     Case "#:" 'randomNumb -
                                         If IsNumeric(bricks.Replace("-", "")) And Len(bricks.Replace("-", "")) > 1 Then
                                             For d = 1 To bricks.Length 'search for -
@@ -4322,6 +4331,7 @@ finish:
 
                     finished = True
                     apisk(f) 'aftermarket skeys 'reg / v1
+                    'io:x
                 End If
 
                 gi = Nothing
@@ -4332,8 +4342,7 @@ finish:
                     ListBox1.SelectedItem() = ListBox1.Items.Item(i) 'select code
                 End If
 
-                If f.Contains("«io: »") Then 'v2
-                    TextBox1.Text = "«"
+                If f.Contains("«io:") Then 'v2
                 Else
                     emode()
                 End If
