@@ -1618,7 +1618,7 @@ p:
             GetAsyncKeyState(Keys.Control)
             GetAsyncKeyState(Keys.LControlKey)
             GetAsyncKeyState(Keys.Enter)
-            GetAsyncKeyState(Keys.Shift)
+            GetAsyncKeyState(Keys.Space)
             GetAsyncKeyState(Keys.Tab)
             GetAsyncKeyState(Keys.Escape)
             GetAsyncKeyState(Keys.Shift)
@@ -6405,14 +6405,11 @@ noformat:
             Exit Sub
         End If
 
-        If txtString.TextLength = 0 Then Exit Sub
-        If txtString.TextLength = My.Settings.SettingTxtCodeLength + 1 And GetChar(txtString.Text, txtString.TextLength) = Chr(9) Then
-            txtString.SelectionStart = Len(txtString.Text)
+        If txtString.SelectedText = "" Then
             SendKeys.Send("«»{left}") '«»
+            Exit Sub
         End If
-
     End Sub
-
 
     Private Sub txtString_KeyDown(sender As Object, e As KeyEventArgs) Handles txtString.KeyDown
         If GetAsyncKeyState(Keys.Oemcomma) Then '«,» move right one
