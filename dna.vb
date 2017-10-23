@@ -1175,7 +1175,7 @@ tf:
 
     Sub sizeFix()
         Me.Width = My.Settings.SettingWidth
-        Me.Height = my.Settings.SettingHeight
+        Me.Height = My.Settings.SettingHeight
         If Me.Width <= 136 Then TabControl1.Visible = False
         If Me.Height <= 144 Then TabControl1.Visible = False ' 39
         If My.Settings.SettingHideTabsOnStartUp = True Then TabControl1.Visible = False
@@ -2633,7 +2633,11 @@ runagain:
                             If aa = ("«") Then
                                 Dim bar As String
 
-                                If middle.Length <= 0 Then Exit Sub ' > safe to proceed
+                                If middle.Length <= 0 Then
+                                    System.Threading.Thread.Sleep(1)
+                                    If My.Settings.SettingRememberClipboard = True Then If cb1 > "" Then Clipboard.SetText(cb1.ToString)
+                                    Exit Sub ' > safe to proceed
+                                End If
                                 bar = Microsoft.VisualBasic.Mid(middle, 2, middle.Length - 2)                           'fullc:/ (middle)
 
 #Region "<<  >>"
@@ -2912,17 +2916,16 @@ errz:
                                         Select Case bricks
                                             Case ""
                                                 TextBox1.Text = "»" 'lock
-                                                Exit Sub
                                             Case ">>"
                                                 TextBox1.Text = "»"
-                                                Exit Sub
                                             Case "<<"
                                                 TextBox1.Text = "«"
-                                                Exit Sub
                                             Case Else
                                                 TextBox1.Text = bricks
-                                                Exit Sub
                                         End Select
+                                        System.Threading.Thread.Sleep(1)
+                                        If My.Settings.SettingRememberClipboard = True Then If cb1 > "" Then Clipboard.SetText(cb1.ToString)
+                                        Exit Sub
                                     Case "#:" 'randomNumb -
                                         If IsNumeric(bricks.Replace("-", "")) And Len(bricks.Replace("-", "")) > 1 Then
                                             For d = 1 To bricks.Length 'search for -
@@ -4235,7 +4238,7 @@ finish:
 
         'cb                
         System.Threading.Thread.Sleep(1)
-        If My.Settings.SettingRememberClipboard = True And f.Contains("«cb:") = False Then If cb1 > "" Then Clipboard.SetText(cb1)
+        If My.Settings.SettingRememberClipboard = True And f.Contains("«cb:") = False Then If cb1 > "" Then Clipboard.SetText(cb1.ToString)
     End Sub
 
     Sub emode()
@@ -4331,7 +4334,6 @@ finish:
 
                     finished = True
                     apisk(f) 'aftermarket skeys 'reg / v1
-                    'io:x
                 End If
 
                 gi = Nothing
@@ -9426,7 +9428,7 @@ mainstyle:
         End If
 
         If MouseButtons = Windows.Forms.MouseButtons.Right Then
-            export_mr
+            export_mr()
         End If
     End Sub
 
