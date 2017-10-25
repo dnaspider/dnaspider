@@ -24,7 +24,7 @@ Same result: `«hw»«bs*2»Hello World.`
 `«rc»` + **Tab** will print «right-click».
 
 **Example extended:**<br>
-`«hw-»Hello World.«shift»«left*12»«-shift»`
+`«hw-»Hello World.«shift»«left*12»«-shift»`<br>
 [...](https://github.com/dnaspider/dnaspider/blob/master/dna.md)
 
 ## Installing
