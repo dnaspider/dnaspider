@@ -25,10 +25,10 @@ Same result: `«hw»«bs*2»Hello World.`
 
 **Example extended:**<br>
 `«hw-»Hello World.«shift»«left*12»«-shift»`<br>
-[...](https://github.com/dnaspider/dnaspider/blob/master/dna.md)
+[...](https://github.com/dnaspider/dnaspider/blob/master/dna.md "read more")
 
 ## Installing
 
 [Release](https://github.com/dnaspider/dnaspider/releases)
 
-If will be installing Windows 10 dna.appx install first download and install [dnaspider.cer](https://1drv.ms/t/s!Ahtlv_yZlgKi_B9TNpXV_DmJ2Ncd) test certificate otherwise install dna.msi or run dna.exe portable.
+If will be installing Windows 10 dna.appx install first download and install [dnaspider.cer](https://github.com/dnaspider/dnaspider/releases/download/v2.2.5.1/dnaspider.cer) test certificate otherwise install dna.msi or run dna.exe portable.
