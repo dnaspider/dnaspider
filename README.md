@@ -25,7 +25,7 @@ Same result: `«hw»«bs*2»Hello World.`
 
 **Example extended:**<br>
 `«hw-»Hello World.«shift»«left*12»«-shift»`
-[...](https://github.com/dnaspider/dnaspider/dna.md)
+[...](https://github.com/dnaspider/dnaspider/blob/master/dna.md)
 
 ## Installing
 
