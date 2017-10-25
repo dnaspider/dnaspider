@@ -1,5 +1,5 @@
 ﻿Public Class dna
-    'Author:Peter-Dziezyk_Skype:pdziezyk+12035334914_MVS2017cwu_10.23.2017_v2.2.5.1__cs202
+    'Author:Peter-Dziezyk_Skype:pdziezyk+12035334914_MVS2017cwu_10.24.2017_v2.2.5.2__cs202
     Private Declare Function GetAsyncKeyState Lib "user32.dll" (ByVal vKey As Int32) As UShort
     Private Declare Function SetCursorPos Lib "user32.dll" (ByVal X As Int32, ByVal Y As Int32) As UShort
     Private Declare Sub mouse_event Lib "user32" Alias "mouse_event" (ByVal dwFlags As Integer, ByVal dx As Integer, ByVal dy As Integer, ByVal cButtons As Integer, ByVal dwExtraInfo As Integer)
@@ -1701,6 +1701,7 @@ p:
     Dim containsws_g = False
     Dim g_maxkeylen = My.Settings.SettingMaxKeyLength
     Dim g_scroll = My.Settings.SettingScrollLockRun
+    Dim g_remcb = My.Settings.SettingRememberClipboard
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         If PauseBreakToolStripMenuItem.Checked = True Then 'pausebreak
@@ -2634,8 +2635,10 @@ runagain:
                                 Dim bar As String
 
                                 If middle.Length <= 0 Then
-                                    System.Threading.Thread.Sleep(1)
-                                    If My.Settings.SettingRememberClipboard = True Then If cb1 > "" Then Clipboard.SetText(cb1.ToString)
+                                    If g_remcb = True And cb1 > "" = True Then
+                                        System.Threading.Thread.Sleep(1)
+                                        Clipboard.SetText(cb1.ToString)
+                                    End If
                                     Exit Sub ' > safe to proceed
                                 End If
                                 bar = Microsoft.VisualBasic.Mid(middle, 2, middle.Length - 2)                           'fullc:/ (middle)
@@ -4237,8 +4240,10 @@ finish:
         keybd_event(Keys.LMenu, 0, &H2, 0)
 
         'cb                
-        System.Threading.Thread.Sleep(1)
-        If My.Settings.SettingRememberClipboard = True And f.Contains("«cb:") = False Then If cb1 > "" Then Clipboard.SetText(cb1.ToString)
+        If g_remcb = True And f.Contains("«cb:") = False And cb1 > "" = True Then
+            System.Threading.Thread.Sleep(1)
+            Clipboard.SetText(cb1.ToString)
+        End If
     End Sub
 
     Sub emode()
@@ -9783,6 +9788,12 @@ mainstyle:
         My.Settings.SettingExportToOneDrive = True
         'My.Settings.SettingExportToOneDriveDir = "OneDrive\snc1"
         My.Settings.SettingAutoRetryAppError = True
+
+        chkMisc.Checked = False
+        My.Settings.SettingChkMiscPeriod = False
+        My.Settings.SettingChkMiscComma = False
+        ToolStripMenuItemChkMiscPeriod.Checked = False
+        ToolStripMenuItemChkMiscComma.Checked = False
 
         chkAz.Checked = False
         chk09.Checked = False
