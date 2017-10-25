@@ -18,5 +18,4 @@ ok  	«bs*4»«:👌»
 
 
 **Notes:**<br>
-Ignore tab uncheck misc<br>
-Ignore tab > misc > uncheck , .
+db > dna + Enter
