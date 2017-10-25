@@ -14,7 +14,7 @@
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
-    <PublishUrl>C:\Users\dziez\Desktop\dna_v2.2.5.1_64bit_clickonce_install\</PublishUrl>
+    <PublishUrl>C:\Users\dziez\Desktop\dna_v2.2.5.2_64bit_clickonce_install\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -27,8 +27,8 @@
     <ProductName>dna</ProductName>
     <PublisherName>dnaspider%40live.com</PublisherName>
     <SuiteName>dnaspider</SuiteName>
-    <ApplicationRevision>1</ApplicationRevision>
-    <ApplicationVersion>2.2.5.1</ApplicationVersion>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>2.2.5.2</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
