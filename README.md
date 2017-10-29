@@ -1,6 +1,6 @@
 # dnaspider
 
-![alt text](https://github.com/dnaspider/dnaspider/blob/v2.2.4.3/dna.appx-DesktopAppConverter-dnaout/64PackageFiles/Assets/dna.44x44.png "dnaspider")
+![alt text](.../blob/v2.2.4.3/dna.appx-DesktopAppConverter-dnaout/64PackageFiles/Assets/dna.44x44.png "dnaspider")
 This is a program for the keyboard and can output text, move mouse cursor, and simulate mouse click.  
 
 
@@ -25,10 +25,10 @@ Same result: `«hw»«bs*2»Hello World.`
 
 **Example extended:**<br>
 `«hw-»Hello World.«shift»«left*12»«-shift»`<br>
-[...](https://github.com/dnaspider/dnaspider/blob/master/dna.md "read more")
+[...](.../blob/master/dna.md "read more")
 
 ## Installing
 
-[Release](https://github.com/dnaspider/dnaspider/releases)
+[Release](.../releases)
 
-If will be installing Windows 10 dna.appx install first download and install [dnaspider.cer](https://github.com/dnaspider/dnaspider/releases/download/v2.2.5.1/dnaspider.cer) test certificate otherwise install dna.msi or run dna.exe portable.
+If will be installing Windows 10 dna.appx install first download and install [dnaspider.cer](.../releases/download/v2.2.5.1/dnaspider.cer) test certificate otherwise install dna.msi or run dna.exe portable.
