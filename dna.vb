@@ -1,5 +1,5 @@
 ﻿Public Class dna
-    'Author:Peter-Dziezyk_Skype:pdziezyk+12035334914_MVS2017cwu_10.24.2017_v2.2.5.2__cs202
+    'Author:Peter-Dziezyk_Skype:pdziezyk+12035334914_MVS2017cwu_11.02.2017_v2.2.5.2__cs202
     Private Declare Function GetAsyncKeyState Lib "user32.dll" (ByVal vKey As Int32) As UShort
     Private Declare Function SetCursorPos Lib "user32.dll" (ByVal X As Int32, ByVal Y As Int32) As UShort
     Private Declare Sub mouse_event Lib "user32" Alias "mouse_event" (ByVal dwFlags As Integer, ByVal dx As Integer, ByVal dy As Integer, ByVal cButtons As Integer, ByVal dwExtraInfo As Integer)
@@ -1701,7 +1701,6 @@ p:
     Dim containsws_g = False
     Dim g_maxkeylen = My.Settings.SettingMaxKeyLength
     Dim g_scroll = My.Settings.SettingScrollLockRun
-    Dim g_remcb = My.Settings.SettingRememberClipboard
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         If PauseBreakToolStripMenuItem.Checked = True Then 'pausebreak
@@ -2635,9 +2634,9 @@ runagain:
                                 Dim bar As String
 
                                 If middle.Length <= 0 Then
-                                    If g_remcb = True And cb1 > "" = True Then
-                                        System.Threading.Thread.Sleep(1)
+                                    If My.Settings.SettingRememberClipboard = True And cb1 > "" Then
                                         Clipboard.SetText(cb1.ToString)
+                                        System.Threading.Thread.Sleep(1)
                                     End If
                                     Exit Sub ' > safe to proceed
                                 End If
@@ -2718,7 +2717,10 @@ errz:
                                         aa = ""
                                     Case "date:"  'date
                                         Dim d As String = (Date.Now.Day.ToString & "/" & Date.Now.Month.ToString & "/" & Date.Now.Year.ToString)
-                                        If bricks > "" Then d = Replace(d, "/", bricks)
+                                        If bricks > "" Then
+                                            d = (Date.Now.Month.ToString & "/" & Date.Now.Day.ToString & "/" & Date.Now.Year.ToString)
+                                            d = Replace(d, "/", bricks)
+                                        End If
                                         Clipboard.SetText(d)
                                         a = ""
                                     Case "date"  'date
@@ -2926,8 +2928,8 @@ errz:
                                             Case Else
                                                 TextBox1.Text = bricks
                                         End Select
-                                        System.Threading.Thread.Sleep(1)
                                         If My.Settings.SettingRememberClipboard = True Then If cb1 > "" Then Clipboard.SetText(cb1.ToString)
+                                        System.Threading.Thread.Sleep(1)
                                         Exit Sub
                                     Case "#:" 'randomNumb -
                                         If IsNumeric(bricks.Replace("-", "")) And Len(bricks.Replace("-", "")) > 1 Then
@@ -4233,16 +4235,16 @@ finish:
 
         End If 'master
 
-        ''clear keys 
+        ''clear keys
         keybd_event(Keys.RControlKey, 0, &H2, 0)
         keybd_event(Keys.LControlKey, 0, &H2, 0)
         keybd_event(Keys.Control, 0, &H2, 0)
         keybd_event(Keys.LMenu, 0, &H2, 0)
 
-        'cb                
-        If g_remcb = True And f.Contains("«cb:") = False And cb1 > "" = True Then
-            System.Threading.Thread.Sleep(1)
+        'cb
+        If My.Settings.SettingRememberClipboard = True And f.Contains("«cb:") = False And cb1 > "" Then
             Clipboard.SetText(cb1.ToString)
+            System.Threading.Thread.Sleep(1)
         End If
     End Sub
 
