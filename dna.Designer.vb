@@ -561,36 +561,36 @@ Partial Class dna
         Me.ContextMenuStripMouse.ImageScalingSize = New System.Drawing.Size(24, 24)
         Me.ContextMenuStripMouse.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LeftClickToolStripMenuItem1, Me.RightClickToolStripMenuItem1, Me.MiddleClickToolStripMenuItem1, Me.LscrollToolStripMenuItem, Me.RscrollToolStripMenuItem})
         Me.ContextMenuStripMouse.Name = "ContextMenuStripMouse"
-        Me.ContextMenuStripMouse.Size = New System.Drawing.Size(153, 136)
+        Me.ContextMenuStripMouse.Size = New System.Drawing.Size(139, 114)
         '
         'LeftClickToolStripMenuItem1
         '
         Me.LeftClickToolStripMenuItem1.Name = "LeftClickToolStripMenuItem1"
-        Me.LeftClickToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.LeftClickToolStripMenuItem1.Size = New System.Drawing.Size(138, 22)
         Me.LeftClickToolStripMenuItem1.Text = "left click"
         '
         'RightClickToolStripMenuItem1
         '
         Me.RightClickToolStripMenuItem1.Name = "RightClickToolStripMenuItem1"
-        Me.RightClickToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.RightClickToolStripMenuItem1.Size = New System.Drawing.Size(138, 22)
         Me.RightClickToolStripMenuItem1.Text = "right click"
         '
         'MiddleClickToolStripMenuItem1
         '
         Me.MiddleClickToolStripMenuItem1.Name = "MiddleClickToolStripMenuItem1"
-        Me.MiddleClickToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.MiddleClickToolStripMenuItem1.Size = New System.Drawing.Size(138, 22)
         Me.MiddleClickToolStripMenuItem1.Text = "middle click"
         '
         'LscrollToolStripMenuItem
         '
         Me.LscrollToolStripMenuItem.Name = "LscrollToolStripMenuItem"
-        Me.LscrollToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.LscrollToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
         Me.LscrollToolStripMenuItem.Text = "left scroll"
         '
         'RscrollToolStripMenuItem
         '
         Me.RscrollToolStripMenuItem.Name = "RscrollToolStripMenuItem"
-        Me.RscrollToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.RscrollToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
         Me.RscrollToolStripMenuItem.Text = "right scroll"
         '
         'chkWedgee
@@ -2192,6 +2192,7 @@ Partial Class dna
         Me.Controls.Add(Me.lblMoveTop)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "dna"
+        Me.Opacity = 0R
         Me.Text = "dna"
         Me.ToolTip1.SetToolTip(Me, resources.GetString("$this.ToolTip"))
         Me.TransparencyKey = System.Drawing.Color.GhostWhite
