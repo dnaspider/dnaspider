@@ -1,5 +1,5 @@
 ﻿Public Class dna
-    'Author:Peter-Dziezyk_Skype:pdziezyk+12035334914_MVS2017cwu_11.02.2017_v2.2.5.2__cs202
+    'Author:Peter-Dziezyk_Skype:pdziezyk+12035334914_MVS2017cwu_11.13.2017_v2.2.5.3__cs202
     Private Declare Function GetAsyncKeyState Lib "user32.dll" (ByVal vKey As Int32) As UShort
     Private Declare Function SetCursorPos Lib "user32.dll" (ByVal X As Int32, ByVal Y As Int32) As UShort
     Private Declare Sub mouse_event Lib "user32" Alias "mouse_event" (ByVal dwFlags As Integer, ByVal dx As Integer, ByVal dy As Integer, ByVal cButtons As Integer, ByVal dwExtraInfo As Integer)
@@ -136,6 +136,7 @@
                 My.Settings.SettingWindowState = 2
         End Select
 
+        If My.Settings.SettingOpacity <= 0.1 Then My.Settings.SettingOpacity = 1
         My.Settings.SettingOpacity = Me.Opacity
 
         If txtString.Focused Then My.Settings.SettingTabIndex = 23 'txtString
@@ -1680,7 +1681,8 @@ p:
             End If
         End If
 
-        If tipsDnaToolStripMenuItem.CheckState = CheckState.Checked Then Me.Text = "dna > " & TextBox1.Text 'me.text mock 
+        If tipsDnaToolStripMenuItem.CheckState = CheckState.Checked Then Me.Text = "dna > " & TextBox1.Text Else Me.Text = "dna" 'me.text mock 
+        Me.ShowIcon = My.Settings.SettingShowIcon
     End Sub
 
     Sub f1tt()
@@ -3160,7 +3162,6 @@ rtapp:
                                             Else
                                                 clearAllKeys()
                                                 emode()
-                                                'finished = True
                                                 Exit Sub
                                             End If
                                         End Try
@@ -6102,6 +6103,7 @@ noformat:
                     changeColor()
                 Case "v"
                     changeView()
+                    emode()
                 Case "cv"
                     changeView()
                 Case "o" 'open
@@ -9748,6 +9750,7 @@ mainstyle:
     End Sub
 
     Sub dnauserconfig()
+        Me.Opacity = 0
         chk_tips.Checked = False
         txtLength.Text = 4
 
@@ -9792,9 +9795,7 @@ mainstyle:
         My.Settings.SettingAutoRetryAppError = True
 
         chkMisc.Checked = False
-        My.Settings.SettingChkMiscPeriod = False
         My.Settings.SettingChkMiscComma = False
-        ToolStripMenuItemChkMiscPeriod.Checked = False
         ToolStripMenuItemChkMiscComma.Checked = False
 
         chkAz.Checked = False
@@ -9828,7 +9829,6 @@ mainstyle:
                 txtString.ZoomFactor = 1
                 tabOnly()
                 SplitContainer1.SplitterWidth = 33
-                Me.Opacity = 0.7
             Catch ex As Exception
                 txtString.Font = Nothing
                 ListBox1.Font = Nothing
@@ -9869,6 +9869,8 @@ mainstyle:
         Me.CenterToScreen()
         My.Settings.SettingShowIcon = True
         Me.ShowIcon = True
+        If My.Settings.SettingOpacity <= 0.1 Then My.Settings.SettingOpacity = 1
+        Me.Opacity = My.Settings.SettingOpacity
     End Sub
     Sub dbfocus()
         TabControl1.Focus()

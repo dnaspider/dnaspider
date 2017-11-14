@@ -18,7 +18,7 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="SettingMain_chk_tips" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="SettingTxtCodeLength" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">3</Value>
