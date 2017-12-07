@@ -9829,6 +9829,7 @@ mainstyle:
                 txtString.ZoomFactor = 1
                 tabOnly()
                 SplitContainer1.SplitterWidth = 33
+                My.Settings.SettingOpacity = 0.7
             Catch ex As Exception
                 txtString.Font = Nothing
                 ListBox1.Font = Nothing
