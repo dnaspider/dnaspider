@@ -1,6 +1,6 @@
 # dnaspider
 
-![alt text](https://github.com/dnaspider/dnaspider/blob/v2.2.4.3/dna.appx-DesktopAppConverter-dnaout/64PackageFiles/Assets/dna.44x44.png "dnaspider")
+![dnaspider logo](https://github.com/dnaspider/dnaspider/blob/v2.2.4.3/dna.appx-DesktopAppConverter-dnaout/64PackageFiles/Assets/dna.44x44.png "dnaspider")
 This is a program for the keyboard and can output text, move mouse cursor, and simulate mouse click.  
 
 
