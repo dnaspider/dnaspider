@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <PublishUrlHistory>C:\Users\dziez\Desktop\dna_v2.2.5.3_32bit_clickonce_install\|C:\Users\dziez\Desktop\dna_v2.2.5.3_64bit_clickonce_install\|C:\Users\dziez\Desktop\dna_v2.2.5.2_64bit_clickonce_install\|C:\Users\dziez\Desktop\dna_v2.2.5.1_64bit_clickonce_install\|C:\Users\dziez\Desktop\dna_v2.2.5.0_64bit_clickonce_install\</PublishUrlHistory>
+    <PublishUrlHistory>C:\Users\dziez\Desktop\dna_v2.2.5.4_64bit_clickonce\|C:\Users\dziez\Desktop\dna_v2.2.5.3_64bit_clickonce\|C:\Users\dziez\Desktop\dna_v2.2.5.4_32bit_clickonce\|C:\Users\dziez\Desktop\dna_v2.2.5.3_32bit_clickonce\|C:\Users\dziez\Desktop\dna_v2.2.5.3_64bit_clickonce_install\</PublishUrlHistory>
     <InstallUrlHistory />
     <SupportUrlHistory />
     <UpdateUrlHistory />
