@@ -16,6 +16,7 @@ ok  	«bs*4»«:👌»
 ƤƤƤƤ	«win»«print-screen»«-win»
 «pi»«win»r«-win»«sleep:333»C:\Users\dna\Pictures\screenshots«enter»«sleep:1000»«end»
 «io»«win»«-win»«sleep:1110»internet options«enter»«app:internet properties»«alt»d«-alt»
+«kb»«win»r«-win»«app:run»tabtip«enter»
 ```
 
 
