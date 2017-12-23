@@ -1,5 +1,5 @@
 ﻿Public Class dna
-    'Author:Peter-Dziezyk_Skype:pdziezyk+12035334914_MVS2017cwu_12.7.2017_v2.2.5.3__cs202
+    'Author:Peter-Dziezyk_Skype:pdziezyk+12035334914_MVS2017cwu_12.23.2017_v2.2.5.4__cs202
     Private Declare Function GetAsyncKeyState Lib "user32.dll" (ByVal vKey As Int32) As UShort
     Private Declare Function SetCursorPos Lib "user32.dll" (ByVal X As Int32, ByVal Y As Int32) As UShort
     Private Declare Sub mouse_event Lib "user32" Alias "mouse_event" (ByVal dwFlags As Integer, ByVal dx As Integer, ByVal dy As Integer, ByVal cButtons As Integer, ByVal dwExtraInfo As Integer)
@@ -1334,7 +1334,7 @@ tf:
             ToolStripMenuItem29.ToolTipText = ""
             ToolStripMenuItem30.ToolTipText = ""
             ToolStripMenuItem31.ToolTipText = ""
-            OnToolStripMenuItem.ToolTipText = ""
+            If My.Settings.SettingDbTip = True Then OnToolStripMenuItem.ToolTipText = "dna > " & TextBox1.Text Else OnToolStripMenuItem.ToolTipText = ""
             NoLengthToolStripMenuItem.ToolTipText = ""
             PauseBreakToolStripMenuItem.ToolTipText = ""
 
@@ -1523,7 +1523,7 @@ p:
         My.Settings.SettingMain_chk_tips = Me.chk_tips.CheckState  'save tooltip option
         If Me.chk_tips.Checked = True Then ToolTip1.Active = True Else ToolTip1.Active = False 'respawn tooltip option
         If Me.chk_tips.Checked = True Then TextBox1.PasswordChar = "" Else TextBox1.PasswordChar = "*"
-        If Me.chk_tips.Checked = False Then Me.Text = "dna" : TextBox1.PasswordChar = "*"
+        If Me.chk_tips.Checked = False Then Me.Text = "dna" : TextBox1.PasswordChar = "*" : TabPage1.ToolTipText = "" : TabPage2.ToolTipText = "" : TabPage3.ToolTipText = "" : TabPage4.ToolTipText = ""
         reStyle()
     End Sub
     Private Sub chk_tips_CheckedChanged(sender As Object, e As EventArgs) Handles chk_tips.CheckedChanged
@@ -4953,8 +4953,15 @@ noformat:
         If chk_tips.Checked = True And TabPage3.CanFocus Then TabControl1.ShowToolTips = True 'tip
 
         If chk_tips.Checked = True And TabPage3.CanFocus And TabPage3.Text <> "browser" Then TabPage3.ToolTipText = "database tab" & vbNewLine & "double click: get «xy:» countdown then print" & vbNewLine & "click + hold + swipe: menu" & vbNewLine & "right click + hold + swipe: test/run selected text" & vbNewLine & "ctrl + double click: show browser"
-        If chk_tips.Checked = True And TabPage3.CanFocus And TabPage3.Text <> "browser" And Me.FormBorderStyle = Windows.Forms.FormBorderStyle.None Then TabPage3.ToolTipText = "database tab" & vbNewLine & "double click: hover over item location, print «xy:»" & vbNewLine & "click + hold + swipe: db menu, swipe options" & vbNewLine & "right/long click + hold + swipe: test/run > '" & txtString.Text & "'" & vbNewLine & "ctrl + double click: show browser"
-        If chk_tips.Checked = True And TabPage3.CanFocus And TabPage3.Text = "browser" Then TabPage3.ToolTipText = "double click: hide browser" & vbNewLine & "'" & txtString.Text & "'" & " + enter: navigate to " & "'" & txtString.Text & "'"
+        If chk_tips.Checked = True And TabPage3.CanFocus And TabPage3.Text <> "browser" And Me.FormBorderStyle = Windows.Forms.FormBorderStyle.None Then
+            TabPage3.ToolTipText = "database tab" & vbNewLine & "double click: hover over item location, print «xy:»" & vbNewLine & "click + hold + swipe: db menu, swipe options" & vbNewLine & "right/long click + hold + swipe: test/run > '" & txtString.Text & "'" & vbNewLine & "ctrl + double click: show browser"
+        Else
+            If My.Settings.SettingDbTip = True And Me.FormBorderStyle = Windows.Forms.FormBorderStyle.None Then
+                TabControl1.ShowToolTips = True
+                If TabPage3.Visible = True Then TabPage3.ToolTipText = "dna > " & TextBox1.Text Else TabPage3.ToolTipText = ""
+            End If
+        End If
+        If chk_tips.Checked = True And TabPage3.CanFocus And TabPage3.Text = "browser" Then TabPage3.ToolTipText = "Double click: hide browser" & vbNewLine & "'" & txtString.Text & "'" & " + enter: navigate to " & "'" & txtString.Text & "'"
 
         If chk_tips.Checked = True And TabPage2.CanFocus = True Then TabPage2.ToolTipText = "main tab"
         If chk_tips.Checked = True And TabPage1.CanFocus = True Then TabPage1.ToolTipText = "engine tab" ' & vbNewLine & "hold left click + swipe: main menu"
@@ -6081,6 +6088,14 @@ noformat:
         If Microsoft.VisualBasic.Left(txtString.Text, cl) = (code & vbLf) Then '
             txtStringClear()
             Select Case code 'keypress enter run beginning txt 'add new in 'no tag
+                Case "dbtip"
+                    If My.Settings.SettingDbTip = True Then
+                        My.Settings.SettingDbTip = False
+                        TabPage3.ToolTipText = ""
+                    Else
+                        My.Settings.SettingDbTip = True
+                    End If
+                    If chk_tips.Checked = True Or My.Settings.SettingShowSettingsTips = True Then MsgBox("(dbtip + enter)" & vbNewLine & "show db tab dna > tip: " & LCase(My.Settings.SettingDbTip), vbInformation, "dna.exe.config: SettingDbTip")
                 Case "op"
                     op = InputBox("Opacity: " & vbNewLine & "example: .5", "dna.exe.config: SettingOpacity", My.Settings.SettingOpacity)
                     If Val(op) >= 0.1 Or Val(op) <= 100 And Val(op) > 0 Then
@@ -6530,6 +6545,9 @@ noformat:
                     txtStringClear()
                     Exit Sub
 
+                Case "dt"
+                    tabCompleteTxt("dt", "dbtip")
+                    Exit Sub
                 Case "ex"
                     tabCompleteTxt("ex", "export")
                     Exit Sub
@@ -7524,6 +7542,7 @@ noformat:
             dbCode("u")
 
             'no tag
+            dbCode1("dbtip") 'db tab dna > tip
             dbCode1("op") 'opacity
             dbCode1("export")
             dbCode1("rf") 'resetfont changefont(f
@@ -9830,6 +9849,7 @@ mainstyle:
                 tabOnly()
                 SplitContainer1.SplitterWidth = 33
                 My.Settings.SettingOpacity = 0.7
+                My.Settings.SettingDbTip = True
             Catch ex As Exception
                 txtString.Font = Nothing
                 ListBox1.Font = Nothing
@@ -10009,4 +10029,5 @@ mainimg:
         chkItem(RscrollToolStripMenuItem)
         My.Settings.SettingRscroll = RscrollToolStripMenuItem.CheckState
     End Sub
+
 End Class
