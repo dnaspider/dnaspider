@@ -478,6 +478,7 @@ f4:					clear text
 down:					end
 up:					home
 click :1 | :2 | &gt;txt | &lt;txt:			click '&gt;' , '&lt;' , ':1' or ':2'  in start of text box to auto erase
+'dt' + enter:				toggle show db tab dna &gt; tip 
 'ex' + enter:				drag program to extended screen
 'w7' + enter:				Windows 7 tab complete
 'skin' + enter:				customize program
