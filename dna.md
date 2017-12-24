@@ -18,6 +18,7 @@ ok  	«bs*4»«:👌»
 «io»«win»«-win»«sleep:1110»internet options«enter»«app:internet properties»«alt»d«-alt»
 «kb»«win»r«-win»«app:run»tabtip«enter»
 «opt»«'optimize»«win»r«-win»«app:run»%windir%\system32\dfrgui.exe«enter»«app:optimize drives»«alt»o«-alt»«sleep:4500»«alt»c«-alt»
+«rotate»«win»x«-win»«sleep:101»b«app:Windows Mobility Center»r«sleep:101»«escape»
 ```
 
 
