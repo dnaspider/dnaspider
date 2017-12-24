@@ -1,5 +1,5 @@
 ﻿Public Class dna
-    'Author:Peter-Dziezyk_Skype:pdziezyk+12035334914_MVS2017cwu_12.23.2017_v2.2.5.4__cs202
+    'Author:Peter-Dziezyk_Skype:pdziezyk_14752239770_MVS2017cwu_12.24.2017_v2.2.5.5__cs202
     Private Declare Function GetAsyncKeyState Lib "user32.dll" (ByVal vKey As Int32) As UShort
     Private Declare Function SetCursorPos Lib "user32.dll" (ByVal X As Int32, ByVal Y As Int32) As UShort
     Private Declare Sub mouse_event Lib "user32" Alias "mouse_event" (ByVal dwFlags As Integer, ByVal dx As Integer, ByVal dy As Integer, ByVal cButtons As Integer, ByVal dwExtraInfo As Integer)
@@ -1681,7 +1681,7 @@ p:
             End If
         End If
 
-        If tipsDnaToolStripMenuItem.CheckState = CheckState.Checked Then Me.Text = "dna > " & TextBox1.Text Else Me.Text = "dna" 'me.text mock 
+        If tipsDnaToolStripMenuItem.CheckState = CheckState.Checked Then Me.Text = "dna > " & TextBox1.Text Else If Not Me.FormBorderStyle = FormBorderStyle.Sizable And ControlBox = False Then Me.Text = "dna" 'me.text mock 
         Me.ShowIcon = My.Settings.SettingShowIcon
     End Sub
 
@@ -4336,7 +4336,7 @@ finish:
                     finished = True
                     apisk(f) 'aftermarket skeys 'v2
                 Else
-                    If TextBox1.Text.IndexOf("«", 0) = 0 Then Exit Sub
+                    If TextBox1.Text.IndexOf("«", 0) = 0 Then Continue For
                     If ListBox1.Items.Item(i).ToString.StartsWith("http") Then Exit Sub
                     If GetAsyncKeyState(Keys.Escape) Then keyRelease(Keys.Escape) '32bit
 
