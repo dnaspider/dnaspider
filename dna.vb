@@ -1,5 +1,5 @@
 ﻿Public Class dna
-    'Author:Peter-Dziezyk_Skype:pdziezyk_14752239770_MVS2017cwu_12.24.2017_v2.2.5.5__cs202
+    'Author:Peter-Dziezyk:Skype:pdziezyk:dnaspider:14752239770:MVS2017cwu:12.26.2017:v2.2.5.6:cs202
     Private Declare Function GetAsyncKeyState Lib "user32.dll" (ByVal vKey As Int32) As UShort
     Private Declare Function SetCursorPos Lib "user32.dll" (ByVal X As Int32, ByVal Y As Int32) As UShort
     Private Declare Sub mouse_event Lib "user32" Alias "mouse_event" (ByVal dwFlags As Integer, ByVal dx As Integer, ByVal dy As Integer, ByVal cButtons As Integer, ByVal dwExtraInfo As Integer)
@@ -1442,7 +1442,7 @@ tf:
         keyRelease(Keys.Pause)
         clearAllKeys()
 
-        If Me.chk_timer1_on_val.Checked = False Then Me.Text = "dna" 'change me.text to "stock"
+        If Me.chk_timer1_on_val.Checked = False Then dnaTxt()
         If Me.chk_timer1_on_val.Checked = True Then emode()
     End Sub
     Sub changeInterval()
@@ -1523,7 +1523,7 @@ p:
         My.Settings.SettingMain_chk_tips = Me.chk_tips.CheckState  'save tooltip option
         If Me.chk_tips.Checked = True Then ToolTip1.Active = True Else ToolTip1.Active = False 'respawn tooltip option
         If Me.chk_tips.Checked = True Then TextBox1.PasswordChar = "" Else TextBox1.PasswordChar = "*"
-        If Me.chk_tips.Checked = False Then Me.Text = "dna" : TextBox1.PasswordChar = "*" : TabPage1.ToolTipText = "" : TabPage2.ToolTipText = "" : TabPage3.ToolTipText = "" : TabPage4.ToolTipText = ""
+        If Me.chk_tips.Checked = False Then dnaTxt() : TextBox1.PasswordChar = "*" : TabPage1.ToolTipText = "" : TabPage2.ToolTipText = "" : TabPage3.ToolTipText = "" : TabPage4.ToolTipText = ""
         reStyle()
     End Sub
     Private Sub chk_tips_CheckedChanged(sender As Object, e As EventArgs) Handles chk_tips.CheckedChanged
@@ -1830,7 +1830,7 @@ p:
                     clearAllKeys()
                     If TextBox1.Text = "'" Then TextBox1.Text = ""
                     dz = 0
-                    If Me.Text = "" Then Me.Text = "dna"
+                    If Me.Text = "" Then dnaTxt()
                     If Me.Text > "" Then AppActivate(Me.Text.ToString)
                     txtString.Focus()
                     If Me.ControlBox = False Then
@@ -3378,7 +3378,7 @@ rtapp:
                                     Case ">cb" 'clipboard to txt
                                         Me.Show()
                                         If My.Settings.SettingDnaX = True Then tipsDnaToolStripMenuItem.Checked = False
-                                        If Me.Text = "" Then Me.Text = "dna"
+                                        If Me.Text = "" Then dnaTxt()
                                         txtString.Focus()
                                         Dim getLine1 = txtString.GetLineFromCharIndex(txtString.SelectionStart - txtString.TextLength)
 
@@ -7277,7 +7277,7 @@ noformat:
 
         End If
 
-        Me.Text = "dna" 'caption
+        dnaTxt()
         txtStringClear() 'clear
 
         'reloadDb()
@@ -7329,7 +7329,7 @@ noformat:
                     TabPage3.BackColor = tc
 
                     emode()
-                    If chk_timer1_on_val.Checked = False Then Me.Text = "dna"
+                    If chk_timer1_on_val.Checked = False Then dnaTxt()
                     Exit Sub
                 End If
             End If
@@ -9444,7 +9444,7 @@ mainstyle:
                     If Len(Me.Text) > 60 Then Me.Text = "dna > exporting" 'caption reset
                 Next
 
-                Me.Text = "dna" 'caption 
+                dnaTxt() 'caption 
 
                 'backup option
                 If Me.ListBox1.Items.Count <= 0 Then Exit Sub
