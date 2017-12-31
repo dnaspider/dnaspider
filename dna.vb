@@ -1,5 +1,5 @@
 ﻿Public Class dna
-    'Author:Peter-Dziezyk:Skype:pdziezyk:dnaspider:14752239770:MVS2017cwu:12.26.2017:v2.2.5.6:cs202
+    'Author:Peter-Dziezyk:Skype:pdziezyk:dnaspider:14752239770:MVS2017cwu:12.31.2017:v2.2.5.7:cs202
     Private Declare Function GetAsyncKeyState Lib "user32.dll" (ByVal vKey As Int32) As UShort
     Private Declare Function SetCursorPos Lib "user32.dll" (ByVal X As Int32, ByVal Y As Int32) As UShort
     Private Declare Sub mouse_event Lib "user32" Alias "mouse_event" (ByVal dwFlags As Integer, ByVal dx As Integer, ByVal dy As Integer, ByVal cButtons As Integer, ByVal dwExtraInfo As Integer)
@@ -1722,8 +1722,8 @@ p:
             If HideToolStripMenuItem.Visible = False And Me.Visible = False Then HideToolStripMenuItem.Checked = False
 
 
-
-            If chkOther.Checked = False And GetAsyncKeyState(Keys.RControlKey) And RightCtrllToolStripMenuItem.Checked = True Then 'rctrl toggle
+            Dim specialkey = My.Settings.SettingSpecialKey 'Keys.Insert
+            If GetAsyncKeyState(specialkey) Or chkOther.Checked = False And GetAsyncKeyState(Keys.RControlKey) And RightCtrllToolStripMenuItem.Checked = True Then 'rctrl toggle
                 keybd_event(Keys.RControlKey, 0, &H2, 0) 'rel rc
 
                 If TextBox1.Text.StartsWith("»") Then 'toggle"«"
@@ -2010,7 +2010,7 @@ p:
                     'If RightControlToolStripMenuItem.CheckState = false And GetAsyncKeyState(Keys.RControlKey) Then Me.TextBox1.Text += "O"
                     If CapsToolStripMenuItem.CheckState = False And GetAsyncKeyState(Keys.CapsLock) Then Me.TextBox1.Text += "P"
                     If TabToolStripMenuItem1.CheckState = False And GetAsyncKeyState(Keys.Tab) Then Me.TextBox1.Text += "T"
-                    If InsertToolStripMenuItem1.CheckState = False And GetAsyncKeyState(Keys.Insert) Then Me.TextBox1.Text += "."
+                    If InsertToolStripMenuItem1.CheckState = False And GetAsyncKeyState(Keys.Insert) Then Me.TextBox1.Text += "į"
                     If DeleteToolStripMenuItem2.CheckState = False And GetAsyncKeyState(Keys.Delete) Then Me.TextBox1.Text += "º" 'deletekey
 
                     If chkWedgee.Checked = False Then 'wedge keyboard
@@ -4327,7 +4327,7 @@ finish:
                         f = Microsoft.VisualBasic.Right(ListBox1.Items.Item(i), h) 'not connectd ex. <p1->1
 
                         'filter 
-                        code = code.Replace(".", "").Replace("Ƥ", "").Replace("C", "").Replace("S", "").Replace("H", "").Replace("A", "").Replace("Ą", "").Replace("M", "").Replace("!", "").Replace("@", "").Replace("#", "").Replace("$", "").Replace("%", "").Replace("^", "").Replace("&", "").Replace("*", "").Replace("(", "").Replace(")", "").Replace("_", "").Replace("=", "").Replace("ė", "").Replace("Ė", "").Replace("P", "")
+                        code = code.Replace("į", "").Replace(".", "").Replace("Ƥ", "").Replace("C", "").Replace("S", "").Replace("H", "").Replace("A", "").Replace("Ą", "").Replace("M", "").Replace("!", "").Replace("@", "").Replace("#", "").Replace("$", "").Replace("%", "").Replace("^", "").Replace("&", "").Replace("*", "").Replace("(", "").Replace(")", "").Replace("_", "").Replace("=", "").Replace("ė", "").Replace("Ė", "").Replace("P", "")
 
                         f = "»" & "«bs*" & Len(code) - 1 & "»" & f
                     End If
@@ -6088,6 +6088,8 @@ noformat:
         If Microsoft.VisualBasic.Left(txtString.Text, cl) = (code & vbLf) Then '
             txtStringClear()
             Select Case code 'keypress enter run beginning txt 'add new in 'no tag
+                Case "si"
+                    sizeable()
                 Case "dbtip"
                     If My.Settings.SettingDbTip = True Then
                         My.Settings.SettingDbTip = False
@@ -7542,6 +7544,7 @@ noformat:
             dbCode("u")
 
             'no tag
+            dbCode1("si") 'sizeable
             dbCode1("dbtip") 'db tab dna > tip
             dbCode1("op") 'opacity
             dbCode1("export")
@@ -7958,7 +7961,18 @@ noformat:
         End If
     End Sub
 
+
     Private Sub txtString_KeyUp(sender As Object, e As KeyEventArgs) Handles txtString.KeyUp
+        If txtString.Text.StartsWith(">sk") Then ' >sk special key
+            If txtString.Text.Length = 3 Then
+                If GetAsyncKeyState(Keys.LControlKey) Or GetAsyncKeyState(Keys.RControlKey) Then txtString.AppendText(":")
+            Else
+                clearTxtString()
+                If IsNumeric(e.KeyValue) Then My.Settings.SettingSpecialKey = e.KeyValue
+            End If
+            Exit Sub
+        End If
+
         If GetAsyncKeyState(93) Then ttAdjust() 'mnu btn pressed then tool tip adjust
 
         'f5 run
@@ -9994,23 +10008,6 @@ mainimg:
         If Me.FormBorderStyle = FormBorderStyle.None And chk_tips.Checked = False And chk_timer1_on_val.Checked = True And My.Settings.SettingOptionsOnTipShow = True Then OnToolStripMenuItem.ToolTipText = "dna > " & TextBox1.Text
     End Sub
 
-    Private Sub LengthToolStripMenuItem_MouseDown(sender As Object, e As MouseEventArgs) Handles LengthToolStripMenuItem.MouseDown
-        If MouseButtons = MouseButtons.Left Then
-            Dim ctop As Boolean = chk_top.CheckState 'invert top
-            If ctop = True Then chk_top.Checked = False
-            t1 = InputBox("dna > 'key length'", "change length?", My.Settings.SettingTxtCodeLength)
-            If ctop = True Then chk_top.Checked = True
-            If IsNumeric(t1) Then
-                My.Settings.SettingTxtCodeLength = t1
-                txtLength.Text = t1
-            End If
-        End If
-        If MouseButtons = MouseButtons.Right Then
-            ContextMenuStripDb.Hide()
-            NoLengthToolStripMenuItem.PerformClick()
-        End If
-    End Sub
-
     Private Sub TabPage1_MouseMove(sender As Object, e As MouseEventArgs) Handles TabPage1.MouseMove, TabPage2.MouseMove, TabPage3.MouseMove, TabPage4.MouseMove
         showCursor()
     End Sub
@@ -10030,4 +10027,21 @@ mainimg:
         My.Settings.SettingRscroll = RscrollToolStripMenuItem.CheckState
     End Sub
 
+    Private Sub LengthToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LengthToolStripMenuItem.Click
+        Dim ctop As Boolean = chk_top.CheckState 'invert top
+        If ctop = True Then chk_top.Checked = False
+        t1 = InputBox("dna > 'key length'", "change length?", My.Settings.SettingTxtCodeLength)
+        If ctop = True Then chk_top.Checked = True
+        If IsNumeric(t1) Then
+            My.Settings.SettingTxtCodeLength = t1
+            txtLength.Text = t1
+        End If
+    End Sub
+
+    Private Sub LengthToolStripMenuItem_MouseDown(sender As Object, e As MouseEventArgs) Handles LengthToolStripMenuItem.MouseDown
+        If MouseButtons = MouseButtons.Right Then
+            ContextMenuStripDb.Hide()
+            NoLengthToolStripMenuItem.PerformClick()
+        End If
+    End Sub
 End Class
