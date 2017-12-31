@@ -1,13 +1,31 @@
 ﻿<style type="text/css">
 *{background-color:black;color:lime;}
 </style>
-![dnaspider logo](https://github.com/dnaspider/dnaspider/blob/master/dna.png "dnaspider")<pre>
+![]( "dnaspider")<pre>
+	[Examples](https://github.com/dnaspider/dnaspider/wiki/Legend#example-code)
+	<br>
+	
+	Codes:
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Keyboard](https://github.com/dnaspider/dnaspider/wiki/Legend#keyboard)
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Mouse](https://github.com/dnaspider/dnaspider/wiki/Legend#mouse-menu)
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Sleep](https://github.com/dnaspider/dnaspider/wiki/Legend#sleep)
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Internal](https://github.com/dnaspider/dnaspider/wiki/Legend#internals)
+	
+	Db:
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[List](https://github.com/dnaspider/dnaspider/wiki/Legend#internal-db-list-box-option-and-commands)
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Text](https://github.com/dnaspider/dnaspider/wiki/Legend#internal-db-text-box-options-and-commands)
+	
+	Misc.
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Auto Complete](https://github.com/dnaspider/dnaspider/wiki/Legend#value--tab-auto-complete-text-box)
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Notes](https://github.com/dnaspider/dnaspider/wiki/Legend#misc-notes)
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Settings](https://github.com/dnaspider/dnaspider/wiki/Legend#manual-app-settings-config--enter)
+	
 	## Example code
 	//Description		//**dna > i/o** Code(4)	//Algorithm
 	Basic with length:	test			Hi!
-	Code length basic:	test			«bs*4»Hi!«ctrl»a«-ctrl»
-	With note:		test			«//print Hi! and select it»«bs*4»Hi!«shift»«left*3»«-shift»
-	No code length:		«tests»			«bs*5»Hi 
+	Code length basic:	test			«bs\*4»Hi!«ctrl»a«-ctrl»
+	With note:		test			«//print Hi! and select it»«bs\*4»Hi!«shift»«left\*3»«-shift»
+	No code length:		«tests»			«bs\*5»Hi 
 	No code length2:	**«tests-»**		**Yeah Buddy** 
 	Connect db items:	«tests-»		Yeah Buddy «tests»
 	<br>Ultimately your text box will look like this before you ctrl+s to save item: **«tests-»Yeah Buddy!**
@@ -18,7 +36,7 @@
 	**left ctrl + left shift + backspace**
 	to initialize (**dna > «**)
 	then type 'tests' in a text box outside the program for algorithm / output.
-	No tab between code and algorithm example: «tests»«bs*5»Hi 
+	No tab between code and algorithm example: «tests»«bs\*5»Hi 
 	Add a minus sign to auto backspace: «tests-»Hi
 	**left ctrl + space**: initialize
 	<br>Connect db items:
@@ -32,14 +50,14 @@
 	Now type **test4** in a text box some where outside the program for output
 	
 	Tip:	
-	Press/hold **Pause/Break** key on keyboard to abort 
+	Press or hold **Pause/Break** key on keyboard to abort 
 	
 	Built and tested on Windows 8, 10 Pro 32-bit, and 64-bit. 
 	Desktop application; More examples below. 
 	
 	## More examples
 	//api
-			test		«bs*4»Hi!«left»«shift»«left*2»«-shift»
+			test		«bs\*4»Hi!«left»«shift»«left\*2»«-shift»
 			test		¤¤¤¤Hi!‡°‡‡ø
 	
 	//Sendkeys
@@ -47,7 +65,7 @@
 	sendkeys1:	test		«:{bs 4}there{left 5}»hello«:+;+0»
 	sk pro:(#1)	tes.		«:^x{bs 3}+,^v+. +,/^v+.^{left}»
 	
-	#1: ^=ctrl ^x=cut, {bs 3}=backspace*3, +=shift, ^v=paste, ^{left}= ctrl + left
+	#1: ^=ctrl ^x=cut, {bs 3}=backspace\*3, +=shift, ^v=paste, ^{left}= ctrl + left
 	
 	dna > **io code/key**
 	**tes.** =  t e s escape
@@ -63,7 +81,7 @@
 	«scroll»			sc					//toggle scroll lock 
 	«enter» 			e		¬	«sk:~»		//press enter key
 	«right*#» 			r		†	«:{right #}»  	//press right key (notes: «right*#» # = 1-99, «right*#:#-#» random ex. «right*#:1-3»)
-	«bs*3» 				b		¤	«:{bs 3}»	//press back-space key 3 times
+	«bs\*3» 				b		¤	«:{bs 3}»	//press back-space key 3 times
 	«ctrl»«-ctrl»			c		•Þ	«:^»		//ctrl key hold, ctrl key release
 	«alt»«-alt»			a		¹ª	«:%»		//alt hold, alt release
 	«shift»«-shift»			s		°ø	«:+»		//shift hold, shift release
@@ -142,7 +160,7 @@
 	«lcase»			lc					//lowercase clipboard
 	«<cb»			 					//temporarily add clipboard to db
 	«>cb»			 					//clipboard to text (first line for in between functionality) 
-	«x*»				«left*»			 	//print clipboard length (copy text then ctrl+v or f1 in between *» ex. «left*64»)
+	«x*»				«left*»			 	//print clipboard length (copy text then ctrl+v or f1 in between *» ex. «left\*64»)
 	«a»			 					//alert
 	
 	«audio:c:/?.wav»	au	?«audio:c:/ding.wav»?	//play .wav file (or «Audio:c:/?.wav» //wait option)
@@ -190,6 +208,7 @@
 	## Internal db text box options and commands
 	'help' or '?' + enter:					view manual/ internal documentation/ legend (f1: toggle tips, double click to clear)
 	double click blank text box:				get dna > 'code'
+	'>sk'							edit custom key for special « 	//type >sk then press ctrl then custom key  example: >sk lctrl lctrl
 	right click						editor menu
 	ctrl + space						editor menu (ctrl + space again: db menu)
 	ctrl + right click or right click hold + move:		db menu
@@ -264,7 +283,7 @@
 	'export' + enter:					export db
 	'config' + enter:					edit user.config (file location can be found in task manager. right click column, and check Command line.)
 	'dna' + enter:						aftermarket bg (true: od, odd, ar, sl, bg: odd/dna.png) | 'dna' escape + enter: adjust font
-	'«* (ctrl + v)»':					paste clipboard length (press ctrl + v after *  to print clipboard length)  example output: «enter*3»
+	'«* (ctrl + v)»':					paste clipboard length (press ctrl + v after *  to print clipboard length)  example output: «enter\*3»
 	'wb' + enter:						toggle main bg web browser (skin > main bg img > all files > .html or .htm file)
 	'browser' + enter:					show browser tab (dbl click tab to hide browser) |  lctrl + bs: back, lctrl + |: forward, lctrl + enter: navigate to...
 	'virtual store' + enter:				open C:\Users\..\AppData\Local\VirtualStore (export > db.txt backup location)
@@ -284,6 +303,8 @@
 	down:							end
 	up:							home
 	click :1 | :2 | >txt | <txt:				click '>' , '<' , ':1' or ':2'  in start of text box to auto erase
+	'si' + enter:						sizable
+	'dt' + enter:						toggle show db tab dna > tip
 	'ex' + enter:						drag program to extended screen
 	'w7' + enter:						Windows 7 tab complete
 	'skin' + enter:						customize program
@@ -309,7 +330,7 @@
 	long hold f5 then release:	run / test item
 	ctrl + c:			copy selected item
 	ctrl + mouse wheel:		adjust font size
-	alt + click item:		strand / tether run  ex. «strand:#*#», «strand:32*2», «strand:64»
+	alt + click item:		strand / tether run  ex. «strand:#*#», «strand:32\*2», «strand:64»
 	f1:				show database item text tip
 	left alt:			show database item index tip (for strand:#)
 	left:				home
@@ -326,30 +347,6 @@
 	'.edit' + click		temporarily edit selected item
 	'.delete' + click	temporarily delete selected item
 	Or right click add, delete, delete all, in db menu
-	
-	## Misc. notes
-	-to make blank key «» symbol:		left control + enter, middle click mouse inside of text box, or press tab
-	-mouse menu shortcuts:			«m-r» or «x:y» = mouse return, «l-c» = left click, «r-c» = right click...
-	-uncheck tips:				database item edit option # 2 
-	-double click main background:		toggle tabs visibility
-	-left ctrl + enter inside of «» symbol:	prints * or : * for «code*##' of times to run»  example:  «up*3» (up 3 times)  
-	-press space when starting app: 	no tab view (show touch screen bar)
-	-hold left ctrl when starting app:	switch touch screen bar on (no tab view)
-	-tab complete | «-tab»:			pess tab inside of «x[tab]»
-	-shrink program twice:			toggle icon
-	-white space tab complete:		«ws+tab: «ws»«-ws» | «wsp+tab: ‹› | ex. ‹ignore white space, place «code» here›
-	-quick delete: 				set text to "d" and click db item
-	
-	## More «auto complete»
-	rco:	 right ctrl	 example: «rco[tab]»
-	lco:	 left ctrl
-	ra:	 right alt
-	la:	 left alt
-	rw:	 right win
-	lw:	 left win
-	rs:	 right shift
-	ls:	 left shift
-	ww or wr:	 	«win»r«-win»«app:run»
 	
 	## Value + tab: auto complete (text box)	
 	r:	restart		example: r+tab (Pressing r then tab key in beginning of text prints restart. Now press enter to restart)
@@ -380,13 +377,35 @@
 	sk:	skin
 	v:	virutal store
 	ex:	export
-	
+	## More «auto complete»
+	rco:	 right ctrl	 example: «rco[tab]»
+	lco:	 left ctrl
+	ra:	 right alt
+	la:	 left alt
+	rw:	 right win
+	lw:	 left win
+	rs:	 right shift
+	ls:	 left shift
+	ww or wr:	 	«win»r«-win»«app:run»
 	
 	«media-stop»
 	«media-play-pause»		mpp	
 	«media-previous-track»		mpt	
 	«media-next-track»		mnt	
 	«media-select»
+	
+	## Misc. notes
+	-to make blank key «» symbol:		left control + enter, middle click mouse inside of text box, or press tab
+	-mouse menu shortcuts:			«m-r» or «x:y» = mouse return, «l-c» = left click, «r-c» = right click...
+	-uncheck tips:				database item edit option # 2 
+	-double click main background:		toggle tabs visibility
+	-left ctrl + enter inside of «» symbol:	prints * or : * for «code*##' of times to run»  example:  «up\*3» (up 3 times)  
+	-press space when starting app: 	no tab view (show touch screen bar)
+	-hold left ctrl when starting app:	switch touch screen bar on (no tab view)
+	-tab complete | «-tab»:			pess tab inside of «x[tab]»
+	-shrink program twice:			toggle icon
+	-white space tab complete:		«ws+tab: «ws»«-ws» | «wsp+tab: ‹› | ex. ‹ignore white space, place «code» here›
+	-quick delete: 				set text to "d" and click db item
 	
 	«x» 	// hold: 		x = lctrl, rctrl, lshift, rshift, lwin, rwin, lalt, ralt
 	«-x»	//-release
@@ -396,25 +415,29 @@
 	dna > '«nl + enter':		toggle no length run (dna > «)
 	dna > '«st + enter':		show tabs
 	
-	«value*#» 	ex. «enter*3»						//press «value» key 3 times
-	«value*#:#-#» 	ex. «enter*#:1-3», «enter*r:0-1», «test*#:1-30»		//generate random option 
+	«value*#» 	ex. «enter\*3»						//press «value» key 3 times
+	«value*#:#-#» 	ex. «enter*#:1-3», «enter\*r:0-1», «test*#:1-30»		//generate random option 
 	
 	## Manual App Settings: (config + enter)
-	//SettingOEMSleep 
-		(adjust milliseconds for «,»)
-	//SettingBackgroundImageLayout (main bg image)
-		0: none
-		1: tile
-		2: center
-		3: stretch
-		4: zoom
-	//key « 
-		SettingLctrlSpace_key
-		SettingEscComma_key
-		SettingLctrlLshftBs_key
-	//SettingOptionsOnTipShow
-		true: show dna > tip (menu: options > on)
-	//SettingAutoRetryAppError (+ SettingOEMSleep in between retries) 
-		true: auto retry from error (press pause break key to abort)
-		false: show retry yesno message
+	SettingOEMSleep 
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(adjust milliseconds for «,»)
+	
+	SettingBackgroundImageLayout (main bg image)
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0: none
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1: tile
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2: center
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3: stretch
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4: zoom
+	
+	key « 
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SettingLctrlSpace_key
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SettingEscComma_key
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SettingLctrlLshftBs_key
+	
+	SettingOptionsOnTipShow
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;true: show dna > tip (menu: options > on)
+	
+	SettingAutoRetryAppError (+ SettingOEMSleep in between retries) 
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;true: auto retry from error (press pause break key to abort)
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;false: show retry yesno message
 	</pre>
