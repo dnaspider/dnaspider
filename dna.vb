@@ -7967,8 +7967,13 @@ noformat:
             If txtString.Text.Length = 3 Then
                 If GetAsyncKeyState(Keys.LControlKey) Or GetAsyncKeyState(Keys.RControlKey) Then txtString.AppendText(":")
             Else
+                Select Case e.KeyValue
+                    Case 17
+                        My.Settings.SettingSpecialKey = Keys.RControlKey
+                    Case Else
+                        If IsNumeric(e.KeyValue) Then My.Settings.SettingSpecialKey = e.KeyValue
+                End Select
                 clearTxtString()
-                If IsNumeric(e.KeyValue) Then My.Settings.SettingSpecialKey = e.KeyValue
             End If
             Exit Sub
         End If
