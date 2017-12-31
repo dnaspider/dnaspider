@@ -1,443 +1,440 @@
-﻿<style type="text/css">
-*{background-color:black;color:lime;}
-</style>
-![]( "dnaspider")<pre>
-	[Examples](https://github.com/dnaspider/dnaspider/wiki/Legend#example-code)
-	<br>
-	
-	Codes:
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Keyboard](https://github.com/dnaspider/dnaspider/wiki/Legend#keyboard)
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Mouse](https://github.com/dnaspider/dnaspider/wiki/Legend#mouse-menu)
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Sleep](https://github.com/dnaspider/dnaspider/wiki/Legend#sleep)
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Internal](https://github.com/dnaspider/dnaspider/wiki/Legend#internals)
-	
-	Db:
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[List](https://github.com/dnaspider/dnaspider/wiki/Legend#internal-db-list-box-option-and-commands)
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Text](https://github.com/dnaspider/dnaspider/wiki/Legend#internal-db-text-box-options-and-commands)
-	
-	Misc.
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Auto Complete](https://github.com/dnaspider/dnaspider/wiki/Legend#value--tab-auto-complete-text-box)
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Notes](https://github.com/dnaspider/dnaspider/wiki/Legend#misc-notes)
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Settings](https://github.com/dnaspider/dnaspider/wiki/Legend#manual-app-settings-config--enter)
-	
-	## Example code
-	//Description		//**dna > i/o** Code(4)	//Algorithm
-	Basic with length:	test			Hi!
-	Code length basic:	test			«bs\*4»Hi!«ctrl»a«-ctrl»
-	With note:		test			«//print Hi! and select it»«bs\*4»Hi!«shift»«left\*3»«-shift»
-	No code length:		«tests»			«bs\*5»Hi 
-	No code length2:	**«tests-»**		**Yeah Buddy** 
-	Connect db items:	«tests-»		Yeah Buddy «tests»
-	<br>Ultimately your text box will look like this before you ctrl+s to save item: **«tests-»Yeah Buddy!**
-	<br>Example notes:
-	No code length run: 
-	Press **right ctrl** or
-	**escape + comma** or
-	**left ctrl + left shift + backspace**
-	to initialize (**dna > «**)
-	then type 'tests' in a text box outside the program for algorithm / output.
-	No tab between code and algorithm example: «tests»«bs\*5»Hi 
-	Add a minus sign to auto backspace: «tests-»Hi
-	**left ctrl + space**: initialize
-	<br>Connect db items:
-	db:
-	«test1-»Hi
-	«test2-»Hello
-	«test3-»Yeah Buddy
-	«test4-»«test1-» «test2-» «test3-»
-	<br>Add the above db examples to your database
-	On your keyboard quickly press and release the **Right Ctrl** key to initialize no code length mode **dna > «**
-	Now type **test4** in a text box some where outside the program for output
-	
-	Tip:	
-	Press or hold **Pause/Break** key on keyboard to abort 
-	
-	Built and tested on Windows 8, 10 Pro 32-bit, and 64-bit. 
-	Desktop application; More examples below. 
-	
-	## More examples
-	//api
-			test		«bs\*4»Hi!«left»«shift»«left\*2»«-shift»
-			test		¤¤¤¤Hi!‡°‡‡ø
-	
-	//Sendkeys
-	sendkeys:	test		sk:{bs 4}Hello!+{left 6}
-	sendkeys1:	test		«:{bs 4}there{left 5}»hello«:+;+0»
-	sk pro:(#1)	tes.		«:^x{bs 3}+,^v+. +,/^v+.^{left}»
-	
-	#1: ^=ctrl ^x=cut, {bs 3}=backspace\*3, +=shift, ^v=paste, ^{left}= ctrl + left
-	
-	dna > **io code/key**
-	**tes.** =  t e s escape
-	
-	To get/see dna > i/o code key(s): Check options > main > tips check box or right click tips and check [dna > ]. Press a keyboard key for dna > input/output
-	To get «algorithm codes» for keyboard & mouse event: Right click db text box or use tab«-tab» shortcut
-	
-	## Keyboard
-	//Algorithm code		//«-tab»	//Short	//Sendkeys	//Notes
-	«sendkeys:» «sk:» or «:» 	sk					//print top row: +1 = !, +2 = @, etc... or "«:+1 »"  will print "!"
-	«num»				nu					//toggle num lock 
-	«caps»				ca					//toggle caps lock 
-	«scroll»			sc					//toggle scroll lock 
-	«enter» 			e		¬	«sk:~»		//press enter key
-	«right*#» 			r		†	«:{right #}»  	//press right key (notes: «right*#» # = 1-99, «right*#:#-#» random ex. «right*#:1-3»)
-	«bs\*3» 				b		¤	«:{bs 3}»	//press back-space key 3 times
-	«ctrl»«-ctrl»			c		•Þ	«:^»		//ctrl key hold, ctrl key release
-	«alt»«-alt»			a		¹ª	«:%»		//alt hold, alt release
-	«shift»«-shift»			s		°ø	«:+»		//shift hold, shift release
-	«win»«-win»			w		ùÙ			//win hold, win release
-	«tab»				t		·	«:{tab}»	//press tab key
-	«escape» or «esc»		es		Ç	«:{esc}»	//press escape key
-	«insert»			i		ý	«:{insert}»	//press insert key
-	«pause»				p		ú	«:{pause}»	//press pause key
-	«break»				br		ú	«:{pause}»	//press pause break key
-	«home»				ho		þ	«:{home}»	//press home key
-	«end»				en		ÿ	«:{end}»	//press end key
-	«page-up»			pu		Ü	«:{pgup}»	//press pgup key
-	«page-down»			pd		Ý	«:{pgdwn}»	//press pgdn key
-	«menu»				me		û			//press menu key
-	«delete»			de		º	«:{delete}»	//press delete key
-	«left»				l		‡	«:{left}»	//press left key
-	«right»				r		†	«:{right}»	//press right key
-	«down»				d		ƒ	«:{down}»	//press down key
-	«up»				u		€	«:{up}»		//press up key
-	«f1»			 			Í	«:{f1}»		//press f1 key
-	«f2»			 			Â	«:{f2}»		//press f2 key
-	«f3»			 			Ã	«:{f3}»		//press f3 key
-	«f4»			 			Ð	«:{f4}»		//press f4 key
-	«f5»			 			Ï	«:{f5}»		//press f5 key
-	«f6»			 			Æ	«:{f6}»		//press f6 key
-	«f7»			 			Î	«:{f7}»		//press f7 key
-	«f8»			 			È	«:{f8}»		//press f8 key
-	«f9»			 			É	«:{f9}»		//press f9 key
-	«f10»			 			Ê	«:{f10}»	//press f10 key
-	«f11»			 			Ë	«:{f11}»	//press f11 key
-	«f12»			 			Ì	«:{f12}»	//press f12 key
-	«mute»				mu		˜			//mute
-	«volume-up»			vu		ˆ			//volume up
-	«volume-down»			vd		Ž			//volume down
-	«print-screen»			ps		¯			//press print screen key
-	
-	## Mouse menu
-	«xy:826-413»			x		//move mouse to position x & y or press escape or p key when on top of target to get the mouses x y position, then click mouse > xy menu to extract coordinates.
-	«xy»						//get cursor position x & y (for «return-mouse»)
-	«return-mouse»			rm	¿	//return mouse back to original position 
-	«left-click»			lc	§	//left click 
-	«left-hold»			lh	Ÿ	//hold left mouse button down
-	«left-release»			lr	¢	//release left mouse button
-	«right-click»			rc	¦	//right click
-	«right-hold»			rh	¡	//hold right mouse button down
-	«right-release»			rr	¡	//release right mouse button
-	«middle-click»			mc	¶	//middle-click
-	«mouse-up»			mu	Ӂ	//move mouse up 1 pixel (1px)
-	«mouse-down»			md	җ	//move mouse down 1px
-	«mouse-left»			ml	ӝ	//move mouse left 1px
-	«mouse-right»			mr	Ӝ	//move mouse right 1px
-	
-	## «Internals»
-	//Internals 			//Example			//Description
-	«sendkeys:»		sk	«sendkeys:\~»			//sendkeys: key | «sendkeys:b{left}a{right}c{left 3}~»
-	«sk:»			 	«sk:~abc+1»			//sendkeys: key (enter a b c shift+1/!)
-	**«:»**			 	«:^+{home}»			//sendkeys: key (ctrl shift home)
-	sendkeys:	 	 	sendkeys:{bs 4}«»{left}		//sendkeys:keys (only in beginning of text box)
-	sk:		 	 	sk:{bs 4}«»{left}		//sendkeys:keys (only in beginning of text box also)
-	Tip: Use Sendkeys to output miscellaneous characters. Example: **«sendkeys:á฿©👌{left 3}»**
-	
-	«clipboard:»«cb:»	cb	«cb:copy»			//store value in clipboard | copy
-	«cb»			 					//print clipboard | paste
-	«cbl»			 					//copy clipboard length
-	«replace:|»		rep	«replace:a|b»			//replace: text a with text b. (manipulate from clipboard.) | manipulate text in notepad example: select a text and run: «ctrl»x«-ctrl»«m»«replace:a|b»«m»«ctrl»v«-ctrl»	
-	«+ - / \ mod:##»		 				//copy clipboard answer x:# (x=+ - / \ mod) 
-	«+:»			 	«+:1»				//copy clipboard answer cb + #
-	«-:»			 	«-:1»				//copy clipboard answer cb - #
-	«*:»			 	«*:2»				//copy clipboard answer cb + #
-	«/:»			 	«/:2»				//copy clipboard answer cb / #
-	«\:»			 	«\:2»				//copy clipboard answer cb \ #
-	«mod:»			 	«mod:3»				//copy clipboard answer cb mod #
-	«++»			 					//print clipboard value + 1 
-	«--»			 					//print clipboard value - 1 
-	«ucase»			uc					//uppercase clipboard 
-	«lcase»			lc					//lowercase clipboard
-	«<cb»			 					//temporarily add clipboard to db
-	«>cb»			 					//clipboard to text (first line for in between functionality) 
-	«x*»				«left*»			 	//print clipboard length (copy text then ctrl+v or f1 in between *» ex. «left\*64»)
-	«a»			 					//alert
-	
-	«audio:c:/?.wav»	au	?«audio:c:/ding.wav»?	//play .wav file (or «Audio:c:/?.wav» //wait option)
-	«stop-audio»		sa	«stop-audio»		//stop audio
-	«App:»			 	«App:1235»		//processor id # can be found in task manager. right click column, and check menu PID. this will set focus to an application / bring it to the front for controlling 
-	«app:»			ap	«app:notepad»		//title id string can be found in task manager next to programs icon. this will set focus to an application / bring it to the front for controlling. Or use open window title. Tip: ' - Window Name' must include the space before dash. example:  «app: - Notepad»
-	«url:»			ur	«url:c:/notepad.exe»	//opens url using browser
-	«web:»			we	«web:?.com»		//opens browser to corresponding web page
-	«'»			n	«'note»			//personal note / description | «'my note» | «'comments» (tip:«'use this version», or «//this version» for comments, notes)
-	«show» | ¾		sh				//show program
-	«hide» | ð		hi				//hide program
-	«on»							//engine on
-	«off»			of				//engine off
-	«io»			 				//clear dna > io
-	«io:?»				«io:x»	 	 	//dna > x 
-	«io:<<»				«io:<<»	 	 	//dna > «
-	«io:>>»				«io:>>» 	 	//lock dna > » 
-	«b:»			bro	«b:?.com»		//internal browser. example: «b:?.com»
-	«ignore-mouse-check»	imc				//ignore mouse option off
-	«ignore-mouse-uncheck»	imu				//ignore mouse option on
-	«top»							//«top» toggle main > top
-	«time:»			tim	«time: x »		//«time» print time, «time:» copy time  | «time:x» x=replace : with x
-	«date:»			dat	«date: x »		//«date» print date, «date:» copy date | «date:x» x=replace / with x
-	«#:»			ra	«#:1-3»			//random number x-x | example: «#:1-3»
-	«#»			rn	«#»			//random number 0-9 | generate two numbers like this with a pause in the middle: «#»«pause:10»«#»
-	«x»			rl	«x»			//generate random letter a-z
-	«X»			 	«X»			//generate random capital letter A-Z
-	«//»			 	«//html»		//insert to specific location in database | b r escape escape example: br.. «//html»¤¤«note:br tag»‹br›
-	«<<»							//print «
-	«>>»							//print »
-	«<<>>»							//print «»
-	«<<>>l»							//print «» then key left
-	«do»							//do events
-	«yesno»			y				//yes no? (continue run) | «yesno:verify message»
-	«save»			sav				//save program settings 
-	«dna»			dn				//when program starts run first sequence in database (save to first item in db) | example: test Hi!«dna»
-	«restart»		res				//restart program
-	«exit»			ex				//exit program
-	
-	## Sleep
-	«sleep:»		sl	«sleep:3000»		//sleep 3 second (sleep:milliseconds)
-	«,»							//sleep:SettingOEMSleep ms (config + enter)
-	«,:1000»						//sleep:1000 ms
-	
-	## Internal db text box options and commands
-	'help' or '?' + enter:					view manual/ internal documentation/ legend (f1: toggle tips, double click to clear)
-	double click blank text box:				get dna > 'code'
-	'>sk'							edit custom key for special « 	//type >sk then press ctrl then custom key  example: >sk lctrl lctrl
-	right click						editor menu
-	ctrl + space						editor menu (ctrl + space again: db menu)
-	ctrl + right click or right click hold + move:		db menu
-	hold pause break key:					abort algorithm
-	ctrl + mouse wheel:					adjust font size
-	pinch to zoom 						(touch-screen)
-	left ctrl + enter or mouse middle click:		print '«»' (press tab inside of «» to show menu)
-	tab complete example:					press left ctrl + enter: to print «», then press s, tab. example: «s[tab]»	//prints «shift»«-shift»
-	ctrl + left click:					repeat last clicked item from menu
-	ctrl + s:						save text to database / db 
-	ctrl + e:						edit (text -> db selected item)
-	ctrl + u:						update (save text -> db selected item)
-	ctrl + f:						find selected text in db (to search text, hide db workspace, select text and press lctrl + f, lctrl + f again to find next match)
-	esc + insert | right ctrl + enter | esc + period:	test / run
-	long hold f5 then release:				run selected text
-	'>':							append item (db item to text)
-	'<' + 'text':						insert to db (text to db) | example: <test (click db item)
-	'sendkeys:' or 'sk:' 					stock sendkeys (ex. testsk:{left 4}) 
-	'0'							remove new line (run)
-	'1'							sendkeys run mode (place1 in textbox)
-	':1'							replace all line feeds in clipboard with «space» when pasting / ctrl + v
-	':2'							replace all line feeds in clipboard with «enter» when pasting / ctrl + v
-	'db' + enter:						select db (focus)
-	't' + enter:						select top item in db
-	'b' + enter:						select bottom item in db
-	'e' + enter:						edit selected item in db. (e, ed, or edit + enter)
-	'delete all' + enter:					delete all items in db
-	'al' + enter:						toggle auto lock mechanism after run |  right ctrl: toggle manual lock / dna > »
-	'nl' + enter:						toggle no length run mode | dna > « (lctrl + lshift + bs, or rctrl, or esc + comma)
-	'cb' + enter:						toggle remember clipboard after run
-	'a-z' + enter:						toggle ignore a-z option
-	'0-9' + enter:						toggle ignore 0-9 option
-	'f1-f12' + enter:					toggle ignore f1-f12 option
-	'number pad' or 'np' + enter:				toggle ignore number pad option
-	'misc' + enter:						toggle ignore misc option
-	'arrows' + enter:					toggle ignore arrows option
-	'media' + enter:					toggle ignore media option
-	'other' + enter:					toggle ignore other option
-	'mc' + enter:						toggle middle click db item to run
-	'dc' + enter:						toggle double click db item to run
-	'cr' + enter:						toggle click db item to run
-	'rr' + enter:						toggle right click db item to run
-	're' + enter:						toggle right ctrl + enter run
-	'ei' + enter:						toggle escape + insert run
-	'ep' + enter:						toggle escape + period run
-	'sw' + enter:						toggle swipe db item to run
-	'swipe' + enter:					toggle swipe menu
-	'algorithm' + enter:					toggle algorithm menu
-	'sh' + enter:						toggle stay hidden after run (middle click item)
-	'ts' + enter:						toggle touch screen bar (appearance 7)
-	'gc' + enter:						free up ram (gc.collect)
-	'gc:' + enter:						toggle (gc.collect)
-	'on' + enter:						engine on
-	'off' + enter:						engine off
-	'top' + enter:						toggle main > top
-	'ww' + enter:						toggle word wrap
-	'ws' + enter:						toggle ignore white space 
-	'bg' + enter:						edit background image
-	'ar' + enter:						toggle auto retry «app:Error»
-	'op' + enter:						change opacity (ex. 0.5)
-	'od' + enter:						toggle export to OneDrive 
-	'odd' + enter:						edit OneDrive directory (change export to OneDrive folder)
-	'ml' + enter:						edit dna > «length (SettingMaxLength default: 25)
-	'v' + enter or 'cv' + enter:				toggle change view
-	'ic' + enter:						change icon
-	'cc' + enter:						change color (dna + enter)
-	's' + enter:						shrink
-	'o' + enter:						open work space
-	'c' + enter:						close work space
-	'font' + enter:						adjust font
-	'rf' + enter:						reset font
-	'export' + enter:					export db
-	'config' + enter:					edit user.config (file location can be found in task manager. right click column, and check Command line.)
-	'dna' + enter:						aftermarket bg (true: od, odd, ar, sl, bg: odd/dna.png) | 'dna' escape + enter: adjust font
-	'«* (ctrl + v)»':					paste clipboard length (press ctrl + v after *  to print clipboard length)  example output: «enter\*3»
-	'wb' + enter:						toggle main bg web browser (skin > main bg img > all files > .html or .htm file)
-	'browser' + enter:					show browser tab (dbl click tab to hide browser) |  lctrl + bs: back, lctrl + |: forward, lctrl + enter: navigate to...
-	'virtual store' + enter:				open C:\Users\..\AppData\Local\VirtualStore (export > db.txt backup location)
-	'startup' + enter:					move dna shortcut to C:\Users\..\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
-	'restart' + enter:					restart program
-	«import» or «i» + enter:				import
-	«add» or «a» + enter:					add | example: textbox text«add(press enter)»
-	«edit» or «e» + enter:					edit 
-	«update» or «u» + enter:				update 
-	shift + escape:						toggle engine 
-	long hold l + 0-9:					adjust dna > 'code length'
-	escape + i: 						adjust engine interval
-	f1:							toggle tips
-	f2:							copy selected text | copy text
-	f3:							paste
-	f4:							clear text
-	down:							end
-	up:							home
-	click :1 | :2 | >txt | <txt:				click '>' , '<' , ':1' or ':2'  in start of text box to auto erase
-	'si' + enter:						sizable
-	'dt' + enter:						toggle show db tab dna > tip
-	'ex' + enter:						drag program to extended screen
-	'w7' + enter:						Windows 7 tab complete
-	'skin' + enter:						customize program
-	'hide' + enter:						hide program
-	'ht' + enter:						hide tabs
-	**h + escape**: 						toggle visibility
-	**'dna' + escape + enter**: 				aftermarket customization (first place dna.png in C:\Users\\?\OneDrive\dna)
-	'exit' + enter:						exit program
-	
-	'sl' + enter:						toggle scroll lock run / repeat (config: SettingScrollLockRun)
-	escape + scroll lock: 					auto copy selected text, press again to auto add copied text to db or set text box to < and press scroll lock for auto add cb | options: set text box to > and press scroll lock for auto add selected/copied text to text box (first line for in between functionality. ex. >«enter») | set text to <' or ' and press esc + scroll lock to add selected text (add 'cb / just text option) | press right ctrl and type new code, select some text, then press [esc + scroll lock] to auto add code /w cb («test»test) | hold esc longer («test-»test)
-	scroll lock: 						repeat selected item, selected text, or text 
-	
-	## Internal db list box option and commands
-	right click:			show database menu
-	ctrl + right click:		clear text, db menu
-	ctrl + double click:		more db options
-	ctrl + e:			selected db item to text
-	ctrl + space:			db menu
-	double click or enter:		run selected item
-	delete:				delete item
-	escape + insert:		test selected item
-	long hold f5 then release:	run / test item
-	ctrl + c:			copy selected item
-	ctrl + mouse wheel:		adjust font size
-	alt + click item:		strand / tether run  ex. «strand:#*#», «strand:32\*2», «strand:64»
-	f1:				show database item text tip
-	left alt:			show database item index tip (for strand:#)
-	left:				home
-	right:				end
-	pinch to zoom
-	db comments:			1.) //comments 2.) comments// 3.) 'comments / 'text
-	
-	## Temporary internal db options
-	'reload' + enter	reload db
-	'clear' + enter		temporarily clear db
-	'.add' + enter		temporarily add text to db; example: text.add(+enter key)
-	'.import' + enter	temporarily import text lines to db
-	'.add' + click item	temporarily replace selected item ('text.add'... + enter: temporary add to db)
-	'.edit' + click		temporarily edit selected item
-	'.delete' + click	temporarily delete selected item
-	Or right click add, delete, delete all, in db menu
-	
-	## Value + tab: auto complete (text box)	
-	r:	restart		example: r+tab (Pressing r then tab key in beginning of text prints restart. Now press enter to restart)
-	e:	exit
-	b:	browser
-	ed:	edit
-	da:	delete all
-	re:	reload
-	s:	startup
-	sw:	swipe
-	al:	algorithm
-	a:	a-z		show menu (press tab again)
-	0:	0-9		show menu
-	f:	f1-f12		show menu
-	n:	number pad	show menu
-	m:	misc		show menu
-	ar:	arrows		show menu
-	me:	media		show menu
-	ot:	other		show menu
-	o:	on		show menu
-	d:	db		show menu
-	of:	off
-	t:	top		show menu
-	ti:	tips		show menu
-	h:	help
-	c:	clear
-	co:	config
-	sk:	skin
-	v:	virutal store
-	ex:	export
-	## More «auto complete»
-	rco:	 right ctrl	 example: «rco[tab]»
-	lco:	 left ctrl
-	ra:	 right alt
-	la:	 left alt
-	rw:	 right win
-	lw:	 left win
-	rs:	 right shift
-	ls:	 left shift
-	ww or wr:	 	«win»r«-win»«app:run»
-	
-	«media-stop»
-	«media-play-pause»		mpp	
-	«media-previous-track»		mpt	
-	«media-next-track»		mnt	
-	«media-select»
-	
-	## Misc. notes
-	-to make blank key «» symbol:		left control + enter, middle click mouse inside of text box, or press tab
-	-mouse menu shortcuts:			«m-r» or «x:y» = mouse return, «l-c» = left click, «r-c» = right click...
-	-uncheck tips:				database item edit option # 2 
-	-double click main background:		toggle tabs visibility
-	-left ctrl + enter inside of «» symbol:	prints * or : * for «code*##' of times to run»  example:  «up\*3» (up 3 times)  
-	-press space when starting app: 	no tab view (show touch screen bar)
-	-hold left ctrl when starting app:	switch touch screen bar on (no tab view)
-	-tab complete | «-tab»:			pess tab inside of «x[tab]»
-	-shrink program twice:			toggle icon
-	-white space tab complete:		«ws+tab: «ws»«-ws» | «wsp+tab: ‹› | ex. ‹ignore white space, place «code» here›
-	-quick delete: 				set text to "d" and click db item
-	
-	«x» 	// hold: 		x = lctrl, rctrl, lshift, rshift, lwin, rwin, lalt, ralt
-	«-x»	//-release
-	Example: 			«lctrl»x«-lctrl» (hold left ctrl, press x, release lctrl)
-	
-	dna > '«al + enter':		toggle auto lock (dna > »)
-	dna > '«nl + enter':		toggle no length run (dna > «)
-	dna > '«st + enter':		show tabs
-	
-	«value*#» 	ex. «enter\*3»						//press «value» key 3 times
-	«value*#:#-#» 	ex. «enter*#:1-3», «enter\*r:0-1», «test*#:1-30»		//generate random option 
-	
-	## Manual App Settings: (config + enter)
-	SettingOEMSleep 
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(adjust milliseconds for «,»)
-	
-	SettingBackgroundImageLayout (main bg image)
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0: none
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1: tile
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2: center
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3: stretch
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4: zoom
-	
-	key « 
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SettingLctrlSpace_key
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SettingEscComma_key
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SettingLctrlLshftBs_key
-	
-	SettingOptionsOnTipShow
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;true: show dna > tip (menu: options > on)
-	
-	SettingAutoRetryAppError (+ SettingOEMSleep in between retries) 
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;true: auto retry from error (press pause break key to abort)
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;false: show retry yesno message
-	</pre>
+﻿![]( "dnaspider")<pre>
+[Examples](https://github.com/dnaspider/dnaspider/wiki/Legend#example-code)
+<br>
+
+Codes:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Keyboard](https://github.com/dnaspider/dnaspider/wiki/Legend#keyboard)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Mouse](https://github.com/dnaspider/dnaspider/wiki/Legend#mouse-menu)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Sleep](https://github.com/dnaspider/dnaspider/wiki/Legend#sleep)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Internal](https://github.com/dnaspider/dnaspider/wiki/Legend#internals)
+
+Db:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[List](https://github.com/dnaspider/dnaspider/wiki/Legend#internal-db-list-box-option-and-commands)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Text](https://github.com/dnaspider/dnaspider/wiki/Legend#internal-db-text-box-options-and-commands)
+
+Misc.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Auto Complete](https://github.com/dnaspider/dnaspider/wiki/Legend#value--tab-auto-complete-text-box)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Notes](https://github.com/dnaspider/dnaspider/wiki/Legend#misc-notes)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Settings](https://github.com/dnaspider/dnaspider/wiki/Legend#manual-app-settings-config--enter)
+
+## Example code
+//Description		//**dna > i/o** Code(4)	//Algorithm
+Basic with length:	test			Hi!
+Code length basic:	test			«bs\*4»Hi!«ctrl»a«-ctrl»
+With note:		test			«//print Hi! and select it»«bs\*4»Hi!«shift»«left\*3»«-shift»
+No code length:		«tests»			«bs\*5»Hi 
+No code length2:	**«tests-»**		**Yeah Buddy** 
+Connect db items:	«tests-»		Yeah Buddy «tests»
+<br>Ultimately your text box will look like this before you ctrl+s to save item: **«tests-»Yeah Buddy!**
+<br>Example notes:
+No code length run: 
+Press **right ctrl** or
+**escape + comma** or
+**left ctrl + left shift + backspace**
+to initialize (**dna > «**)
+then type 'tests' in a text box outside the program for algorithm / output.
+No tab between code and algorithm example: «tests»«bs\*5»Hi 
+Add a minus sign to auto backspace: «tests-»Hi
+**left ctrl + space**: initialize
+<br>Connect db items:
+db:
+«test1-»Hi
+«test2-»Hello
+«test3-»Yeah Buddy
+«test4-»«test1-» «test2-» «test3-»
+<br>Add the above db examples to your database
+On your keyboard quickly press and release the **Right Ctrl** key to initialize no code length mode **dna > «**
+Now type **test4** in a text box some where outside the program for output
+
+Tip:	
+Press or hold **Pause/Break** key on keyboard to abort 
+
+Built and tested on Windows 8, 10 Pro 32-bit, and 64-bit. 
+Desktop application; More examples below. 
+
+## More examples
+//api
+		test		«bs\*4»Hi!«left»«shift»«left\*2»«-shift»
+		test		¤¤¤¤Hi!‡°‡‡ø
+
+//Sendkeys
+sendkeys:	test		sk:{bs 4}Hello!+{left 6}
+sendkeys1:	test		«:{bs 4}there{left 5}»hello«:+;+0»
+sk pro:(#1)	tes.		«:^x{bs 3}+,^v+. +,/^v+.^{left}»
+
+#1: ^=ctrl ^x=cut, {bs 3}=backspace\*3, +=shift, ^v=paste, ^{left}= ctrl + left
+
+dna > **io code/key**
+**tes.** =  t e s escape
+
+To get/see dna > i/o code key(s): Check options > main > tips check box or right click tips and check [dna > ]. Press a keyboard key for dna > input/output
+To get «algorithm codes» for keyboard & mouse event: Right click db text box or use tab«-tab» shortcut
+
+## Keyboard
+//Algorithm code		//«-tab»	//Short	//Sendkeys	//Notes
+«sendkeys:» «sk:» or «:» 	sk					//print top row: +1 = !, +2 = @, etc... or "«:+1 »"  will print "!"
+«num»				nu					//toggle num lock 
+«caps»				ca					//toggle caps lock 
+«scroll»			sc					//toggle scroll lock 
+«enter» 			e		¬	«sk:~»		//press enter key
+«right*#» 			r		†	«:{right #}»  	//press right key (notes: «right*#» # = 1-99, «right*#:#-#» random ex. «right*#:1-3»)
+«bs\*3» 				b		¤	«:{bs 3}»	//press back-space key 3 times
+«ctrl»«-ctrl»			c		•Þ	«:^»		//ctrl key hold, ctrl key release
+«alt»«-alt»			a		¹ª	«:%»		//alt hold, alt release
+«shift»«-shift»			s		°ø	«:+»		//shift hold, shift release
+«win»«-win»			w		ùÙ			//win hold, win release
+«tab»				t		·	«:{tab}»	//press tab key
+«escape» or «esc»		es		Ç	«:{esc}»	//press escape key
+«insert»			i		ý	«:{insert}»	//press insert key
+«pause»				p		ú	«:{pause}»	//press pause key
+«break»				br		ú	«:{pause}»	//press pause break key
+«home»				ho		þ	«:{home}»	//press home key
+«end»				en		ÿ	«:{end}»	//press end key
+«page-up»			pu		Ü	«:{pgup}»	//press pgup key
+«page-down»			pd		Ý	«:{pgdwn}»	//press pgdn key
+«menu»				me		û			//press menu key
+«delete»			de		º	«:{delete}»	//press delete key
+«left»				l		‡	«:{left}»	//press left key
+«right»				r		†	«:{right}»	//press right key
+«down»				d		ƒ	«:{down}»	//press down key
+«up»				u		€	«:{up}»		//press up key
+«f1»			 			Í	«:{f1}»		//press f1 key
+«f2»			 			Â	«:{f2}»		//press f2 key
+«f3»			 			Ã	«:{f3}»		//press f3 key
+«f4»			 			Ð	«:{f4}»		//press f4 key
+«f5»			 			Ï	«:{f5}»		//press f5 key
+«f6»			 			Æ	«:{f6}»		//press f6 key
+«f7»			 			Î	«:{f7}»		//press f7 key
+«f8»			 			È	«:{f8}»		//press f8 key
+«f9»			 			É	«:{f9}»		//press f9 key
+«f10»			 			Ê	«:{f10}»	//press f10 key
+«f11»			 			Ë	«:{f11}»	//press f11 key
+«f12»			 			Ì	«:{f12}»	//press f12 key
+«mute»				mu		˜			//mute
+«volume-up»			vu		ˆ			//volume up
+«volume-down»			vd		Ž			//volume down
+«print-screen»			ps		¯			//press print screen key
+
+## Mouse menu
+«xy:826-413»			x		//move mouse to position x & y or press escape or p key when on top of target to get the mouses x y position, then click mouse > xy menu to extract coordinates.
+«xy»						//get cursor position x & y (for «return-mouse»)
+«return-mouse»			rm	¿	//return mouse back to original position 
+«left-click»			lc	§	//left click 
+«left-hold»			lh	Ÿ	//hold left mouse button down
+«left-release»			lr	¢	//release left mouse button
+«right-click»			rc	¦	//right click
+«right-hold»			rh	¡	//hold right mouse button down
+«right-release»			rr	¡	//release right mouse button
+«middle-click»			mc	¶	//middle-click
+«mouse-up»			mu	Ӂ	//move mouse up 1 pixel (1px)
+«mouse-down»			md	җ	//move mouse down 1px
+«mouse-left»			ml	ӝ	//move mouse left 1px
+«mouse-right»			mr	Ӝ	//move mouse right 1px
+
+## «Internals»
+//Internals 			//Example			//Description
+«sendkeys:»		sk	«sendkeys:\~»			//sendkeys: key | «sendkeys:b{left}a{right}c{left 3}~»
+«sk:»			 	«sk:~abc+1»			//sendkeys: key (enter a b c shift+1/!)
+**«:»**			 	«:^+{home}»			//sendkeys: key (ctrl shift home)
+sendkeys:	 	 	sendkeys:{bs 4}«»{left}		//sendkeys:keys (only in beginning of text box)
+sk:		 	 	sk:{bs 4}«»{left}		//sendkeys:keys (only in beginning of text box also)
+Tip: Use Sendkeys to output miscellaneous characters. Example: **«sendkeys:á฿©👌{left 3}»**
+
+«clipboard:»«cb:»	cb	«cb:copy»			//store value in clipboard | copy
+«cb»			 					//print clipboard | paste
+«cbl»			 					//copy clipboard length
+«replace:|»		rep	«replace:a|b»			//replace: text a with text b. (manipulate from clipboard.) | manipulate text in notepad example: select a text and run: «ctrl»x«-ctrl»«m»«replace:a|b»«m»«ctrl»v«-ctrl»	
+«+ - / \ mod:##»		 				//copy clipboard answer x:# (x=+ - / \ mod) 
+«+:»			 	«+:1»				//copy clipboard answer cb + #
+«-:»			 	«-:1»				//copy clipboard answer cb - #
+«*:»			 	«*:2»				//copy clipboard answer cb + #
+«/:»			 	«/:2»				//copy clipboard answer cb / #
+«\:»			 	«\:2»				//copy clipboard answer cb \ #
+«mod:»			 	«mod:3»				//copy clipboard answer cb mod #
+«++»			 					//print clipboard value + 1 
+«--»			 					//print clipboard value - 1 
+«ucase»			uc					//uppercase clipboard 
+«lcase»			lc					//lowercase clipboard
+«<cb»			 					//temporarily add clipboard to db
+«>cb»			 					//clipboard to text (first line for in between functionality) 
+«x*»				«left*»			 	//print clipboard length (copy text then ctrl+v or f1 in between *» ex. «left\*64»)
+«a»			 					//alert
+
+«audio:c:/?.wav»	au	?«audio:c:/ding.wav»?	//play .wav file (or «Audio:c:/?.wav» //wait option)
+«stop-audio»		sa	«stop-audio»		//stop audio
+«App:»			 	«App:1235»		//processor id # can be found in task manager. right click column, and check menu PID. this will set focus to an application / bring it to the front for controlling 
+«app:»			ap	«app:notepad»		//title id string can be found in task manager next to programs icon. this will set focus to an application / bring it to the front for controlling. Or use open window title. Tip: ' - Window Name' must include the space before dash. example:  «app: - Notepad»
+«url:»			ur	«url:c:/notepad.exe»	//opens url using browser
+«web:»			we	«web:?.com»		//opens browser to corresponding web page
+«'»			n	«'note»			//personal note / description | «'my note» | «'comments» (tip:«'use this version», or «//this version» for comments, notes)
+«show» | ¾		sh				//show program
+«hide» | ð		hi				//hide program
+«on»							//engine on
+«off»			of				//engine off
+«io»			 				//clear dna > io
+«io:?»				«io:x»	 	 	//dna > x 
+«io:<<»				«io:<<»	 	 	//dna > «
+«io:>>»				«io:>>» 	 	//lock dna > » 
+«b:»			bro	«b:?.com»		//internal browser. example: «b:?.com»
+«ignore-mouse-check»	imc				//ignore mouse option off
+«ignore-mouse-uncheck»	imu				//ignore mouse option on
+«top»							//«top» toggle main > top
+«time:»			tim	«time: x »		//«time» print time, «time:» copy time  | «time:x» x=replace : with x
+«date:»			dat	«date: x »		//«date» print date, «date:» copy date | «date:x» x=replace / with x
+«#:»			ra	«#:1-3»			//random number x-x | example: «#:1-3»
+«#»			rn	«#»			//random number 0-9 | generate two numbers like this with a pause in the middle: «#»«pause:10»«#»
+«x»			rl	«x»			//generate random letter a-z
+«X»			 	«X»			//generate random capital letter A-Z
+«//»			 	«//html»		//insert to specific location in database | b r escape escape example: br.. «//html»¤¤«note:br tag»‹br›
+«<<»							//print «
+«>>»							//print »
+«<<>>»							//print «»
+«<<>>l»							//print «» then key left
+«do»							//do events
+«yesno»			y				//yes no? (continue run) | «yesno:verify message»
+«save»			sav				//save program settings 
+«dna»			dn				//when program starts run first sequence in database (save to first item in db) | example: test Hi!«dna»
+«restart»		res				//restart program
+«exit»			ex				//exit program
+
+## Sleep
+«sleep:»		sl	«sleep:3000»		//sleep 3 second (sleep:milliseconds)
+«,»							//sleep:SettingOEMSleep ms (config + enter)
+«,:1000»						//sleep:1000 ms
+
+## Internal db text box options and commands
+'help' or '?' + enter:					view manual/ internal documentation/ legend (f1: toggle tips, double click to clear)
+double click blank text box:				get dna > 'code'
+'>sk'							edit custom key for special « 	//type >sk then press ctrl then custom key  example: >sk lctrl lctrl
+right click						editor menu
+ctrl + space						editor menu (ctrl + space again: db menu)
+ctrl + right click or right click hold + move:		db menu
+hold pause break key:					abort algorithm
+ctrl + mouse wheel:					adjust font size
+pinch to zoom 						(touch-screen)
+left ctrl + enter or mouse middle click:		print '«»' (press tab inside of «» to show menu)
+tab complete example:					press left ctrl + enter: to print «», then press s, tab. example: «s[tab]»	//prints «shift»«-shift»
+ctrl + left click:					repeat last clicked item from menu
+ctrl + s:						save text to database / db 
+ctrl + e:						edit (text -> db selected item)
+ctrl + u:						update (save text -> db selected item)
+ctrl + f:						find selected text in db (to search text, hide db workspace, select text and press lctrl + f, lctrl + f again to find next match)
+esc + insert | right ctrl + enter | esc + period:	test / run
+long hold f5 then release:				run selected text
+'>':							append item (db item to text)
+'<' + 'text':						insert to db (text to db) | example: <test (click db item)
+'sendkeys:' or 'sk:' 					stock sendkeys (ex. testsk:{left 4}) 
+'0'							remove new line (run)
+'1'							sendkeys run mode (place1 in textbox)
+':1'							replace all line feeds in clipboard with «space» when pasting / ctrl + v
+':2'							replace all line feeds in clipboard with «enter» when pasting / ctrl + v
+'db' + enter:						select db (focus)
+'t' + enter:						select top item in db
+'b' + enter:						select bottom item in db
+'e' + enter:						edit selected item in db. (e, ed, or edit + enter)
+'delete all' + enter:					delete all items in db
+'al' + enter:						toggle auto lock mechanism after run |  right ctrl: toggle manual lock / dna > »
+'nl' + enter:						toggle no length run mode | dna > « (lctrl + lshift + bs, or rctrl, or esc + comma)
+'cb' + enter:						toggle remember clipboard after run
+'a-z' + enter:						toggle ignore a-z option
+'0-9' + enter:						toggle ignore 0-9 option
+'f1-f12' + enter:					toggle ignore f1-f12 option
+'number pad' or 'np' + enter:				toggle ignore number pad option
+'misc' + enter:						toggle ignore misc option
+'arrows' + enter:					toggle ignore arrows option
+'media' + enter:					toggle ignore media option
+'other' + enter:					toggle ignore other option
+'mc' + enter:						toggle middle click db item to run
+'dc' + enter:						toggle double click db item to run
+'cr' + enter:						toggle click db item to run
+'rr' + enter:						toggle right click db item to run
+'re' + enter:						toggle right ctrl + enter run
+'ei' + enter:						toggle escape + insert run
+'ep' + enter:						toggle escape + period run
+'sw' + enter:						toggle swipe db item to run
+'swipe' + enter:					toggle swipe menu
+'algorithm' + enter:					toggle algorithm menu
+'sh' + enter:						toggle stay hidden after run (middle click item)
+'ts' + enter:						toggle touch screen bar (appearance 7)
+'gc' + enter:						free up ram (gc.collect)
+'gc:' + enter:						toggle (gc.collect)
+'on' + enter:						engine on
+'off' + enter:						engine off
+'top' + enter:						toggle main > top
+'ww' + enter:						toggle word wrap
+'ws' + enter:						toggle ignore white space 
+'bg' + enter:						edit background image
+'ar' + enter:						toggle auto retry «app:Error»
+'op' + enter:						change opacity (ex. 0.5)
+'od' + enter:						toggle export to OneDrive 
+'odd' + enter:						edit OneDrive directory (change export to OneDrive folder)
+'ml' + enter:						edit dna > «length (SettingMaxLength default: 25)
+'v' + enter or 'cv' + enter:				toggle change view
+'ic' + enter:						change icon
+'cc' + enter:						change color (dna + enter)
+'s' + enter:						shrink
+'o' + enter:						open work space
+'c' + enter:						close work space
+'font' + enter:						adjust font
+'rf' + enter:						reset font
+'export' + enter:					export db
+'config' + enter:					edit user.config (file location can be found in task manager. right click column, and check Command line.)
+'dna' + enter:						aftermarket bg (true: od, odd, ar, sl, bg: odd/dna.png) | 'dna' escape + enter: adjust font
+'«* (ctrl + v)»':					paste clipboard length (press ctrl + v after *  to print clipboard length)  example output: «enter\*3»
+'wb' + enter:						toggle main bg web browser (skin > main bg img > all files > .html or .htm file)
+'browser' + enter:					show browser tab (dbl click tab to hide browser) |  lctrl + bs: back, lctrl + |: forward, lctrl + enter: navigate to...
+'virtual store' + enter:				open C:\Users\..\AppData\Local\VirtualStore (export > db.txt backup location)
+'startup' + enter:					move dna shortcut to C:\Users\..\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
+'restart' + enter:					restart program
+«import» or «i» + enter:				import
+«add» or «a» + enter:					add | example: textbox text«add(press enter)»
+«edit» or «e» + enter:					edit 
+«update» or «u» + enter:				update 
+shift + escape:						toggle engine 
+long hold l + 0-9:					adjust dna > 'code length'
+escape + i: 						adjust engine interval
+f1:							toggle tips
+f2:							copy selected text | copy text
+f3:							paste
+f4:							clear text
+down:							end
+up:							home
+click :1 | :2 | >txt | <txt:				click '>' , '<' , ':1' or ':2'  in start of text box to auto erase
+'si' + enter:						sizable
+'dt' + enter:						toggle show db tab dna > tip
+'ex' + enter:						drag program to extended screen
+'w7' + enter:						Windows 7 tab complete
+'skin' + enter:						customize program
+'hide' + enter:						hide program
+'ht' + enter:						hide tabs
+**h + escape**: 						toggle visibility
+**'dna' + escape + enter**: 				aftermarket customization (first place dna.png in C:\Users\\?\OneDrive\dna)
+'exit' + enter:						exit program
+
+'sl' + enter:						toggle scroll lock run / repeat (config: SettingScrollLockRun)
+escape + scroll lock: 					auto copy selected text, press again to auto add copied text to db or set text box to < and press scroll lock for auto add cb | options: set text box to > and press scroll lock for auto add selected/copied text to text box (first line for in between functionality. ex. >«enter») | set text to <' or ' and press esc + scroll lock to add selected text (add 'cb / just text option) | press right ctrl and type new code, select some text, then press [esc + scroll lock] to auto add code /w cb («test»test) | hold esc longer («test-»test)
+scroll lock: 						repeat selected item, selected text, or text 
+
+## Internal db list box option and commands
+right click:			show database menu
+ctrl + right click:		clear text, db menu
+ctrl + double click:		more db options
+ctrl + e:			selected db item to text
+ctrl + space:			db menu
+double click or enter:		run selected item
+delete:				delete item
+escape + insert:		test selected item
+long hold f5 then release:	run / test item
+ctrl + c:			copy selected item
+ctrl + mouse wheel:		adjust font size
+alt + click item:		strand / tether run  ex. «strand:#*#», «strand:32\*2», «strand:64»
+f1:				show database item text tip
+left alt:			show database item index tip (for strand:#)
+left:				home
+right:				end
+pinch to zoom
+db comments:			1.) //comments 2.) comments// 3.) 'comments / 'text
+
+## Temporary internal db options
+'reload' + enter	reload db
+'clear' + enter		temporarily clear db
+'.add' + enter		temporarily add text to db; example: text.add(+enter key)
+'.import' + enter	temporarily import text lines to db
+'.add' + click item	temporarily replace selected item ('text.add'... + enter: temporary add to db)
+'.edit' + click		temporarily edit selected item
+'.delete' + click	temporarily delete selected item
+Or right click add, delete, delete all, in db menu
+
+## Value + tab: auto complete (text box)	
+r:	restart		example: r+tab (Pressing r then tab key in beginning of text prints restart. Now press enter to restart)
+e:	exit
+b:	browser
+ed:	edit
+da:	delete all
+re:	reload
+s:	startup
+sw:	swipe
+al:	algorithm
+a:	a-z		show menu (press tab again)
+0:	0-9		show menu
+f:	f1-f12		show menu
+n:	number pad	show menu
+m:	misc		show menu
+ar:	arrows		show menu
+me:	media		show menu
+ot:	other		show menu
+o:	on		show menu
+d:	db		show menu
+of:	off
+t:	top		show menu
+ti:	tips		show menu
+h:	help
+c:	clear
+co:	config
+sk:	skin
+v:	virutal store
+ex:	export
+## More «auto complete»
+rco:	 right ctrl	 example: «rco[tab]»
+lco:	 left ctrl
+ra:	 right alt
+la:	 left alt
+rw:	 right win
+lw:	 left win
+rs:	 right shift
+ls:	 left shift
+ww or wr:	 	«win»r«-win»«app:run»
+
+«media-stop»
+«media-play-pause»		mpp	
+«media-previous-track»		mpt	
+«media-next-track»		mnt	
+«media-select»
+
+## Misc. notes
+-to make blank key «» symbol:		left control + enter, middle click mouse inside of text box, or press tab
+-mouse menu shortcuts:			«m-r» or «x:y» = mouse return, «l-c» = left click, «r-c» = right click...
+-uncheck tips:				database item edit option # 2 
+-double click main background:		toggle tabs visibility
+-left ctrl + enter inside of «» symbol:	prints * or : * for «code*##' of times to run»  example:  «up\*3» (up 3 times)  
+-press space when starting app: 	no tab view (show touch screen bar)
+-hold left ctrl when starting app:	switch touch screen bar on (no tab view)
+-tab complete | «-tab»:			pess tab inside of «x[tab]»
+-shrink program twice:			toggle icon
+-white space tab complete:		«ws+tab: «ws»«-ws» | «wsp+tab: ‹› | ex. ‹ignore white space, place «code» here›
+-quick delete: 				set text to "d" and click db item
+
+«x» 	// hold: 		x = lctrl, rctrl, lshift, rshift, lwin, rwin, lalt, ralt
+«-x»	//-release
+Example: 			«lctrl»x«-lctrl» (hold left ctrl, press x, release lctrl)
+
+dna > '«al + enter':		toggle auto lock (dna > »)
+dna > '«nl + enter':		toggle no length run (dna > «)
+dna > '«st + enter':		show tabs
+
+«value*#» 	ex. «enter\*3»						//press «value» key 3 times
+«value*#:#-#» 	ex. «enter*#:1-3», «enter\*r:0-1», «test*#:1-30»		//generate random option 
+
+## Manual App Settings: (config + enter)
+SettingOEMSleep 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(adjust milliseconds for «,»)
+
+SettingBackgroundImageLayout (main bg image)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0: none
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1: tile
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2: center
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3: stretch
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4: zoom
+
+key « 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SettingLctrlSpace_key
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SettingEscComma_key
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SettingLctrlLshftBs_key
+
+SettingOptionsOnTipShow
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;true: show dna > tip (menu: options > on)
+
+SettingAutoRetryAppError (+ SettingOEMSleep in between retries) 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;true: auto retry from error (press pause break key to abort)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;false: show retry yesno message
+</pre>
