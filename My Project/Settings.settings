@@ -383,6 +383,7 @@ internal textbox options and commands:
 ================================================================================
 'help' or '?' + enter:				view manual/ internal documentation/ legend (f1: toggle tips, double click to clear)
 double click blank text box:			get dna &gt; 'code'
+'&gt;sk'					edit custom key for special « 	//type &gt;sk then press ctrl then custom key  example: &gt;sk lctrl lctrl
 right click					editor menu
 ctrl + space				editor menu (ctrl + space again: db menu)
 ctrl + right click or right click hold + move:	db menu
@@ -478,6 +479,7 @@ f4:					clear text
 down:					end
 up:					home
 click :1 | :2 | &gt;txt | &lt;txt:			click '&gt;' , '&lt;' , ':1' or ':2'  in start of text box to auto erase
+'si' + enter:				sizeable
 'dt' + enter:				toggle show db tab dna &gt; tip 
 'ex' + enter:				drag program to extended screen
 'w7' + enter:				Windows 7 tab complete
@@ -1142,6 +1144,9 @@ false: show retry yesno message
     </Setting>
     <Setting Name="SettingDbTip" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="SettingSpecialKey" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">163</Value>
     </Setting>
   </Settings>
 </SettingsFile>

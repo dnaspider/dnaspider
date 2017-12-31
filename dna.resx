@@ -120,43 +120,9 @@
   <metadata name="Timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>205, 17</value>
   </metadata>
-  <data name="ListBox1.ToolTip" xml:space="preserve">
-    <value>right click: show database menu
-ctrl + right click: clear text, db menu
-ctrl + double click: more db options
-ctrl + e: selected db item to text
-ctrl + space: db menu
-double click or enter: run selected item
-delete: delete item
-escape + insert: test selected item
-long hold f5 then release: run / test item
-ctrl + c: copy selected item
-ctrl + mouse wheel: adjust font size
-f1: show database item tip
-pinch to zoom</value>
-  </data>
   <metadata name="ToolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>294, 17</value>
   </metadata>
-  <data name="txtString.ToolTip" xml:space="preserve">
-    <value>'help' + enter: view manual (f1: toggle tips)
-double click blank text box: get dna &gt; 'code'
-right click or ctrl + space: editor menu
-ctrl + right click or right click hold + move: db menu
-hold or tap pause break key: abort algorithm
-ctrl + mouse wheel: adjust font size
-pinch to zoom (touch-screen)
-left ctrl + enter or mouse middle click: print '«»'
-ctrl + left click: repeat last clicked item from menu
-ctrl + s: save text to database / db 
-ctrl + e: edit (text -&gt; db selected item)
-ctrl + u: update (save text -&gt; db selected item)
-ctrl + f: find selected text in db
-escape + insert or right control + enter: test  / run
-long hold f5 then release: run selected text 
-long hold right click + move: run selected text
-'exit' + enter: close program</value>
-  </data>
   <data name="lblLength.ToolTip" xml:space="preserve">
     <value>dna &gt; code length (shortcut pattern)
 
@@ -203,6 +169,40 @@ double click: edit</value>
   <metadata name="ContextMenuStripChkAtoZ.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>213, 56</value>
   </metadata>
+  <data name="ListBox1.ToolTip" xml:space="preserve">
+    <value>right click: show database menu
+ctrl + right click: clear text, db menu
+ctrl + double click: more db options
+ctrl + e: selected db item to text
+ctrl + space: db menu
+double click or enter: run selected item
+delete: delete item
+escape + insert: test selected item
+long hold f5 then release: run / test item
+ctrl + c: copy selected item
+ctrl + mouse wheel: adjust font size
+f1: show database item tip
+pinch to zoom</value>
+  </data>
+  <data name="txtString.ToolTip" xml:space="preserve">
+    <value>'help' + enter: view manual (f1: toggle tips)
+double click blank text box: get dna &gt; 'code'
+right click or ctrl + space: editor menu
+ctrl + right click or right click hold + move: db menu
+hold or tap pause break key: abort algorithm
+ctrl + mouse wheel: adjust font size
+pinch to zoom (touch-screen)
+left ctrl + enter or mouse middle click: print '«»'
+ctrl + left click: repeat last clicked item from menu
+ctrl + s: save text to database / db 
+ctrl + e: edit (text -&gt; db selected item)
+ctrl + u: update (save text -&gt; db selected item)
+ctrl + f: find selected text in db
+escape + insert or right control + enter: test  / run
+long hold f5 then release: run selected text 
+long hold right click + move: run selected text
+'exit' + enter: close program</value>
+  </data>
   <metadata name="ContextMenuStripDb.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1285, 17</value>
   </metadata>
