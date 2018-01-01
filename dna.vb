@@ -7965,7 +7965,8 @@ noformat:
     Private Sub txtString_KeyUp(sender As Object, e As KeyEventArgs) Handles txtString.KeyUp
         If txtString.Text.StartsWith(">sk") Then ' >sk special key
             If txtString.Text.Length = 3 Then
-                If GetAsyncKeyState(Keys.LControlKey) Or GetAsyncKeyState(Keys.RControlKey) Then txtString.AppendText(":")
+                If GetAsyncKeyState(Keys.LControlKey) Or GetAsyncKeyState(Keys.RControlKey) Or
+                   Not GetAsyncKeyState(Keys.LControlKey) Or Not GetAsyncKeyState(Keys.RControlKey) Then txtString.AppendText(":")
             Else
                 Select Case e.KeyValue
                     Case 17
