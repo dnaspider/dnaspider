@@ -1,5 +1,5 @@
 ﻿Public Class dna
-    'Author:Peter-Dziezyk:Skype:pdziezyk:dnaspider:14752239770:MVS2017cwu:12.31.2017:v2.2.5.7:cs202
+    'Author:Peter-Dziezyk:Skype:pdziezyk:dnaspider:14752239770:MVS2017cwu:1.12.2018:v2.2.5.9:cs202
     Private Declare Function GetAsyncKeyState Lib "user32.dll" (ByVal vKey As Int32) As UShort
     Private Declare Function SetCursorPos Lib "user32.dll" (ByVal X As Int32, ByVal Y As Int32) As UShort
     Private Declare Sub mouse_event Lib "user32" Alias "mouse_event" (ByVal dwFlags As Integer, ByVal dx As Integer, ByVal dy As Integer, ByVal cButtons As Integer, ByVal dwExtraInfo As Integer)
@@ -2966,10 +2966,8 @@ errz:
                                         a = ""
                                     Case "on" 'engine chk on
                                         chk_timer1_on_val.CheckState = CheckState.Checked
-                                'a = ""
                                     Case "off" 'chk on
                                         chk_timer1_on_val.CheckState = CheckState.Unchecked
-                                 'a = ""
                                     Case "yesno:"
                                         yn = MsgBox(bricks, vbYesNo, "Verify")
                                         If yn = vbYes Then
@@ -3140,7 +3138,14 @@ errz:
                                         End If
                                         a = ""
                                     Case "app:" 'app activate TITLE
+                                        Dim tout As Integer = 0
 rtapp:
+                                        tout += 1
+                                        If tout >= My.Settings.SettingAppErrorAutoTries Then
+                                            If chk_tips.Checked = True Then MsgBox("«app:" & bricks & "» not found in time..." & vbNewLine & "ato + enter: adjust tries (" & My.Settings.SettingAppErrorAutoTries & ")", vbInformation)
+                                            keybd_event(Keys.Pause, 0, 0, 0)
+                                            keybd_event(Keys.Pause, 0, 2, 0)
+                                        End If 'exit if no app
                                         If GetAsyncKeyState(Keys.Pause) Then Exit Sub
                                         Try
                                             If bricks > "" Then
@@ -3155,7 +3160,7 @@ rtapp:
                                                 GoTo rtapp
                                             End If
                                             Me.TopMost = True
-                                            rt = MsgBox("Process '{" & bricks & "}' was not found." & vbNewLine & vbNewLine & "Retry?", vbYesNo, "«app:Error»")
+                                            rt = MsgBox("Process '{" & bricks & "}' was not found." & vbNewLine & vbNewLine & "Retry?" & vbNewLine & vbNewLine & "ar + enter: auto retry" & vbNewLine & "ato + enter: adjust tries (" & My.Settings.SettingAppErrorAutoTries & ")" & vbNewLine & "pause break: clear", vbYesNo, "«app:Error»")
                                             Me.TopMost = My.Settings.SettingMain_chk_top
                                             If rt = vbYes Then
                                                 GoTo rtapp
@@ -6088,6 +6093,11 @@ noformat:
         If Microsoft.VisualBasic.Left(txtString.Text, cl) = (code & vbLf) Then '
             txtStringClear()
             Select Case code 'keypress enter run beginning txt 'add new in 'no tag
+                Case "ato"
+                    ml = InputBox("«app:» error, auto tries:", "dna.exe.config: SettingAppErrorAutoTries", My.Settings.SettingAppErrorAutoTries)
+                    If ml > 0 Then
+                        If IsNumeric(ml) And ml > 0 Then My.Settings.SettingAppErrorAutoTries = ml
+                    End If
                 Case "si"
                     sizeable()
                 Case "dbtip"
@@ -6172,7 +6182,7 @@ noformat:
                     Else
                         My.Settings.SettingAutoRetryAppError = True
                     End If
-                    If chk_tips.Checked = True Or My.Settings.SettingShowSettingsTips = True Then MsgBox("(ar + enter)" & vbNewLine & "auto retry «app:» error: " & LCase(My.Settings.SettingAutoRetryAppError) & vbNewLine & "pause break: abort", vbInformation, "dna.exe.config: SettingAutoRetryAppError")
+                    If chk_tips.Checked = True Or My.Settings.SettingShowSettingsTips = True Then MsgBox("(ar + enter)" & vbNewLine & "Auto retry if «app:» not ready: " & LCase(My.Settings.SettingAutoRetryAppError) & vbNewLine & "pause break: abort", vbInformation, "dna.exe.config: SettingAutoRetryAppError")
                 Case "dna"
                     TextBox1.Text = "'"
                     dnauserconfig()
@@ -7544,6 +7554,7 @@ noformat:
             dbCode("u")
 
             'no tag
+            dbCode1("ato") 'app timed out
             dbCode1("si") 'sizeable
             dbCode1("dbtip") 'db tab dna > tip
             dbCode1("op") 'opacity
