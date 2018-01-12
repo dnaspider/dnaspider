@@ -29,6 +29,9 @@ Same result: `«hw»«bs*2»Hello World.`
 
 ## Installing
 
-[Release](https://github.com/dnaspider/dnaspider/releases)
+[Release](https://github.com/dnaspider/dnaspider/releases "download")
 
-If will be installing Windows 10 dna.appx install first download and install [dnaspider.cer](https://github.com/dnaspider/dnaspider/releases/download/v2.2.5.1/dnaspider.cer) test certificate otherwise install dna.msi or run dna.exe portable.
+If will be installing Windows 10 dna.appx install first download and install [dnaspider.cer](https://github.com/dnaspider/dnaspider/releases/download/v2.2.5.1/dnaspider.cer) test certificate otherwise install dna.msi or run dna.exe portable. See [install](https://github.com/dnaspider/dnaspider/wiki/Install) for more.
+
+## Source
+Visual Studio 2017
