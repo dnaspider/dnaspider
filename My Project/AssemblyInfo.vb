@@ -8,11 +8,11 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("dna")> 
+<Assembly: AssemblyTitle("dna")>
 <Assembly: AssemblyDescription("Keyboard Assistance")>
 <Assembly: AssemblyCompany("dnaspider@live.com")>
 <Assembly: AssemblyProduct("dnaspider")>
-<Assembly: AssemblyCopyright("© 2017 Peter Dziezyk")>
+<Assembly: AssemblyCopyright("© 2018 Peter Dziezyk")>
 <Assembly: AssemblyTrademark("Peter Dziezyk")>
 
 <Assembly: ComVisible(False)>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("2.2.5.8")>
-<Assembly: AssemblyFileVersion("2.2.5.8")>
+<Assembly: AssemblyVersion("2.2.5.9")>
+<Assembly: AssemblyFileVersion("2.2.5.9")>

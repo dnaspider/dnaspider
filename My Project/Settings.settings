@@ -1148,5 +1148,8 @@ false: show retry yesno message
     <Setting Name="SettingSpecialKey" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">163</Value>
     </Setting>
+    <Setting Name="SettingAppErrorAutoTries" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">200</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -3011,6 +3011,18 @@ Namespace My
                 Me("SettingSpecialKey") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("200")>  _
+        Public Property SettingAppErrorAutoTries() As Integer
+            Get
+                Return CType(Me("SettingAppErrorAutoTries"),Integer)
+            End Get
+            Set
+                Me("SettingAppErrorAutoTries") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
