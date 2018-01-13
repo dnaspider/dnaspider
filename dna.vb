@@ -709,6 +709,7 @@ fnt:
                 txtString.ZoomFactor = 1
             Else
 tf:
+                My.Settings.SettingTabAppearance = 1
                 txtString.Font = Nothing 'cancel font pick
                 txtString.ForeColor = ListBox1.ForeColor
                 ListBox1.Font = Nothing
@@ -755,6 +756,7 @@ tf:
             End Try
             Me.SplitContainer1.Height = TabControl1.Height - 34
             If Me.Height <= 80 Then TabControl1.Visible = False
+            tabStyleAppearance()
         End If
     End Sub
 
@@ -1703,6 +1705,7 @@ p:
     Dim containsws_g = False
     Dim g_maxkeylen = My.Settings.SettingMaxKeyLength
     Dim g_scroll = My.Settings.SettingScrollLockRun
+    Dim g_remcb = My.Settings.SettingRememberClipboard
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         If PauseBreakToolStripMenuItem.Checked = True Then 'pausebreak
@@ -2148,7 +2151,9 @@ p:
                     If txtString.SelectedText().ToString() > "" Then
                         f = "x" + txtString.SelectedText().ToString()
                         If connect = False Or strandComplete = False Then
+                            Dim cb = Clipboard.GetText
                             apisk(f)
+                            If Not Clipboard.GetText = cb Then If g_remcb Then Clipboard.SetText(cb)
                         Else
                             strandComplete = True
                             connect = True
@@ -2157,8 +2162,9 @@ p:
                     Else
                         f = "x" & txtString.Text 'test > txtString
                         If connect = False Or strandComplete = False Then
+                            Dim cb = Clipboard.GetText
                             apisk(f)
-                        Else
+                            If Not Clipboard.GetText = cb Then If g_remcb Then Clipboard.SetText(cb) Else
                             strandComplete = True
                             connect = True
                             apisk(f)
@@ -2582,13 +2588,9 @@ p:
     Sub apisk(f As String)
         '> code
         If tipsDnaToolStripMenuItem.CheckState = CheckState.Checked Then Me.Text = "dna > " & Microsoft.VisualBasic.Right(TextBox1.Text, Val(txtLength.Text)) 'me.text mock 
-        TextBox1.Text = "'" '
-
-        Dim cb1 = "" 'cb
-        If My.Settings.SettingRememberClipboard = True Then If Clipboard.ContainsText = True Then cb1 = Clipboard.GetText
+        TextBox1.Text = "'"
 
         If GetAsyncKeyState(Keys.Pause) Then
-            '    'keyRelease(Keys.Pause)
             keyClear(Keys.Pause)
             Exit Sub
         End If 'Exit Sub
@@ -2636,10 +2638,6 @@ runagain:
                                 Dim bar As String
 
                                 If middle.Length <= 0 Then
-                                    If My.Settings.SettingRememberClipboard = True And cb1 > "" Then
-                                        Clipboard.SetText(cb1.ToString)
-                                        System.Threading.Thread.Sleep(1)
-                                    End If
                                     Exit Sub ' > safe to proceed
                                 End If
                                 bar = Microsoft.VisualBasic.Mid(middle, 2, middle.Length - 2)                           'fullc:/ (middle)
@@ -2930,8 +2928,6 @@ errz:
                                             Case Else
                                                 TextBox1.Text = bricks
                                         End Select
-                                        If My.Settings.SettingRememberClipboard = True Then If cb1 > "" Then Clipboard.SetText(cb1.ToString)
-                                        System.Threading.Thread.Sleep(1)
                                         Exit Sub
                                     Case "#:" 'randomNumb -
                                         If IsNumeric(bricks.Replace("-", "")) And Len(bricks.Replace("-", "")) > 1 Then
@@ -4242,16 +4238,11 @@ finish:
         End If 'master
 
         ''clear keys
-        keybd_event(Keys.RControlKey, 0, &H2, 0)
-        keybd_event(Keys.LControlKey, 0, &H2, 0)
-        keybd_event(Keys.Control, 0, &H2, 0)
-        keybd_event(Keys.LMenu, 0, &H2, 0)
+        'keybd_event(Keys.RControlKey, 0, &H2, 0)
+        'keybd_event(Keys.LControlKey, 0, &H2, 0)
+        'keybd_event(Keys.Control, 0, &H2, 0)
+        'keybd_event(Keys.LMenu, 0, &H2, 0)
 
-        'cb
-        If My.Settings.SettingRememberClipboard = True And f.Contains("«cb:") = False And cb1 > "" Then
-            Clipboard.SetText(cb1.ToString)
-            System.Threading.Thread.Sleep(1)
-        End If
     End Sub
 
     Sub emode()
@@ -4284,8 +4275,6 @@ finish:
         End If
         If TextBox1.Text = "»" Then Exit Sub
 
-        '1st half for v2 (no code lenght run) Not... "«"
-        'If Not TextBox1.Text.IndexOf("«", 0) = 0 And Len(TextBox1.Text) > txtLength.Text Then Exit Sub 'do nothing  'v2
         If Not TextBox1.Text.StartsWith("«") And NoLengthToolStripMenuItem.Checked = True And Not TextBox1.Text.Contains("Ƥ") Then Exit Sub 'do nothing  'v3 'only ps
 
         If TextBox1.Text.IndexOf("«", 0) = 0 Then 'v2
@@ -4339,14 +4328,18 @@ finish:
 
                     ori2 = code
                     finished = True
-                    apisk(f) 'aftermarket skeys 'v2
+                    Dim cb = Clipboard.GetText
+                    apisk(f) 'aftermarket skeys 'v2 <<run>>
+                    If Not Clipboard.GetText = cb Then If g_remcb Then Clipboard.SetText(cb)
                 Else
                     If TextBox1.Text.IndexOf("«", 0) = 0 Then Continue For
                     If ListBox1.Items.Item(i).ToString.StartsWith("http") Then Exit Sub
                     If GetAsyncKeyState(Keys.Escape) Then keyRelease(Keys.Escape) '32bit
 
                     finished = True
+                    Dim cb = Clipboard.GetText
                     apisk(f) 'aftermarket skeys 'reg / v1
+                    If Not Clipboard.GetText = cb Then If g_remcb Then Clipboard.SetText(cb)
                 End If
 
                 gi = Nothing
@@ -4362,7 +4355,7 @@ finish:
                     emode()
                 End If
 
-                clearAllKeys() '
+                clearAllKeys()
                 Exit For
             End If
         Next i
@@ -4412,7 +4405,6 @@ sk:
                 txtLength.Text = 4 'default
                 reloadDb() 'reload
             End If
-            '
         Else
             txtLength.Text = 4 'default
             reloadDb() 'reload
@@ -4421,32 +4413,21 @@ sk:
     End Sub
 
     Sub deleteDbItmAll()
-
-        'If ListBox1.Items.Count <> My.Settings.Settingdb.Count Then 'in clear mode / temp
         If DeleteAllToolStripMenuItem.Text = "reload" Then
             reloadDb()
             Exit Sub
         End If
-        '    Exit Sub
-        'End If
-
         If ListBox1.Items.Count = 0 Then Exit Sub
-
         Dim msg = MsgBox(ListBox1.Items.Count, vbYesNo, "delete all items?")
-
         If msg = vbYes Then
-
             'backup option
             Dim q = MsgBox("make a backup before deleting?", vbYesNo)
             If q = MsgBoxResult.Yes Then exportListToTxt1()
-
-
             My.Settings.Settingdb = Nothing 'delete all items 
             My.Settings.Settingdb = New Specialized.StringCollection 'create new setting
             ListBox1.Items.Clear()
             txtStringClear()
         End If
-
     End Sub
 
     Sub deleteDbItm()
@@ -4484,7 +4465,6 @@ reg:
         End If
 
         If tipsDeleteToolStripMenuItem2.CheckState = CheckState.Unchecked And ListBox1.Items.Count > 0 And (dbR - 1) >= 0 Then ListBox1.SelectedItem() = ListBox1.Items.Item(dbR - 1) 'select next item
-
     End Sub
 
     Sub clearTxtString()
@@ -5667,7 +5647,9 @@ noformat:
         Me.Visible = False
 
         If connect = False Or strandComplete = False Then
+            Dim cb = Clipboard.GetText
             apisk(f)
+            If Not Clipboard.GetText = cb Then If g_remcb Then Clipboard.SetText(cb)
         Else
             strandComplete = True
             connect = True
@@ -6202,6 +6184,7 @@ noformat:
                     Else
                         My.Settings.SettingRememberClipboard = True
                     End If
+                    g_remcb = My.Settings.SettingRememberClipboard
                     If chk_tips.Checked = True Or My.Settings.SettingShowSettingsTips = True Then MsgBox("(cb + enter)" & vbNewLine & "remember clipboard after run: " & LCase(My.Settings.SettingRememberClipboard), vbInformation, "dna.exe.config: SettingRememberClipboard")
                 Case "swipe"
                     If My.Settings.SettingSwMnu = True Then
@@ -7034,6 +7017,11 @@ noformat:
         End If
     End Sub
 
+    Sub keyBackDel()
+        key(Keys.Back)
+        key(Keys.Delete)
+    End Sub
+
     Sub txtFinish(shortString As String, longString As String, moveRight As Boolean)
         If txtString.TextLength >= shortString.Length + 2 And txtString.SelectionStart() > shortString.Length Then
 
@@ -7055,133 +7043,104 @@ noformat:
 
                 Select Case shortString
                     Case "rep"
-                        key(Keys.Back)
-                        key(Keys.Delete)
+                        keyBackDel
                         print("«replace:|»", False)
                         keyz(Keys.Left, 2)
                     Case "wr"
-                        key(Keys.Back)
-                        key(Keys.Delete)
+                        keyBackDel()
                         print("«win»r«-win»«app:run»«enter»", False)
                         keyz(Keys.Left, 7)
                         'l7
                     Case "ww"
-                        key(Keys.Back)
-                        key(Keys.Delete)
+                        keyBackDel()
                         print("«win»r«-win»«app:run»", False)
                     Case "c"
-                        key(Keys.Back)
-                        key(Keys.Delete)
+                        keyBackDel()
                         CtrlToolStripMenuItem.PerformClick()
                     Case "lco"
-                        key(Keys.Back)
-                        key(Keys.Delete)
+                        keyBackDel()
                         skMenuGet1("«lctrl»«-lctrl»{left 8}", "lctrl", "-")
                     Case "rco"
-                        key(Keys.Back)
-                        key(Keys.Delete)
+                        keyBackDel()
                         skMenuGet1("«rctrl»«-rctrl»{left 8}", "rctrl", "-")
                     Case "rct"
-                        key(Keys.Back)
-                        key(Keys.Delete)
+                        keyBackDel()
                         skMenuGet1("«rctrl»«-rctrl»{left 8}", "rctrl", "-")
                     Case "lct"
-                        key(Keys.Back)
-                        key(Keys.Delete)
+                        keyBackDel()
                         skMenuGet1("«lctrl»«-lctrl»{left 8}", "lctrl", "-")
                     Case "lw"
-                        key(Keys.Back)
-                        key(Keys.Delete)
+                        keyBackDel()
                         skMenuGet1("«lwin»«-lwin»{left 7}", "lwin", "-")
                     Case "rw"
-                        key(Keys.Back)
-                        key(Keys.Delete)
+                        keyBackDel()
                         skMenuGet1("«rwin»«-rwin»{left 7}", "rwin", "-")
                     Case "rs"
-                        key(Keys.Back)
-                        key(Keys.Delete)
+                        keyBackDel()
                         skMenuGet1("«rshift»«-rshift»{left 9}", "rshift", "-")
                     Case "ls"
-                        key(Keys.Back)
-                        key(Keys.Delete)
+                        keyBackDel()
                         skMenuGet1("«lshift»«-lshift»{left 9}", "lshift", "-")
                     Case "la"
-                        key(Keys.Back)
-                        key(Keys.Delete)
+                        keyBackDel()
                         skMenuGet1("«lalt»«-lalt»{left 7}", "lalt", "-")
                     Case "ra"
-                        key(Keys.Back)
-                        key(Keys.Delete)
+                        keyBackDel()
                         skMenuGet1("«ralt»«-ralt»{left 7}", "ralt", "-")
                     Case "ws"
-                        key(Keys.Back)
-                        key(Keys.Delete)
+                        keyBackDel()
                         skMenuGet1("«ws»«-ws»{left 5}", "ws", "-")
                         clear_skmg1 = True
                     Case "wsp"
-                        key(Keys.Back)
-                        key(Keys.Delete)
+                        keyBackDel()
                         print("‹›", False)
                         key(Keys.Left)
                         clear_skmg1 = True
                         retap = -1
                     Case "co"
-                        key(Keys.Back)
-                        key(Keys.Delete)
+                        keyBackDel()
                         CtrlToolStripMenuItem.PerformClick()
                     Case "ct"
-                        key(Keys.Back)
-                        key(Keys.Delete)
+                        keyBackDel()
                         CtrlToolStripMenuItem.PerformClick()
                     Case "w"
-                        key(Keys.Back)
-                        key(Keys.Delete)
+                        keyBackDel()
                         WinToolStripMenuItem.PerformClick()
                     Case "s"
-                        key(Keys.Back)
-                        key(Keys.Delete)
+                        keyBackDel()
                         ShiftToolStripMenuItem.PerformClick()
                     Case "sh"
-                        key(Keys.Back)
-                        key(Keys.Delete)
+                        keyBackDel()
                         ShiftToolStripMenuItem.PerformClick()
                     Case "a"
-                        key(Keys.Back)
-                        key(Keys.Delete)
+                        keyBackDel()
                         AltToolStripMenuItem.PerformClick()
                     Case "al"
-                        key(Keys.Back)
-                        key(Keys.Delete)
+                        keyBackDel()
                         AltToolStripMenuItem.PerformClick()
                     Case "alt"
-                        key(Keys.Back)
-                        key(Keys.Delete)
+                        keyBackDel()
                         AltToolStripMenuItem.PerformClick()
                     Case "ur"
-                        key(Keys.Back)
-                        key(Keys.Delete)
+                        keyBackDel()
                         timeout2(111)
                         UrlToolStripMenuItem.PerformClick()
                     Case "url"
-                        key(Keys.Back)
-                        key(Keys.Delete)
+                        keyBackDel()
                         timeout2(111)
                         UrlToolStripMenuItem.PerformClick()
                     Case "x"
-                        key(Keys.Back)
-                        key(Keys.Delete)
+                        keyBackDel()
                         timeout2(111)
                         runMousePosition() 'xy
                         reStyle()
                     Case "xy"
-                        key(Keys.Back)
-                        key(Keys.Delete)
+                        keyBackDel()
                         timeout2(111)
                         runMousePosition() 'xy
                         reStyle()
                     Case "au"
-                        key(Keys.Back)
-                        key(Keys.Delete)
+                        keyBackDel()
                         timeout2(111)
                         AudioToolStripMenuItem.PerformClick()
                     Case Else
@@ -7641,6 +7600,7 @@ noformat:
         End If
 
         If e.KeyChar = ChrW(22) Then  'ctrl + v   cb
+            If Not Clipboard.ContainsText Then Exit Sub
             Try
                 If GetChar(txtString.Text, txtString.SelectionStart) = "*" And GetChar(txtString.Text, txtString.SelectionStart + 1) = "»" Then Exit Sub 'keydown -> paste cb len
             Catch ex As Exception
@@ -8220,7 +8180,9 @@ noformat:
 
                 strandComplete = False
                 connect = False
+                Dim cb = Clipboard.GetText
                 apisk("x" + Replace(f1, ".", "") + f2) 'add extra char, remove esc/.'s 
+                If Not Clipboard.GetText = cb Then If g_remcb Then Clipboard.SetText(cb)
                 strandComplete = True
                 connect = True
 
@@ -9841,7 +9803,6 @@ mainstyle:
         showScrollBar(False)
 
         My.Settings.SettingExportToOneDrive = True
-        'My.Settings.SettingExportToOneDriveDir = "OneDrive\snc1"
         My.Settings.SettingAutoRetryAppError = True
 
         chkMisc.Checked = False
@@ -9906,7 +9867,6 @@ mainstyle:
 
 
         SplitContainer1.SplitterDistance = 28
-        'If ListBox1.Font.Size = 15.75 And ListBox1.Font.Name = "Impact" Then SplitContainer1.SplitterWidth = 23
         dbfocus()
 
         tipsDnaToolStripMenuItem.Checked = False
