@@ -143,31 +143,31 @@ double click: edit</value>
     <value>17, 17</value>
   </metadata>
   <metadata name="ContextMenuStripMouse.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 95</value>
+    <value>749, 95</value>
   </metadata>
   <metadata name="ContextMenuStripChkMedia.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>205, 95</value>
+    <value>937, 95</value>
   </metadata>
   <metadata name="ContextMenuStripChkOther.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>797, 56</value>
+    <value>17, 95</value>
   </metadata>
   <metadata name="ContextMenuStripArrows.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>608, 56</value>
+    <value>898, 56</value>
   </metadata>
   <metadata name="ContextMenuStripNumPad.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>601, 95</value>
+    <value>207, 134</value>
   </metadata>
   <metadata name="ContextMenuStripChkMisc.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>411, 56</value>
+    <value>701, 56</value>
   </metadata>
   <metadata name="ContextMenuStripf1tof12.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>411, 95</value>
+    <value>17, 134</value>
   </metadata>
   <metadata name="ContextMenuStripChk0to9.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 56</value>
+    <value>307, 56</value>
   </metadata>
   <metadata name="ContextMenuStripChkAtoZ.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>213, 56</value>
+    <value>503, 56</value>
   </metadata>
   <data name="ListBox1.ToolTip" xml:space="preserve">
     <value>right click: show database menu
@@ -204,10 +204,10 @@ long hold right click + move: run selected text
 'exit' + enter: close program</value>
   </data>
   <metadata name="ContextMenuStripDb.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1285, 17</value>
+    <value>140, 56</value>
   </metadata>
   <metadata name="ContextMenuStripString.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1000, 56</value>
+    <value>220, 95</value>
   </metadata>
   <data name="AppToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>app activate
@@ -226,13 +226,13 @@ tip: PID can be found in task manager,
 Processes, PID (right click column , PID)</value>
   </data>
   <metadata name="ContextMenuStripOptions.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1183, 56</value>
+    <value>403, 95</value>
   </metadata>
   <metadata name="OpenFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>587, 17</value>
   </metadata>
   <metadata name="ColorDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1162, 17</value>
+    <value>17, 56</value>
   </metadata>
   <metadata name="ContextMenuStripNull.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>989, 17</value>
@@ -244,7 +244,7 @@ Processes, PID (right click column , PID)</value>
     <value>729, 17</value>
   </metadata>
   <metadata name="OpenFileDialogIco.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 71</value>
+    <value>597, 95</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>110</value>

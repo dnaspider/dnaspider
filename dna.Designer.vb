@@ -188,6 +188,7 @@ Partial Class dna
         Me.CopyToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripSeparator()
         Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LengthToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LongTagsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SkinToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClickSwipeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -293,7 +294,6 @@ Partial Class dna
         Me.OpenFileDialog2 = New System.Windows.Forms.OpenFileDialog()
         Me.FontDialog1 = New System.Windows.Forms.FontDialog()
         Me.OpenFileDialogIco = New System.Windows.Forms.OpenFileDialog()
-        Me.LengthToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabControl1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.ContextMenuStripChkTips.SuspendLayout()
@@ -1463,30 +1463,30 @@ Partial Class dna
         Me.ContextMenuStripDb.ImageScalingSize = New System.Drawing.Size(24, 24)
         Me.ContextMenuStripDb.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddToolStripMenuItem, Me.EditToolStripMenuItem, Me.DeleteToolStripMenuItem, Me.DeleteAllToolStripMenuItem, Me.ImportToolStripMenuItem, Me.ExportToolStripMenuItem, Me.CopyToolStripMenuItem1, Me.ToolStripMenuItem2, Me.OptionsToolStripMenuItem})
         Me.ContextMenuStripDb.Name = "ContextMenuStripDb"
-        Me.ContextMenuStripDb.Size = New System.Drawing.Size(153, 208)
+        Me.ContextMenuStripDb.Size = New System.Drawing.Size(122, 186)
         '
         'AddToolStripMenuItem
         '
         Me.AddToolStripMenuItem.Name = "AddToolStripMenuItem"
-        Me.AddToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AddToolStripMenuItem.Size = New System.Drawing.Size(121, 22)
         Me.AddToolStripMenuItem.Text = "add"
         '
         'EditToolStripMenuItem
         '
         Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
-        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(121, 22)
         Me.EditToolStripMenuItem.Text = "edit"
         '
         'DeleteToolStripMenuItem
         '
         Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
-        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(121, 22)
         Me.DeleteToolStripMenuItem.Text = "delete"
         '
         'DeleteAllToolStripMenuItem
         '
         Me.DeleteAllToolStripMenuItem.Name = "DeleteAllToolStripMenuItem"
-        Me.DeleteAllToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DeleteAllToolStripMenuItem.Size = New System.Drawing.Size(121, 22)
         Me.DeleteAllToolStripMenuItem.Text = "delete all"
         Me.DeleteAllToolStripMenuItem.ToolTipText = "delete all items in db"
         Me.DeleteAllToolStripMenuItem.Visible = False
@@ -1494,7 +1494,7 @@ Partial Class dna
         'ImportToolStripMenuItem
         '
         Me.ImportToolStripMenuItem.Name = "ImportToolStripMenuItem"
-        Me.ImportToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ImportToolStripMenuItem.Size = New System.Drawing.Size(121, 22)
         Me.ImportToolStripMenuItem.Text = "import"
         Me.ImportToolStripMenuItem.ToolTipText = "import to db" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "escape: cancel"
         Me.ImportToolStripMenuItem.Visible = False
@@ -1502,7 +1502,7 @@ Partial Class dna
         'ExportToolStripMenuItem
         '
         Me.ExportToolStripMenuItem.Name = "ExportToolStripMenuItem"
-        Me.ExportToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ExportToolStripMenuItem.Size = New System.Drawing.Size(121, 22)
         Me.ExportToolStripMenuItem.Text = "export"
         Me.ExportToolStripMenuItem.ToolTipText = "export db items" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "escape: cancel"
         Me.ExportToolStripMenuItem.Visible = False
@@ -1510,38 +1510,44 @@ Partial Class dna
         'CopyToolStripMenuItem1
         '
         Me.CopyToolStripMenuItem1.Name = "CopyToolStripMenuItem1"
-        Me.CopyToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.CopyToolStripMenuItem1.Size = New System.Drawing.Size(121, 22)
         Me.CopyToolStripMenuItem1.Text = "copy"
         '
         'ToolStripMenuItem2
         '
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(149, 6)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(118, 6)
         '
         'OptionsToolStripMenuItem
         '
         Me.OptionsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LengthToolStripMenuItem, Me.LongTagsToolStripMenuItem, Me.SkinToolStripMenuItem, Me.ClickSwipeToolStripMenuItem})
         Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
-        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(121, 22)
         Me.OptionsToolStripMenuItem.Text = "options"
+        '
+        'LengthToolStripMenuItem
+        '
+        Me.LengthToolStripMenuItem.Name = "LengthToolStripMenuItem"
+        Me.LengthToolStripMenuItem.Size = New System.Drawing.Size(128, 22)
+        Me.LengthToolStripMenuItem.Text = "length"
         '
         'LongTagsToolStripMenuItem
         '
         Me.LongTagsToolStripMenuItem.Name = "LongTagsToolStripMenuItem"
-        Me.LongTagsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.LongTagsToolStripMenuItem.Size = New System.Drawing.Size(128, 22)
         Me.LongTagsToolStripMenuItem.Text = "algorithm"
         '
         'SkinToolStripMenuItem
         '
         Me.SkinToolStripMenuItem.Name = "SkinToolStripMenuItem"
-        Me.SkinToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SkinToolStripMenuItem.Size = New System.Drawing.Size(128, 22)
         Me.SkinToolStripMenuItem.Text = "customize"
         '
         'ClickSwipeToolStripMenuItem
         '
         Me.ClickSwipeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TabletToolStripMenuItem, Me.ToolStripMenuItem26, Me.MultiToolStripMenuItem, Me.ZoneToolStripMenuItem, Me.SpacerToolStripMenuItem})
         Me.ClickSwipeToolStripMenuItem.Name = "ClickSwipeToolStripMenuItem"
-        Me.ClickSwipeToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ClickSwipeToolStripMenuItem.Size = New System.Drawing.Size(128, 22)
         Me.ClickSwipeToolStripMenuItem.Text = "swipe"
         '
         'TabletToolStripMenuItem
@@ -2174,12 +2180,6 @@ Partial Class dna
         'OpenFileDialogIco
         '
         Me.OpenFileDialogIco.Filter = "ico|*.ico"
-        '
-        'LengthToolStripMenuItem
-        '
-        Me.LengthToolStripMenuItem.Name = "LengthToolStripMenuItem"
-        Me.LengthToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.LengthToolStripMenuItem.Text = "length"
         '
         'dna
         '
