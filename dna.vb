@@ -1,5 +1,5 @@
 ﻿Public Class dna
-    'Author:Peter-Dziezyk:Skype:pdziezyk:dnaspider:14752239770:MVS2017cwu:1.12.2018:v2.2.5.9:cs202
+    'Author:Peter-Dziezyk:Skype:pdziezyk:dnaspider:14752239770:MVS2017cwu:1.13.2018:v2.2.5.11:cs202
     Private Declare Function GetAsyncKeyState Lib "user32.dll" (ByVal vKey As Int32) As UShort
     Private Declare Function SetCursorPos Lib "user32.dll" (ByVal X As Int32, ByVal Y As Int32) As UShort
     Private Declare Sub mouse_event Lib "user32" Alias "mouse_event" (ByVal dwFlags As Integer, ByVal dx As Integer, ByVal dy As Integer, ByVal cButtons As Integer, ByVal dwExtraInfo As Integer)
@@ -2164,7 +2164,8 @@ p:
                         If connect = False Or strandComplete = False Then
                             Dim cb = Clipboard.GetText
                             apisk(f)
-                            If Not Clipboard.GetText = cb Then If g_remcb Then Clipboard.SetText(cb) Else
+                            If Not Clipboard.GetText = cb Then If g_remcb Then Clipboard.SetText(cb)
+                        Else
                             strandComplete = True
                             connect = True
                             apisk(f)
