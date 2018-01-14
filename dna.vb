@@ -1,5 +1,5 @@
 ﻿Public Class dna
-    'Author:Peter-Dziezyk:Skype:pdziezyk:dnaspider:14752239770:MVS2017cwu:1.13.2018:v2.2.5.11:cs202
+    'Author:Peter-Dziezyk:Skype:pdziezyk:dnaspider:14752239770:MVS2017cwu:1.14.2018:v2.2.5.12:cs202
     Private Declare Function GetAsyncKeyState Lib "user32.dll" (ByVal vKey As Int32) As UShort
     Private Declare Function SetCursorPos Lib "user32.dll" (ByVal X As Int32, ByVal Y As Int32) As UShort
     Private Declare Sub mouse_event Lib "user32" Alias "mouse_event" (ByVal dwFlags As Integer, ByVal dx As Integer, ByVal dy As Integer, ByVal cButtons As Integer, ByVal dwExtraInfo As Integer)
@@ -2251,7 +2251,7 @@ p:
             Else
                 If Microsoft.VisualBasic.Right(TextBox1.Text, Val(txtLength.Text)) = TextBox1.Text Then
                 Else
-                    finished = True
+                    'finished = True
                     TextBox1.Text = Microsoft.VisualBasic.Right(TextBox1.Text, Val(txtLength.Text)) 'make only the amount of codes 'My.Settings.SettingTxtCodeLength
                 End If
             End If
@@ -2639,6 +2639,7 @@ runagain:
                                 Dim bar As String
 
                                 If middle.Length <= 0 Then
+                                    If pd = f.Length + 1 Then finished = True
                                     Exit Sub ' > safe to proceed
                                 End If
                                 bar = Microsoft.VisualBasic.Mid(middle, 2, middle.Length - 2)                           'fullc:/ (middle)
@@ -3678,7 +3679,6 @@ rtapp:
 #End Region
 
                             End If
-                            'If finished = True Then Exit Sub
                             pd = j + 1 'continue loop
                             If j = f.Length Then Exit For 'max trys
                             GoTo loop1
@@ -4118,10 +4118,10 @@ rtapp:
                             ctrlKey_ = True 'aa = Keys.LControlKey ' pressCtrl '17•
                         Case "Þ"
                             ctrlKey_c = True 'aa = Keys. ' pressCtrl_r '17 Þ
-                        Case "ª"
-                            altKey_ = True 'aa = ' pressAlt  'ª
                         Case "¹"
-                            altKey_c = True 'aa = Keys.Alt ' pressAlt_r '¹  
+                            altKey_ = True 'aa = Keys.Alt ' pressAlt_r '¹  
+                        Case "ª"
+                            altKey_c = True 'aa = ' pressAlt  'ª
                         Case "ù"
                             winKey_ = True 'press win
                         Case "Ù"
@@ -4140,11 +4140,10 @@ rtapp:
                         GoTo finish
                     End If
                     If altKey_ = True Or altKey_c = True Then 'long alt hold
-                        If altKey_c = True And altKey_ = True Then GoTo finish 'fixed 9.21.13 alt button 
+                        If altKey_c = True Then GoTo finish 'fixed 9.21.13 alt button 
                         keybd_event(Keys.LMenu, 0, 0, 0)
                         GoTo finish
                     End If
-                    'If altKey_c = True Then GoTo finish 'long alt hold
                     If winKey_ = True Or winKey_c = True Then 'long win hold
                         If winKey_c = True Then GoTo finish
                         keybd_event(Keys.LWin, 0, 1, 0)
@@ -4220,7 +4219,7 @@ finish:
                         ctrlKey_c = False
                     End If
                     If altKey_c = True Then 'long alt hold release
-                        'keybd_event(Keys.LMenu, 0, &H2, 0) 
+                        keybd_event(Keys.LMenu, 0, &H2, 0)
                         altKey_ = False
                         altKey_c = False
                     End If
@@ -4236,13 +4235,9 @@ finish:
 #End Region
             Next pd
 
-        End If 'master
+            finished = True
 
-        ''clear keys
-        'keybd_event(Keys.RControlKey, 0, &H2, 0)
-        'keybd_event(Keys.LControlKey, 0, &H2, 0)
-        'keybd_event(Keys.Control, 0, &H2, 0)
-        'keybd_event(Keys.LMenu, 0, &H2, 0)
+        End If 'master
 
     End Sub
 
@@ -4263,7 +4258,7 @@ finish:
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
         If TextBox1.Text = "'" Or TextBox1.Text = "" Then Exit Sub
 
-        If finished = True Then
+        If finished Then
             finished = False
             Exit Sub
         End If
@@ -5662,11 +5657,10 @@ noformat:
             print(f, True)
             TextBox1.Text = "«"
         Else
-            print(f, True)
+            If Not finished Then print(f, True)
         End If
 
         emode() '»
-
         spacer()
         If Me.IsDisposed = False Then Visible = True
     End Sub
