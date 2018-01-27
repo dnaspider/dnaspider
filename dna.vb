@@ -1,5 +1,5 @@
 ﻿Public Class dna
-    'Author:Peter-Dziezyk:Skype:pdziezyk:dnaspider:14752239770:MVS2017cwu:1.14.2018:v2.2.5.12:cs202
+    'Author:Peter-Dziezyk:Skype:pdziezyk:dnaspider:14752239770:MVS2017cwu:1.27.2018:v2.2.5.13:cs202
     Private Declare Function GetAsyncKeyState Lib "user32.dll" (ByVal vKey As Int32) As UShort
     Private Declare Function SetCursorPos Lib "user32.dll" (ByVal X As Int32, ByVal Y As Int32) As UShort
     Private Declare Sub mouse_event Lib "user32" Alias "mouse_event" (ByVal dwFlags As Integer, ByVal dx As Integer, ByVal dy As Integer, ByVal cButtons As Integer, ByVal dwExtraInfo As Integer)
@@ -3369,7 +3369,8 @@ rtapp:
                                         If bricks > "" Then Clipboard.SetText(bricks)
                                         a = ""
                                     Case "++" 'clipboard++
-                                        Dim cb As String = Val(Clipboard.GetText) + 1
+                                        Dim cb = Val(Clipboard.GetText) + 1
+                                        sleep(1)
                                         Clipboard.SetText(cb)
                                         print(cb, False)
                                         a = ""
@@ -3405,6 +3406,7 @@ rtapp:
                                         a = ""
                                     Case "--" 'clipboard++
                                         Dim cb As String = Val(Clipboard.GetText) - 1
+                                        sleep(1)
                                         Clipboard.SetText(cb)
                                         print(cb, False)
                                         a = ""
