@@ -1,5 +1,5 @@
 ﻿Public Class dna
-    'Author:Peter-Dziezyk:Skype:pdziezyk:dnaspider:14752239770:MVS2017cwu:1.27.2018:v2.2.5.13:cs202
+    'Author:Peter-Dziezyk:Skype:pdziezyk:dnaspider:14752239770:MVS2017cwu:2.3.2018:v2.2.5.14:cs202
     Private Declare Function GetAsyncKeyState Lib "user32.dll" (ByVal vKey As Int32) As UShort
     Private Declare Function SetCursorPos Lib "user32.dll" (ByVal X As Int32, ByVal Y As Int32) As UShort
     Private Declare Sub mouse_event Lib "user32" Alias "mouse_event" (ByVal dwFlags As Integer, ByVal dx As Integer, ByVal dy As Integer, ByVal cButtons As Integer, ByVal dwExtraInfo As Integer)
@@ -1725,9 +1725,9 @@ p:
             If HideToolStripMenuItem.Visible = False And Me.Visible = False Then HideToolStripMenuItem.Checked = False
 
 
-            Dim specialkey = My.Settings.SettingSpecialKey 'Keys.Insert
             If GetAsyncKeyState(specialkey) Or chkOther.Checked = False And GetAsyncKeyState(Keys.RControlKey) And RightCtrllToolStripMenuItem.Checked = True Then 'rctrl toggle
-                keybd_event(Keys.RControlKey, 0, &H2, 0) 'rel rc
+
+                'keybd_event(specialkey, 0, &H2, 0) 'release sk
 
                 If TextBox1.Text.StartsWith("»") Then 'toggle"«"
                     clearAllKeys()
@@ -2045,17 +2045,18 @@ p:
                     Me.TopMost = True
                     Me.TopMost = My.Settings.SettingMain_chk_top
                     Me.HideToolStripMenuItem.Checked = False
-                    If txtString.ContainsFocus Then
-                        key(Keys.Back)
+                    If txtString.ContainsFocus Then key(Keys.Back)
+                    If Me.Text = "" Then
+                        Dim x = Me.Text
+                        Me.Text = "dna"
+                        AppActivate("dna")
+                        Me.Text = x
                     End If
+                    If Me.Text > "" Then AppActivate("dna")
                     Exit Sub
                 End If
                 If Me.Visible = True Then
-
-                    If txtString.ContainsFocus Then
-                        key(Keys.Back)
-                    End If
-
+                    If txtString.ContainsFocus Then key(Keys.Back)
                     keyRelease(Keys.H)
                     keyRelease(Keys.Escape)
                     Me.Hide() 'hide form
@@ -7929,19 +7930,50 @@ noformat:
         End If
     End Sub
 
-
+    Dim specialkey = My.Settings.SettingSpecialKey
     Private Sub txtString_KeyUp(sender As Object, e As KeyEventArgs) Handles txtString.KeyUp
         If txtString.Text.StartsWith(">sk") Then ' >sk special key
             If txtString.Text.Length = 3 Then
                 If GetAsyncKeyState(Keys.LControlKey) Or GetAsyncKeyState(Keys.RControlKey) Or
                    Not GetAsyncKeyState(Keys.LControlKey) Or Not GetAsyncKeyState(Keys.RControlKey) Then txtString.AppendText(":")
+                If chk_tips.Checked Then MsgBox("Pressing ctrl, alt, or shift will toggle between right and left options (rctrl, lctrl, etc...)", vbInformation, ">Set key for: «")
             Else
                 Select Case e.KeyValue
-                    Case 17
-                        My.Settings.SettingSpecialKey = Keys.RControlKey
-                    Case Else
+                    Case 16 'lshift rshift toggle
+                        If My.Settings.SettingSpecialKey = Keys.LShiftKey Then
+                            My.Settings.SettingSpecialKey = Keys.RShiftKey
+                        Else
+                            My.Settings.SettingSpecialKey = Keys.LShiftKey
+                        End If
+                    Case 18 'alt
+                        If My.Settings.SettingSpecialKey = Keys.LMenu Then
+                            My.Settings.SettingSpecialKey = Keys.RMenu
+                        Else
+                            My.Settings.SettingSpecialKey = Keys.LMenu
+                        End If
+                    Case 17 'lctrl rctrl toggle
+                        If My.Settings.SettingSpecialKey = Keys.LControlKey Then
+                            My.Settings.SettingSpecialKey = Keys.RControlKey
+                            RightCtrllToolStripMenuItem.Checked = True
+                            My.Settings.SettingRctrleqdot = True
+                        Else
+                            LeftControlToolStripMenuItem.Checked = True
+                            My.Settings.SettingChkOtherLCtrl = True
+                            RightCtrllToolStripMenuItem.Checked = False
+                            My.Settings.SettingRctrleqdot = False
+                            My.Settings.SettingChkOtherLCtrl = LeftControlToolStripMenuItem.CheckState
+                            My.Settings.SettingSpecialKey = Keys.LControlKey
+                        End If
+                    Case 8 'lalt ralt toggle
+                        If My.Settings.SettingSpecialKey = Keys.RMenu Then
+                            My.Settings.SettingSpecialKey = Keys.RMenu
+                        Else
+                            My.Settings.SettingSpecialKey = Keys.LMenu
+                        End If
+                    Case Else 'sk
                         If IsNumeric(e.KeyValue) Then My.Settings.SettingSpecialKey = e.KeyValue
                 End Select
+                specialkey = My.Settings.SettingSpecialKey
                 clearTxtString()
             End If
             Exit Sub
