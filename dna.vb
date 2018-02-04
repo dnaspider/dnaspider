@@ -1727,7 +1727,7 @@ p:
 
             If GetAsyncKeyState(specialkey) Or chkOther.Checked = False And GetAsyncKeyState(Keys.RControlKey) And RightCtrllToolStripMenuItem.Checked = True Then 'rctrl toggle
 
-                'keybd_event(specialkey, 0, &H2, 0) 'release sk
+                If specialkey = Keys.RControlKey Then keybd_event(specialkey, 0, &H2, 0) 'release sk
 
                 If TextBox1.Text.StartsWith("»") Then 'toggle"«"
                     clearAllKeys()
