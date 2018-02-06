@@ -3435,16 +3435,14 @@ rtapp:
                                         a = ""
                                     Case "/:" 'clipboard+#
                                         Try
-                                            Dim cb As String = Val(Clipboard.GetText) / Val(bricks)
-                                            Clipboard.SetText(cb)
+                                            Clipboard.SetText(Val(Clipboard.GetText) / Val(bricks))
                                         Catch ex As Exception
                                             MsgBox(ex.Message, vbExclamation, "/:")
                                         End Try
                                         a = ""
                                     Case "\:" 'clipboard+#
                                         Try
-                                            Dim cb As String = Val(Clipboard.GetText) \ Val(bricks)
-                                            Clipboard.SetText(cb)
+                                            Clipboard.SetText(Val(Clipboard.GetText) \ Val(bricks))
                                         Catch ex As Exception
                                             MsgBox(ex.Message, vbExclamation, "\:")
                                         End Try
