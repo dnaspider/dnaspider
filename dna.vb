@@ -1,5 +1,5 @@
 ﻿Public Class dna
-    'Author:Peter-Dziezyk:Skype:pdziezyk:dnaspider:14752239770:MVS2017cwu:2.3.2018:v2.2.5.14:cs202
+    'Author:Peter-Dziezyk:Skype:pdziezyk:dnaspider:14752239770:MVS2017cwu:2.6.2018:v2.2.5.15:cs202
     Private Declare Function GetAsyncKeyState Lib "user32.dll" (ByVal vKey As Int32) As UShort
     Private Declare Function SetCursorPos Lib "user32.dll" (ByVal X As Int32, ByVal Y As Int32) As UShort
     Private Declare Sub mouse_event Lib "user32" Alias "mouse_event" (ByVal dwFlags As Integer, ByVal dx As Integer, ByVal dy As Integer, ByVal cButtons As Integer, ByVal dwExtraInfo As Integer)
@@ -2120,7 +2120,7 @@ p:
                     txtStringClear()
 
                     If TextBox1.Text.StartsWith("«") Then '<-.>
-                        i = TextBox1.TextLength - TextBox1.Text.Replace(".", "").Length
+                        Dim i = TextBox1.TextLength - TextBox1.Text.Replace(".", "").Length
                         If i >= 4 Then c = TextBox1.Text + "-»" Else c = TextBox1.Text + "»"
                         c = c.Replace(".", "")
                     End If
@@ -2968,7 +2968,7 @@ errz:
                                     Case "off" 'chk on
                                         chk_timer1_on_val.CheckState = CheckState.Unchecked
                                     Case "yesno:"
-                                        yn = MsgBox(bricks, vbYesNo, "Verify")
+                                        Dim yn = MsgBox(bricks, vbYesNo, "Verify")
                                         If yn = vbYes Then
                                             a = ""
                                         Else
@@ -2976,7 +2976,7 @@ errz:
                                             Exit Sub
                                         End If
                                     Case "yesno" 'chk on
-                                        yn = MsgBox("continue?", vbYesNo)
+                                        Dim yn = MsgBox("continue?", vbYesNo)
                                         If yn = vbYes Then
                                             a = ""
                                         Else
@@ -3159,7 +3159,7 @@ rtapp:
                                                 GoTo rtapp
                                             End If
                                             Me.TopMost = True
-                                            rt = MsgBox("Process '{" & bricks & "}' was not found." & vbNewLine & vbNewLine & "Retry?" & vbNewLine & vbNewLine & "ar + enter: auto retry" & vbNewLine & "ato + enter: adjust tries (" & My.Settings.SettingAppErrorAutoTries & ")" & vbNewLine & "pause break: clear", vbYesNo, "«app:Error»")
+                                            Dim rt = MsgBox("Process '{" & bricks & "}' was not found." & vbNewLine & vbNewLine & "Retry?" & vbNewLine & vbNewLine & "ar + enter: auto retry" & vbNewLine & "ato + enter: adjust tries (" & My.Settings.SettingAppErrorAutoTries & ")" & vbNewLine & "pause break: clear", vbYesNo, "«app:Error»")
                                             Me.TopMost = My.Settings.SettingMain_chk_top
                                             If rt = vbYes Then
                                                 GoTo rtapp
@@ -5265,7 +5265,7 @@ noformat:
     End Sub
 
     Private Function VDate() As String
-        d1 = Date.Now.ToString
+        Dim d1 = Date.Now.ToString
         d1 = Replace(d1, "/", ".")
         d1 = Replace(d1, " ", ".")
         d1 = Replace(d1, ":", ".")
@@ -5275,7 +5275,7 @@ noformat:
     End Function
 
     Sub startupPath()  'w8 
-        Dim a As String, aa As String
+        Dim a As String, aa As String, path
         path = Application.LocalUserAppDataPath.ToString
         For i = 1 To path.ToString.Length
             a = Microsoft.VisualBasic.Left(path, i) '
@@ -5297,7 +5297,7 @@ noformat:
         Dim a As String, aa As String, d1 = VDate()
         Dim b As String
         Dim c As String
-        path = Application.LocalUserAppDataPath.ToString
+        Dim path = Application.LocalUserAppDataPath.ToString
         If desktop = True Then
             b = "AppData"
             If My.Settings.SettingExportToOneDrive = True Then c = My.Settings.SettingExportToOneDriveDir.ToString Else c = "desktop"
@@ -5360,7 +5360,7 @@ noformat:
             End If
         Next
 
-        q = MsgBox(path & vbNewLine & "please wait couple seconds before clicking yes", vbYesNo, "view?") 'If chk_tips.Checked = True Then 'msi
+        Dim q = MsgBox(path & vbNewLine & "please wait couple seconds before clicking yes", vbYesNo, "view?") 'If chk_tips.Checked = True Then 'msi
 
         path = Replace(path, ("dna-" & d1 & ".txt"), "")
 
@@ -5953,7 +5953,7 @@ noformat:
     End Sub
 
     Sub dbCode(code As String) 'txtString KeyPress !temp db. with «tag»
-        cl = code.Length + 3
+        Dim cl = code.Length + 3
         If Microsoft.VisualBasic.Right(txtString.Text, cl) = ("«" & code & vbLf & "»") Then 'import
             txtString.Focus()
             For i = 1 To cl - 1
@@ -5990,7 +5990,7 @@ noformat:
 
     Sub autoLock()
         If My.Settings.SettingRctrleqMod <> "»" Then
-            x = MsgBox("unckeck: ignore tab -> other" & vbNewLine &
+            Dim x = MsgBox("unckeck: ignore tab -> other" & vbNewLine &
                        "check: right ctrl=" & vbNewLine &
                        "set: right ctrl=»" & vbNewLine &
                        "(current: right ctrl=" & My.Settings.SettingRctrleqMod.ToString & ")", vbYesNo, "adjust settings for auto lock?")
@@ -6069,12 +6069,12 @@ noformat:
     Sub dbCode1(code As String) '«no tag»  txtString keypress enter
         If txtString.Text <> (code & vbLf) Then Exit Sub
 
-        cl = code.Length + 1
+        Dim cl = code.Length + 1
         If Microsoft.VisualBasic.Left(txtString.Text, cl) = (code & vbLf) Then '
             txtStringClear()
             Select Case code 'keypress enter run beginning txt 'add new in 'no tag
                 Case "ato"
-                    ml = InputBox("«app:» error, auto tries:", "dna.exe.config: SettingAppErrorAutoTries", My.Settings.SettingAppErrorAutoTries)
+                    Dim ml = InputBox("«app:» error, auto tries:", "dna.exe.config: SettingAppErrorAutoTries", My.Settings.SettingAppErrorAutoTries)
                     If ml > 0 Then
                         If IsNumeric(ml) And ml > 0 Then My.Settings.SettingAppErrorAutoTries = ml
                     End If
@@ -6089,7 +6089,7 @@ noformat:
                     End If
                     If chk_tips.Checked = True Or My.Settings.SettingShowSettingsTips = True Then MsgBox("(dbtip + enter)" & vbNewLine & "show db tab dna > tip: " & LCase(My.Settings.SettingDbTip), vbInformation, "dna.exe.config: SettingDbTip")
                 Case "op"
-                    op = InputBox("Opacity: " & vbNewLine & "example: .5", "dna.exe.config: SettingOpacity", My.Settings.SettingOpacity)
+                    Dim op = InputBox("Opacity: " & vbNewLine & "example: .5", "dna.exe.config: SettingOpacity", My.Settings.SettingOpacity)
                     If Val(op) >= 0.1 Or Val(op) <= 100 And Val(op) > 0 Then
                         My.Settings.SettingOpacity = op
                     Else
@@ -6135,7 +6135,7 @@ noformat:
                     g_scroll = My.Settings.SettingScrollLockRun
                     If chk_tips.Checked = True Or My.Settings.SettingShowSettingsTips = True Then MsgBox("(sl + enter)" & vbNewLine & "scroll lock, run: " & LCase(My.Settings.SettingScrollLockRun), vbInformation, "dna.exe.config: SettingScrollLockRun")
                 Case "ml" 'g_maxkeylen
-                    ml = InputBox("dna > «length", "dna.exe.config: SettingMaxKeyLength", My.Settings.SettingMaxKeyLength)
+                    Dim ml = InputBox("dna > «length", "dna.exe.config: SettingMaxKeyLength", My.Settings.SettingMaxKeyLength)
                     If ml > "" Then
                         If IsNumeric(ml) And ml > 1 Then
                             g_maxkeylen = ml
@@ -6146,7 +6146,7 @@ noformat:
                         "(ml + enter)" & vbNewLine &
                         "dna > «length: " & My.Settings.SettingMaxKeyLength & ", clear", vbInformation, "dna.exe.config: SettingMaxKeyLength")
                 Case "odd" 'onedrive
-                    odd = InputBox("OneDrive folder: ", "dna.exe.config: SettingExportToOneDriveDir", My.Settings.SettingExportToOneDriveDir)
+                    Dim odd = InputBox("OneDrive folder: ", "dna.exe.config: SettingExportToOneDriveDir", My.Settings.SettingExportToOneDriveDir)
                     If odd.ToString > "" Then My.Settings.SettingExportToOneDriveDir = odd.ToString Else odd = "OneDrive\dna"
                     If chk_tips.Checked = True Or My.Settings.SettingShowSettingsTips = True Then MsgBox("(od + enter)" & vbNewLine & "export to OneDrive: " & My.Settings.SettingExportToOneDriveDir, vbInformation, "dna.exe.config: SettingExportToOneDriveDir")
                 Case "od" 'onedrive
@@ -6251,14 +6251,14 @@ noformat:
                 Case "length"
                     LengthToolStripMenuItem.PerformClick()
                 Case "virtual store" 'virtual store db
-                    path = VirtualStore(True, False)
+                    Dim path = VirtualStore(True, False)
                     System.Threading.Thread.Sleep(60)
                     apisk("x«win»r«-win»«sleep:" + My.Settings.SettingSpacer.ToString + "»" + path.ToString + "«enter»")
                     clearAllKeys()
                     emode()
                 Case "config" 'user.config
                     If chk_tips.Checked = True Then MsgBox("edit dna.exe.config", vbInformation)
-                    path = Application.StartupPath
+                    Dim path = Application.StartupPath
                     apisk("x«win»r«-win»«sleep:" + My.Settings.SettingSpacer.ToString + "»" + path.ToString + "\dna.exe.config«enter»")
                     clearAllKeys()
                     emode()
@@ -7271,7 +7271,7 @@ noformat:
                 keyRelease(Keys.LShiftKey)
                 keyRelease(Keys.Escape)
                 If chk_timer1_on_val.Checked = False Then
-                    tc = TabPage3.BackColor
+                    Dim tc = TabPage3.BackColor
                     TabPage3.BackColor = Color.Lime
                     chk_timer1_on_val.Checked = True
                     timeout1(1)
@@ -7288,7 +7288,7 @@ noformat:
                     End If
                     txtString.Focus()
 
-                    tc = TabPage3.BackColor
+                    Dim tc = TabPage3.BackColor
                     If chk_timer1_on_val.Checked = True Then
                         TabPage3.BackColor = Color.Lime
                     Else
@@ -7631,13 +7631,14 @@ noformat:
             If txtString.Text = "" Then Exit Sub
 
             If ListBox1.Items.Count = 0 Or SplitContainer1.SplitterDistance <= 1 Then 'search text
+                Dim x
                 If txtString.SelectionStart = txtString.Text.Length Then txtString.SelectionStart = 0
                 If txtString.SelectedText > "" Then x = txtString.SelectedText Else x = InputBox("find text:", "ctrl + f", txtString.SelectedText)
                 If x > "" Then
                     Dim pattern As String = x
                     Dim ex As New System.Text.RegularExpressions.Regex(pattern)
                     Dim m As System.Text.RegularExpressions.MatchCollection
-                    y = (Microsoft.VisualBasic.Right(txtString.Text, txtString.Text.Length - txtString.SelectionStart))
+                    Dim y = (Microsoft.VisualBasic.Right(txtString.Text, txtString.Text.Length - txtString.SelectionStart))
                     m = ex.Matches(y)
                     If m.Count = 1 And txtString.SelectedText > "" Then
                         txtString.SelectionStart = 0 'on last go to start
@@ -7653,6 +7654,7 @@ noformat:
                 Exit Sub
             End If
             'search list
+            Dim re
             If txtString.SelectedText > "" Then re = txtString.SelectedText Else re = txtString.Text
             If ListBox1.SelectedItem = Nothing And ListBox1.Items.Count > 0 Then ListBox1.SelectedIndex = 0
             If ListBox1.SelectedItem.Contains(re) And ListBox1.SelectedIndex <> ListBox1.Items.Count - 1 Then
@@ -7677,15 +7679,16 @@ noformat:
         End If '/search
     End Sub
     Sub searchResults()
+        Dim re
         If txtString.SelectedText > "" Then re = txtString.SelectedText Else re = txtString.Text
         If ListBox1.SelectedItem.ToString().Contains(re) Then
-            tc = TabPage3.BackColor
+            Dim tc = TabPage3.BackColor
             TabPage3.BackColor = Color.Lime
             Application.DoEvents()
             System.Threading.Thread.Sleep(701)
             TabPage3.BackColor = tc
         Else
-            tc = TabPage3.BackColor
+            Dim tc = TabPage3.BackColor
             TabPage3.BackColor = Color.Red
             Application.DoEvents()
 
@@ -8173,9 +8176,9 @@ noformat:
             lr_ar = Microsoft.VisualBasic.Left(ListBox1.SelectedItem, ListBox1.SelectedItem.ToString.IndexOf("»") + 1)
             If lr_ar.Contains("*") Then lr_ar = Microsoft.VisualBasic.Left(ListBox1.SelectedItem, ListBox1.SelectedItem.ToString.IndexOf("*")) & "»" ' lr_ar.Contains("*:#") Or lr_ar.Contains("*:r")
 
-            ii91 = Microsoft.VisualBasic.Right(ListBox1.SelectedItem.ToString, ListBox1.SelectedItem.ToString.Length - lr_ar.Length)
+            Dim ii91 = Microsoft.VisualBasic.Right(ListBox1.SelectedItem.ToString, ListBox1.SelectedItem.ToString.Length - lr_ar.Length)
             If ii91.Contains(lr_ar) Then
-                middle = lr_ar
+                Dim middle = lr_ar
                 infiniteLoop(middle)
                 Exit Sub
             End If
@@ -8507,8 +8510,8 @@ noformat:
 
     Sub showScrollBar(tf As Boolean)
         If tf = False Then
-            nsb = SplitContainer1.Height - SplitContainer1.Panel1.Height - SplitContainer1.SplitterWidth + 17 'wordwrap
-            nsbp = SplitContainer1.Height - SplitContainer1.Panel1.Height - SplitContainer1.SplitterWidth '- 1
+            Dim nsb = SplitContainer1.Height - SplitContainer1.Panel1.Height - SplitContainer1.SplitterWidth + 17 'wordwrap
+            Dim nsbp = SplitContainer1.Height - SplitContainer1.Panel1.Height - SplitContainer1.SplitterWidth '- 1
 
             If SplitContainer1.BorderStyle = BorderStyle.None Then
 
@@ -9795,7 +9798,7 @@ mainstyle:
         chk_tips.Checked = False
         txtLength.Text = 4
 
-        sc = My.Settings.SettingChangeColor
+        Dim sc = My.Settings.SettingChangeColor
 
         My.Settings.SettingForeColor = sc
         Me.ListBox1.ForeColor = sc
@@ -9848,7 +9851,7 @@ mainstyle:
         chk_timer1_on_val.Checked = True
         SplitContainer1.SplitterWidth = 18
 
-        path = VirtualStore(False, True) 'bg
+        Dim path = VirtualStore(False, True) 'bg
         Dim charRange = My.Settings.SettingExportToOneDriveDir
         Dim startIndex As Integer = path.ToString.IndexOf(charRange)
         path = path.ToString.Replace(Microsoft.VisualBasic.Right(path, startIndex), "")
@@ -10036,7 +10039,7 @@ mainimg:
     Private Sub LengthToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LengthToolStripMenuItem.Click
         Dim ctop As Boolean = chk_top.CheckState 'invert top
         If ctop = True Then chk_top.Checked = False
-        t1 = InputBox("dna > 'key length'", "change length?", My.Settings.SettingTxtCodeLength)
+        Dim t1 = InputBox("dna > 'key length'", "change length?", My.Settings.SettingTxtCodeLength)
         If ctop = True Then chk_top.Checked = True
         If IsNumeric(t1) Then
             My.Settings.SettingTxtCodeLength = t1
